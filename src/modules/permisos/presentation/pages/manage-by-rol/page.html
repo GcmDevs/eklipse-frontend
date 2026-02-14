@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-bt-1 col-bt-lg-2 col-bt-xl-3"></div>
+  <div class="col-bt-10 col-bt-lg-8 col-bt-xl-6">
+    <div class="tak-table__container">
+      <div class="tak-table__header">
+        <div class="tak-table__header--right">
+          <span class="tak-table-title">Roles de la aplicación</span>
+          <span class="tak-table-subtitle">{{ dataSource.data.length }} roles</span>
+        </div>
+        <div class="tak-table__header--left d-flex">
+          <button mat-icon-button (click)="onRefresh()">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="tak-table__sub-header" style="justify-content: space-between">
+        <div class="tak-table__filter">
+          <tak-general-field type="filter" [formControl]="filter"> Buscar</tak-general-field>
+        </div>
+
+        <div class="d-none d-lg-block" style="margin-right: 50px">
+          <div class="desc-btns"><mat-icon>contrast</mat-icon> Eklipse</div>
+          <div class="desc-btns mt5px"><mat-icon>arrow_outward</mat-icon> Enlaces externos</div>
+          <div class="desc-btns mt5px"><mat-icon>android</mat-icon> Gemi</div>
+        </div>
+      </div>
+
+      <div class="tak-table__content paginator-bottom">
+        <table
+          mat-table
+          [dataSource]="dataSource"
+          multiTemplateDataRows
+          [class.d-none]="!dataSource.data.length || isLoading || !dataSource.filteredData.length"
+          matSort
+        >
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+            <td mat-cell *matCellDef="let element" class="col-60">
+              <span>{{ element.nombre }} </span>
+              <span class="tak-cell__subcontent">{{ element.permisos.length }} permisos</span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Asignar</th>
+            <td mat-cell class="col-40" *matCellDef="let element">
+              <button mat-icon-button (click)="onSelectRol(element, 'standard')">
+                <mat-icon>contrast</mat-icon>
+              </button>
+              <button mat-icon-button (click)="onSelectRol(element, 'enlaces-externos')">
+                <mat-icon>arrow_outward</mat-icon>
+              </button>
+              <button mat-icon-button (click)="onSelectRol(element, 'gemi')">
+                <mat-icon>android</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let element; columns: displayedColumns"></tr>
+        </table>
+        @if (!dataSource.data.length || !dataSource.filteredData.length || isLoading) {
+          <tak-table-no-records [isLoading]="isLoading" [dataSource]="dataSource" />
+        }
+      </div>
+
+      <div class="tak-table__paginator">
+        <div></div>
+        <mat-paginator [pageSizeOptions]="[30]" showFirstLastButtons [hidePageSize]="true" />
+      </div>
+    </div>
+  </div>
+  <div class="col-bt-1 col-bt-lg-2 col-bt-xl-3"></div>
+</div>

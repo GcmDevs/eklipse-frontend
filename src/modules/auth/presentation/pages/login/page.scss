@@ -1,0 +1,150 @@
+.app-login-page--web {
+  .ekl-auth__login-form {
+    text-align: center;
+    padding: 10px 10px;
+    & > button {
+      font-weight: bolder;
+    }
+  }
+  .v1-link {
+    font-size: 12px;
+  }
+
+  .login-background-image {
+    --background: linear-gradient(105deg, #0aa1ae 60%, #79d5db 60%);
+  }
+
+  .login-container {
+    min-height: calc(100vh - 40px);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+  }
+
+  .login-content {
+    & > img {
+      max-height: 150px;
+      max-width: 260px;
+    }
+    text-align: center;
+    white-space: nowrap;
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 10px;
+    padding: 16px 16px;
+  }
+
+  .mobile-form {
+    padding: 0 10px 10px 0;
+    text-align: center;
+    margin: 20px;
+    border-radius: 8px;
+  }
+
+  .container {
+    background-image: url('../../../../../../public/assets/images/layouts/access-control.bg.jpg');
+    background-size: cover;
+  }
+  .gcm-access-control {
+    &__v1-link {
+      color: #000000;
+    }
+    &__container {
+      min-height: calc(70vh);
+    }
+    &__description {
+      font-weight: 400;
+      &__container {
+        background: rgb(255, 255, 255, 0.7);
+        margin: 16px 0 20px 20px;
+        border-radius: 9px;
+        padding: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      @media (min-height: 800px) {
+        &__container {
+          transition: ease 0.3s;
+          margin: 80px 40px 80px 80px;
+          font-size: 20px;
+        }
+      }
+    }
+    &__img-container {
+      margin: 20px 0 20px 20px;
+      width: calc(100% - 20px);
+      justify-content: space-between;
+      display: inline-flex;
+      overflow: hidden;
+      & img {
+        width: 220px;
+      }
+    }
+    @media (min-height: 800px) {
+      &__img-container {
+        margin: 80px 40px 80px 80px;
+      }
+    }
+
+    &__outlet {
+      transition: ease 0.3s;
+      color: black;
+      overflow: hidden;
+      font-size: 20px;
+      text-align: center;
+      width: 80%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 10%;
+      margin-right: 10%;
+      background-color: white;
+      border-radius: 9px;
+      box-shadow: 1px 1px 3px -1px rgba(0, 0, 0, 0.7);
+      & > img {
+        height: 120px;
+      }
+      &__footer {
+        font-size: 10px;
+        padding-bottom: 10px;
+        line-height: 15px;
+      }
+      &__container {
+        height: calc(100vh);
+        overflow: hidden;
+        overflow-y: overlay;
+        color: transparent;
+        &::-webkit-scrollbar {
+          background: transparent;
+          width: 8px;
+        }
+        &::-webkit-scrollbar-thumb {
+          border: 1px solid transparent;
+          background-clip: padding-box;
+          box-shadow: inset 0 0 0 5px;
+          border-radius: 10px;
+        }
+        &:hover {
+          transition: color ease 0.2s;
+          color: rgba(192, 192, 192, 0.562) !important;
+        }
+      }
+    }
+    @media (min-height: 800px) {
+      .ekl-app__access-control__outlet {
+        margin-top: 120px !important;
+        transition: ease 0.3s;
+      }
+    }
+    body.access-control {
+      overflow: hidden;
+      margin: 0;
+    }
+  }
+}
+.ekl-auth__field {
+  .mat-button-wrapper .mat-icon {
+    width: 29px;
+  }
+}

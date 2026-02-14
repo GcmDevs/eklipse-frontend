@@ -1,0 +1,76 @@
+<div class="tak-table__container">
+  <div class="tak-table__header">
+    <div class="tak-table__header--right">
+      <span class="tak-table-title">Usuarios de la aplicación</span>
+      <span class="tak-table-subtitle">{{ dataSource.data.length }} usuarios</span>
+    </div>
+    <div class="tak-table__header--left d-flex">
+      <button mat-icon-button (click)="onRefresh()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="tak-table__sub-header" style="justify-content: space-between">
+    <div class="tak-table__filter">
+      <tak-general-field type="filter" [formControl]="filter"> Buscar </tak-general-field>
+    </div>
+    <div class="d-none d-lg-block" style="margin-right: 55px">
+      <div class="desc-btns"><mat-icon>contrast</mat-icon> Eklipse</div>
+      <div class="desc-btns mt5px"><mat-icon>arrow_outward</mat-icon> Enlaces externos</div>
+      <div class="desc-btns mt5px"><mat-icon>android</mat-icon> Gemi</div>
+    </div>
+  </div>
+
+  <div class="tak-table__content paginator-bottom">
+    <table
+      matSort
+      mat-table
+      [dataSource]="dataSource"
+      multiTemplateDataRows
+      [class.d-none]="!dataSource.data.length || isLoading || !dataSource.filteredData.length"
+    >
+      <ng-container matColumnDef="nombreCompleto">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre Completo</th>
+        <td mat-cell class="col-30" *matCellDef="let element">
+          <span>{{ element.nombreCompleto }}</span>
+          <span class="tak-cell__subcontent">Documento: {{ element.numeroDocumento }}</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nombreRol">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Rol</th>
+        <td mat-cell class="col-30" *matCellDef="let element">
+          <span> {{ element.nombreRol }} </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+        <td mat-cell class="col-40" *matCellDef="let element">
+          <button mat-icon-button (click)="onSelectUsuario(element, 'standard')">
+            <mat-icon>contrast</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onSelectUsuario(element, 'enlaces-externos')">
+            <mat-icon>arrow_outward</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onSelectUsuario(element, 'gemi')">
+            <mat-icon>android</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns"></tr>
+    </table>
+    @if (!dataSource.data.length || !dataSource.filteredData.length || isLoading) {
+      <tak-table-no-records [isLoading]="isLoading" [dataSource]="dataSource">
+      </tak-table-no-records>
+    }
+  </div>
+
+  <div class="tak-table__paginator">
+    <div></div>
+    <mat-paginator [pageSizeOptions]="[30]" showFirstLastButtons [hidePageSize]="true" />
+  </div>
+</div>

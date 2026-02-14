@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row no-padding">
+    <div class="d-none d-md-block col-md-42-5 col-lg-47-5 col-xl-60 col-xxl-65">
+      <div class="gcm-access-control__container">
+        <div class="gcm-access-control__description__container">
+          <h1 class="bolder">{{ app.name }}</h1>
+          <h4>
+            <p style="font-weight: normal">
+              Una plataforma innovadora, de fácil uso, que ofrece funcionalidades y soluciones
+              completas para realizar procesos complementarios en Grupo Clínica Médicos.
+            </p>
+            <p style="font-weight: normal">
+              Esta plataforma aprovecha el paradigma de la computación en la nube, que nos permite
+              trabajar desde cualquier lugar donde exista una conexión a internet.
+            </p>
+          </h4>
+        </div>
+      </div>
+      <div class="gcm-access-control__img-container">
+        <img ngSrc="assets/images/clinicas/aguachica.svg" width="220" height="112" />
+        <img ngSrc="assets/images/clinicas/alta-centro.svg" width="220" height="112" />
+        <img ngSrc="assets/images/clinicas/sanjuan.svg" width="220" height="112" />
+        <img ngSrc="assets/images/clinicas/valledupar.svg" width="220" height="112" />
+      </div>
+    </div>
+    <div class="col-100 col-md-57-5 col-lg-52-5 col-xl-40 col-xxl-35">
+      <div class="gcm-access-control__outlet__container">
+        <div class="gcm-access-control__outlet">
+          <img
+            ngSrc="assets/images/layouts/access-control.logo.png"
+            width="240"
+            height="120"
+            priority
+          />
+          <form
+            [formGroup]="loginForm"
+            class="ekl-auth__login-form"
+            (ngSubmit)="clickOnAuthenticate()"
+          >
+            @if (centrosSuggestions().length) {
+              <tak-select-field
+                class="ekl-auth__field"
+                appearance="outline"
+                [suggestions]="centrosSuggestions()"
+                [formControl]="loginForm.context"
+                [hasDefaultValue]="true"
+                option="forHumans"
+              >
+                Institución
+              </tak-select-field>
+            }
+
+            <tak-general-field
+              class="ekl-auth__field"
+              appearance="outline"
+              [formControl]="loginForm.username"
+            >
+              Nombre del Usuario
+            </tak-general-field>
+
+            <tak-general-field
+              class="ekl-auth__field"
+              appearance="outline"
+              type="password"
+              [formControl]="loginForm.password"
+            >
+              Contraseña
+            </tak-general-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="isAuthenticating()">
+              INICIAR SESIÓN
+            </button>
+            <br />
+          </form>
+
+          <div class="gcm-access-control__outlet__footer">
+            {{ app.name }} v{{ app.version }} ({{ app.released }}) {{ app.company }}
+            <br />
+            Copyright © {{ app.year }} - Todos los derechos reservados
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

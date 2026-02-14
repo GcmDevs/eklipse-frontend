@@ -1,0 +1,86 @@
+<mat-tab-group animationDuration="0ms" color="accent">
+  <mat-tab label="Crear Modulo">
+    <div class="tab-content">
+      <tak-general-field
+        [(ngModel)]="module.name"
+        [countCaracters]="true"
+        [maxLength]="100"
+        style="width: 500px"
+      >
+        Nombre del modulo
+      </tak-general-field>
+
+      <div class="d-flex center">
+        <button mat-button color="accent" (click)="clicOnCreateModule()" [disabled]="!module.name">
+          CREAR
+        </button>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Crear Submodulo">
+    <div class="tab-content">
+      <tak-remote-autocomplete-field
+        [remoteUrl]="remoteUrlModules"
+        option="name"
+        [justOneLoad]="true"
+        (onSelect)="subModule.module = $event"
+      >
+        Modulo
+      </tak-remote-autocomplete-field>
+
+      <tak-general-field [(ngModel)]="subModule.name" [countCaracters]="true" [maxLength]="100">
+        Nombre del submodulo
+      </tak-general-field>
+
+      <div class="d-flex center">
+        <button
+          mat-button
+          color="accent"
+          (click)="clicOnCreateSubModule()"
+          [disabled]="!subModule.name || !subModule.module"
+        >
+          CREAR
+        </button>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Crear permiso">
+    <div class="tab-content">
+      <tak-remote-autocomplete-field
+        [remoteUrl]="remoteUrlModules"
+        option="name"
+        [justOneLoad]="true"
+        (onSelect)="authority.module = $event; authority.subModule = null"
+      >
+        Modulo
+      </tak-remote-autocomplete-field>
+
+      @if (authority.module) {
+        <tak-autocomplete-field
+          [suggestions]="authority.module.subModules"
+          option="name"
+          [(ngModel)]="authority.subModule"
+        >
+          SubModulo
+        </tak-autocomplete-field>
+      }
+
+      <tak-general-field [(ngModel)]="authority.name" [countCaracters]="true" [maxLength]="100">
+        Nombre del permiso
+      </tak-general-field>
+
+      <div class="d-flex center">
+        <button
+          mat-button
+          color="accent"
+          (click)="clicOnCreateAuthority()"
+          [disabled]="!authority.name || (!authority.module && authority.subModule)"
+        >
+          CREAR
+        </button>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

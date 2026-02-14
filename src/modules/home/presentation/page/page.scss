@@ -1,0 +1,211 @@
+iframe {
+  border: none;
+  width: 100%;
+  height: 100vh;
+}
+
+.homeContainer {
+  //padding: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+/* Clinic banner */
+.clinicBanner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #191b3c /* linear-gradient(135deg, #00897b 0%, #00acc1 100%) */;
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px 28px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 12px rgba(0, 137, 123, 0.18);
+}
+
+.clinicIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+}
+
+.clinicBannerText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.clinicLabel {
+  font-size: 13px;
+  opacity: 0.85;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.clinicName {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.clinicSede {
+  font-size: 13px;
+  opacity: 0.8;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* Welcome section */
+.welcomeSection {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.welcomeTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #263238;
+  margin: 0 0 8px 0;
+}
+
+.welcomeAccent {
+  color: #191b3c /* var(--tak-primary-500) */;
+}
+
+.welcomeSubtitle {
+  font-size: 15px;
+  color: #607d8b;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Feature cards grid */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 900px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+  .homeContainer {
+    padding: 20px 16px;
+  }
+}
+
+.featureCard {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.featureCard:hover {
+  box-shadow: 0 4px 18px rgb(120, 203, 211, 0.12);
+  border-color: var(--tak-primary-100);
+}
+
+.featureIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--tak-primary-opacity-100);
+  color: var(--tak-primary-500);
+}
+
+.featureTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #263238;
+  margin: 0;
+}
+
+.featureDesc {
+  font-size: 13px;
+  color: #78909c;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Info footer section */
+.infoFooter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 16px 22px;
+  border: 1px solid #e0e0e0;
+}
+
+.infoIcon {
+  color: #00897b;
+  min-width: 22px;
+}
+
+.infoText {
+  font-size: 13px;
+  color: #607d8b;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.infoTextBold {
+  font-weight: 600;
+  color: #00897b;
+}
+
+/* .disappear-header-on-power-bi--home {
+  display: none;
+}
+.remove-padding-on-power-bi--home {
+  padding: 5px;
+}
+.iframe-local {
+  height: calc(100vh);
+  border: none;
+}
+.footer-container {
+  position: absolute;
+  margin-top: -60px;
+}
+.first-dat-n {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.second-dat-n {
+  min-width: 30%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ */

@@ -1,0 +1,53 @@
+import { TablePathAuthType } from '@common/application/services';
+import { UserDataFromToken } from '@common/domain/models';
+import { GcmContextType } from '@common/domain/types';
+
+export class TokCreAndExpInfo {
+  constructor(
+    private _tablePath: TablePathAuthType,
+    private _createdAt: Date,
+    private _expiredAt: Date,
+  ) {}
+
+  get tablePath(): TablePathAuthType {
+    return this._tablePath;
+  }
+
+  get createdAt(): Date {
+    return this._createdAt;
+  }
+
+  get expiredAt(): Date {
+    return this._expiredAt;
+  }
+}
+
+export class Session {
+  constructor(
+    private _token: TokCreAndExpInfo,
+    private _context: GcmContextType,
+    private _user: UserDataFromToken,
+    private _authorities: string[],
+    private _wasLoaded: boolean,
+  ) {}
+
+  get token(): TokCreAndExpInfo {
+    return this._token;
+  }
+
+  get context(): GcmContextType {
+    return this._context;
+  }
+
+  get user(): UserDataFromToken {
+    return this._user;
+  }
+
+  get authorities(): string[] {
+    return this._authorities;
+  }
+
+  get wasLoaded(): boolean {
+    return this._wasLoaded;
+  }
+}

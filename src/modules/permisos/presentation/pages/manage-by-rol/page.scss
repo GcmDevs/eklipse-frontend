@@ -1,0 +1,13 @@
+.app-manage-permiso-by-rol-web {
+  .desc-btns {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    & mat-icon {
+      font-size: 22px;
+    }
+    &.mt5px {
+      margin-top: -5px;
+    }
+  }
+}

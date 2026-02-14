@@ -1,0 +1,11 @@
+@use '../../../node_modules/@kato-lee/admin-layout/assets/bundle' as adminLayoutCss;
+@use '../../../node_modules/@kato-lee/components/assets/bundle' as componentsCss;
+.mat-mdc-menu-content {
+  background-color: white;
+}
+.remove-view-loader-on-preloading {
+  display: none !important;
+}
+.tak-sidebar-footer {
+  padding: 7px 20px;
+}

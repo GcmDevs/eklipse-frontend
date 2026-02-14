@@ -1,0 +1,35 @@
+:root {
+  --red: rgb(255, 0, 0);
+  --gray: rgb(128, 128, 128);
+  --blue: rgb(0, 120, 215);
+  --white: rgb(255, 255, 255);
+  --black: rgb(31, 31, 31);
+  --green: rgb(0, 128, 0);
+  --violet: rgb(178, 26, 108);
+  --yellow: rgb(216, 216, 0);
+  --orange: rgb(255, 165, 0);
+}
+
+.color--red { color: var(--red) !important; }
+.color--gray { color: var(--gray) !important; }
+.color--blue { color: var(--blue) !important; }
+.color--white { color: var(--white) !important; }
+.color--black { color: var(--black) !important; }
+.color--green { color: var(--green) !important; }
+.color--violet { color: var(--violet) !important; }
+.color--yellow { color: var(--yellow) !important; }
+.color--orange { color: var(--orange) !important; }
+
+.bg-color--red { background-color: var(--red) !important; }
+.bg-color--gray { background-color: var(--gray) !important; }
+.bg-color--blue { background-color: var(--blue) !important; }
+.bg-color--white { background-color: var(--white) !important; }
+.bg-color--black { background-color: var(--black) !important; }
+.bg-color--green { background-color: var(--green) !important; }
+.bg-color--violet { background-color: var(--violet) !important; }
+.bg-color--yellow { background-color: var(--yellow) !important; }
+.bg-color--orange { background-color: var(--orange) !important; }
+
+.bg-primary-500 { background-color: var(--tak-primary-500) !important; }
+.bg-accent-500 { background-color: var(--tak-accent-500) !important; }
+.bg-warn-500 { background-color: var(--tak-warn-500) !important; }
