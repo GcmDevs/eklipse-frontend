@@ -23,6 +23,11 @@ export const routes: Routes = [
         loadComponent: () => import('@modules/home/presentation/page').then((m) => m.HomePage),
       },
       {
+        path: 'legacy/:key',
+        canActivate: [AuthoritiesGuard],
+        loadComponent: () => import('../modules/legacy/component').then((m) => m.LegacyComponent),
+      },
+      {
         path: 'seguridad',
         canActivate: [AuthoritiesGuard],
         loadChildren: () => import('@modules/permisos/routes').then((m) => m.routes),

@@ -1,0 +1,16 @@
+::ng-deep {
+  .iframe-legacy {
+    border: none;
+    width: 100%;
+    height: 100vh;
+  }
+  .remove-padding-on-power-bi {
+    padding: 0px;
+  }
+  .tak__header {
+    display: none;
+  }
+  .tak__scroll {
+    height: auto !important;
+  }
+}
