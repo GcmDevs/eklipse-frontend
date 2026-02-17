@@ -119,7 +119,6 @@ export class AdminLayoutComponent implements AfterViewInit, OnInit, OnDestroy {
     isDinamicSidebar: true,
     sidebarDebounceTime: 1,
     hasFooter: false,
-    mdWidth: 900,
     accordionInCollections: true,
     includeBreadcrumbs: false,
   };

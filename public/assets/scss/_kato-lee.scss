@@ -1,6 +1,10 @@
 @use '../../../node_modules/@kato-lee/admin-layout/assets/bundle' as adminLayoutCss;
 @use '../../../node_modules/@kato-lee/components/assets/bundle' as componentsCss;
 @use '../../../node_modules/@kato-lee/components/assets/components/tables';
+html {
+  --tak-header-height: 50px;
+  --tak-sidebar-branding-height: 50px;
+}
 .mat-mdc-menu-content {
   background-color: white !important;
 }
@@ -21,4 +25,7 @@
 }
 .tak-sidebar-footer {
   padding: 7px 20px;
+}
+.footer-on-mobile {
+  display: none;
 }
