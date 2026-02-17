@@ -4,4 +4,11 @@
     max-width: 500px;
     padding: 10px;
   }
+  .d-flex {
+    display: flex;
+    align-items: center;
+    &.center {
+      justify-content: center;
+    }
+  }
 }

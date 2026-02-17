@@ -9,11 +9,9 @@
   .v1-link {
     font-size: 12px;
   }
-
   .login-background-image {
     --background: linear-gradient(105deg, #0aa1ae 60%, #79d5db 60%);
   }
-
   .login-container {
     min-height: calc(100vh - 40px);
     justify-content: center;
@@ -21,7 +19,6 @@
     text-align: center;
     display: flex;
   }
-
   .login-content {
     & > img {
       max-height: 150px;
@@ -35,14 +32,12 @@
     border-radius: 10px;
     padding: 16px 16px;
   }
-
   .mobile-form {
     padding: 0 10px 10px 0;
     text-align: center;
     margin: 20px;
     border-radius: 8px;
   }
-
   .container {
     background-image: url('../../../../../../public/assets/images/layouts/access-control.bg.jpg');
     background-size: cover;
@@ -87,7 +82,6 @@
         margin: 80px 40px 80px 80px;
       }
     }
-
     &__outlet {
       transition: ease 0.3s;
       color: black;
@@ -141,6 +135,9 @@
       overflow: hidden;
       margin: 0;
     }
+  }
+  .bolder {
+    font-weight: bolder;
   }
 }
 .ekl-auth__field {

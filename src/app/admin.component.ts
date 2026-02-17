@@ -49,7 +49,7 @@ function getNombreFormateado(w: string) {
     @if (resourcesLoaded()) {
       <app-admin-layout [config]="config" (onLogout)="clickOnLogout()">
         <section tak-custom-header>
-          <div class="d-flex between">
+          <div class="d-flex space-between">
             <div></div>
             <div></div>
             <div style="margin-right: 10px;">
@@ -71,6 +71,15 @@ function getNombreFormateado(w: string) {
   `,
   styles: [
     `
+      .gcm-admin-layout {
+        .d-flex {
+          display: flex;
+          align-items: center;
+          &.space-between {
+            justify-content: space-between;
+          }
+        }
+      }
       .iframe-local-cb {
         border: none;
       }

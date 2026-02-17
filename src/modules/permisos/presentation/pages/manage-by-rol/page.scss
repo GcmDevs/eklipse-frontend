@@ -1,4 +1,12 @@
 .app-manage-permiso-by-rol-web {
+  .d-flex {
+    display: flex;
+    align-items: center;
+
+    &.between {
+      justify-content: space-between;
+    }
+  }
   .desc-btns {
     display: flex;
     align-items: center;
