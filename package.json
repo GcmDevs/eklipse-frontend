@@ -35,7 +35,7 @@
     "@angular/router": "^20.3.0",
     "@kato-lee/admin-layout": "^2.0.2",
     "@kato-lee/components": "^3.0.0",
-    "@kato-lee/utilities": "^1.0.1",
+    "@kato-lee/utilities": "^2.0.1",
     "@ngrx/store": "^20.1.0",
     "crypto-js": "^4.2.0",
     "es-module-shims": "^1.5.12",
