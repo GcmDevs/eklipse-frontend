@@ -1,5 +1,4 @@
-import { GcmContextCode, gcmContextTypeFactory } from '@common/domain/types';
-import { TokenDecoded, UserDataFromToken } from '@common/domain/models';
+import { GcmContextCode, GcmContextType, gcmContextTypeFactory } from '@common/domain/types';
 import { jwtDecode } from 'jwt-decode';
 
 export const STORAGE_KEYS = {
@@ -28,6 +27,51 @@ interface AuthTokenI {
   fnm: string;
   iat: number;
   exp: number;
+}
+
+export class UserDataFromToken {
+  constructor(
+    private _id: string,
+    private _document: string,
+    private _fullName: string,
+  ) {}
+
+  get id(): string {
+    return this._id;
+  }
+
+  get document(): string {
+    return this._document;
+  }
+
+  get fullName(): string {
+    return this._fullName;
+  }
+}
+
+export class TokenDecoded {
+  constructor(
+    private _user: UserDataFromToken,
+    private _context: GcmContextType,
+    private _createdAt: Date,
+    private _expiredAt: Date,
+  ) {}
+
+  get user(): UserDataFromToken {
+    return this._user;
+  }
+
+  get context(): GcmContextType {
+    return this._context;
+  }
+
+  get createdAt(): Date {
+    return this._createdAt;
+  }
+
+  get expiredAt(): Date {
+    return this._expiredAt;
+  }
 }
 
 const tokenDateToDate = (date: number): Date => {

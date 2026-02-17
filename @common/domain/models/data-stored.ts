@@ -19,16 +19,6 @@ export class DataStored<T> {
   set lastUpdate(lastUpdate: Date | null) {
     this._lastUpdate = lastUpdate;
   }
-
-  updateData(data: T[]) {
-    this._data = data;
-  }
-
-  updateEntity(entity: T, id: number | string, fieldNameForLocation = 'id') {
-    this._data.map((el: any) => {
-      if (el[fieldNameForLocation] === id) el = entity;
-    });
-  }
 }
 
 export class ItemStored<T> {

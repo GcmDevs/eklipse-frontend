@@ -1,8 +1,8 @@
-import { createAction, createReducer, createSelector, on, props } from '@ngrx/store';
-import { Session, TokCreAndExpInfo } from './entity';
 import { AppState } from '@stores/state';
+import { createAction, createReducer, createSelector, on, props } from '@ngrx/store';
+import { UserDataFromToken } from '@common/application/services';
+import { Session, TokCreAndExpInfo } from './entity';
 import { GCM_CONTEXTS } from '@common/domain/types';
-import { UserDataFromToken } from '@common/domain/models';
 
 export const setSession = createAction('[Session] Set session', props<{ data: Session }>());
 export const sessionFeatureKey = 'session';
@@ -19,5 +19,5 @@ export const sessionReducer = createReducer(
   on(setSession, (_state, { data }) => data),
 );
 
-export const selectSession = (state: AppState) => Object.freeze(state.session);
+export const selectSession = (state: AppState) => state.session;
 export const sessionState = createSelector(selectSession, (state) => state);

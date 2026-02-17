@@ -1,4 +1,4 @@
-import { UserDataFromToken } from '@common/domain/models';
+import { UserDataFromToken } from '@common/application/services';
 import { GcmContextType } from '@common/domain/types';
 
 export class TokCreAndExpInfo {

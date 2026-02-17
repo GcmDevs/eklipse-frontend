@@ -3,14 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, firstValueFrom, map } from 'rxjs';
 import { setSession, sessionState, sessionInitialState } from './store';
-import { STORAGE_KEYS } from '@common/application/services';
-import { environment } from '@environments/environment';
+import { STORAGE_KEYS, UserDataFromToken } from '@common/application/services';
 import { SEG_END_POINTS } from '../../@end-points/seguridad';
-import { Session, TokCreAndExpInfo } from './entity';
-import { ADMIN_AUTHORITY } from '@authorities/principal';
-import { decodeToken } from '@common/application/services';
 import { gcmContextTypeFactory } from '@common/domain/types';
-import { UserDataFromToken } from '@common/domain/models';
+import { decodeToken } from '@common/application/services';
+import { ADMIN_AUTHORITY } from '@authorities/principal';
+import { environment } from '@environments/environment';
+import { Session, TokCreAndExpInfo } from './entity';
 
 @Injectable({ providedIn: 'root' })
 export class SessionStore {

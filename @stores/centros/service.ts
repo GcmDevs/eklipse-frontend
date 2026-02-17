@@ -2,10 +2,10 @@ import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, firstValueFrom, map } from 'rxjs';
-import { SEG_END_POINTS } from '../../@end-points/seguridad';
-import { Centro } from './entity';
 import { GcmContextCode, gcmContextTypeFactory } from '@common/domain/types';
 import { centrosInitialState, centrosState, setCentros } from './store';
+import { SEG_END_POINTS } from '../../@end-points/seguridad';
+import { Centro } from './entity';
 
 interface CentroI {
   id: number;

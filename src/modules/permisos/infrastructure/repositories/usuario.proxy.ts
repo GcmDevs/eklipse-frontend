@@ -24,8 +24,8 @@ export class UsuarioProxyRepository implements UsuarioRepository {
 
     let data: Usuario[] = [];
 
-    const subs = this._store.observable().subscribe((usuarios) => {
-      usuarios.data.forEach((el) => {
+    const subs = this._store.observable().subscribe((stored) => {
+      stored.data.forEach((el) => {
         const newUsuario = new Usuario(el.id, el.nombreCompleto, el.cedula, {
           id: el.rol.id,
           name: el.rol.nombre,

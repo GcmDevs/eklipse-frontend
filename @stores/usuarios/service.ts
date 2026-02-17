@@ -2,9 +2,10 @@ import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, firstValueFrom, map } from 'rxjs';
-import { setUsuarios, usuariosState, usuariosInitialState, UsuariosData } from './store';
+import { setUsuarios, usuariosState, usuariosInitialState } from './store';
 import { SEG_END_POINTS } from '../../@end-points/seguridad';
 import { Rol, Usuario } from './entity';
+import { DataStored } from '@common/domain/models';
 
 interface UsuarioI {
   id: string;
@@ -19,19 +20,19 @@ interface UsuarioI {
 @Injectable({ providedIn: 'root' })
 export class UsuariosStore {
   constructor(
-    private store: Store<Rol>,
+    private store: Store<Usuario>,
     private _http: HttpClient,
   ) {}
 
   public dispatch(data: Usuario[]): void {
-    this.store.dispatch(setUsuarios({ data, lastUpdate: new Date() }));
+    this.store.dispatch(setUsuarios(new DataStored<Usuario>(data, new Date())));
   }
 
   public clear(): void {
     this.store.dispatch(setUsuarios(usuariosInitialState));
   }
 
-  public observable(): Observable<UsuariosData> {
+  public observable(): Observable<DataStored<Usuario>> {
     return this.store.select(usuariosState as any);
   }
 

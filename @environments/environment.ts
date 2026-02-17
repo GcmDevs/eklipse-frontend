@@ -1,6 +1,5 @@
 export const environment = {
   production: false,
-  host: 'http://localhost',
-  hostDev: 'http://localhost',
-  hostProd: 'https://eklipse.grupoclinicamedicos.com',
+  //host: 'http://localhost',
+  host: 'https://eklipse.grupoclinicamedicos.com',
 };

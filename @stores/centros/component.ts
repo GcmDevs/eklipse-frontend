@@ -14,11 +14,11 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { GCM_CONTEXTS, GcmContextType } from '@common/domain/types';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { TakSelectFieldComponent } from '@kato-lee/components/fields';
+import { ALL_CENTROS, Centro, CentrosStore } from '@stores/centros';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { ALL_CENTROS, Centro, CentrosStore } from '@stores/centros';
 import { SessionStore } from '@stores/session';
 
 @Component({
