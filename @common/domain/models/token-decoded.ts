@@ -1,4 +1,3 @@
-import { TablePathAuthType } from '@common/application/services';
 import { GcmContextType } from '../types';
 
 export class UserDataFromToken {
@@ -23,16 +22,11 @@ export class UserDataFromToken {
 
 export class TokenDecoded {
   constructor(
-    private _tablePath: TablePathAuthType,
     private _user: UserDataFromToken,
     private _context: GcmContextType,
     private _createdAt: Date,
     private _expiredAt: Date,
   ) {}
-
-  get tablePath(): TablePathAuthType {
-    return this._tablePath;
-  }
 
   get user(): UserDataFromToken {
     return this._user;

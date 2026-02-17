@@ -9,24 +9,19 @@ import {
   signal,
 } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import {
-  redirectByTablePath,
-  clearLocalStorage,
-  TablePathAuthType,
-  STORAGE_KEYS,
-} from '@common/application/services';
+import { clearLocalStorage, STORAGE_KEYS } from '@common/application/services';
+import { AdminLayoutConfig, CtmSnavItems, CustomLayoutComponent } from '@kato-lee/admin-layout';
+import { MatDialogModule } from '@angular/material/dialog';
+import { LOCAL_URLS } from '@common/application/constants';
+import { MatButtonModule } from '@angular/material/button';
+import { ADMIN_AUTHORITY } from '@authorities/principal';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { GcmContextType } from '@common/domain/types';
 import { TakModal } from '@kato-lee/components/modal';
-import { MatIconModule } from '@angular/material/icon';
-import { ADMIN_AUTHORITY } from '@authorities/principal';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { AdminLayoutConfig, CtmSnavItems, CustomLayoutComponent } from '@kato-lee/admin-layout';
-import { TERCEROS_SIDE_NAV } from './admin.snav.terceros';
 import { SessionStore } from '@stores/session';
 import { CentrosStore } from '@stores/centros';
-import { SIDE_NAV } from './admin.snav.usuarios';
-import { MatMenuModule } from '@angular/material/menu';
+import { SIDE_NAV } from './admin.snav';
 
 function getNombreFormateado(w: string) {
   const splt = w.split(' ');
@@ -122,7 +117,6 @@ export class AdminLayoutComponent implements AfterViewInit, OnInit, OnDestroy {
 
   public context: GcmContextType = undefined!;
 
-  public tablePath: TablePathAuthType = 'GENUSUARIO';
   public userFullNameSliced = 'BIENVENIDO';
   public userFullName = 'BIENVENIDO';
 
@@ -166,7 +160,7 @@ export class AdminLayoutComponent implements AfterViewInit, OnInit, OnDestroy {
           clearLocalStorage();
           this._session.clear();
           this._centros.clear();
-          redirectByTablePath(this.tablePath, this._router);
+          this._router.navigate([LOCAL_URLS.login]);
           setTimeout(() => {
             location.reload();
           }, 300);
@@ -180,7 +174,6 @@ export class AdminLayoutComponent implements AfterViewInit, OnInit, OnDestroy {
 
     const subscription = this._session.observable().subscribe((session) => {
       if (session.wasLoaded) {
-        if (session.token.tablePath) this.tablePath = session.token.tablePath;
         const _fullName = session.user.fullName;
         this.userFullName = _fullName;
         this.userFullNameSliced =
@@ -191,9 +184,6 @@ export class AdminLayoutComponent implements AfterViewInit, OnInit, OnDestroy {
         this.config.adminAuthority = ADMIN_AUTHORITY;
         this.config.appSidebarSubtitle = session.context.getForHumans();
         this.config.authorities = session.authorities;
-        if (session.token.tablePath === 'EKINNOFERPROVEEDOR') {
-          this.config.navigation = TERCEROS_SIDE_NAV;
-        }
 
         this.config.navigation.map((c: CtmSnavItems) => {
           if (c.showCollectionContent === undefined) {

@@ -21,9 +21,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TakGeneralFieldComponent, TakSelectFieldComponent } from '@kato-lee/components/fields';
 import { MatButtonModule } from '@angular/material/button';
 import { TakToast } from '@kato-lee/components/toast';
-import { FetchContextsService, LoginUserService } from '@modules/auth/application/services';
-import { FetchContextsImpl, LoginUserImpl } from '@modules/auth/infrastructure/services';
-import { AuthenticateUserController, FetchContextsController } from '../../controllers';
+import { FetchContextsService, AuthenticateService } from '@modules/auth/application/services';
+import { FetchContextsImpl, AuthenticateImpl } from '@modules/auth/infrastructure/services';
+import { AuthenticateController, FetchContextsController } from '../../controllers';
 import { LoginForm } from './form';
 
 @Component({
@@ -38,10 +38,10 @@ import { LoginForm } from './form';
   ],
   providers: [
     FetchContextsController,
-    AuthenticateUserController,
+    AuthenticateController,
     FetchContextsImpl,
     { provide: FetchContextsService, useClass: FetchContextsImpl },
-    { provide: LoginUserService, useClass: LoginUserImpl },
+    { provide: AuthenticateService, useClass: AuthenticateImpl },
   ],
   selector: 'app-login-page--web',
   templateUrl: './page.html',
@@ -62,7 +62,7 @@ export class Page implements OnInit, OnDestroy {
   constructor(
     href: ElementRef<HTMLElement>,
     private _fetchContexts: FetchContextsController,
-    private _auth: AuthenticateUserController,
+    private _authenticateCtrl: AuthenticateController,
     private _session: SessionStore,
     private _centros: CentrosStore,
     private _toast: TakToast,
@@ -93,7 +93,7 @@ export class Page implements OnInit, OnDestroy {
       this.isAuthenticating.set(true);
       let success = false;
 
-      const result = await this._auth.execute(this.loginForm.model);
+      const result = await this._authenticateCtrl.loginUser(this.loginForm.model);
 
       result.fold({
         right: (response) => {

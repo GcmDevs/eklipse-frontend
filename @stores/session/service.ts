@@ -23,7 +23,7 @@ export class SessionStore {
     const tokenDecoded = decodeToken(session.token);
 
     const newSession = new Session(
-      new TokCreAndExpInfo(tokenDecoded.tablePath, tokenDecoded.createdAt, tokenDecoded.expiredAt),
+      new TokCreAndExpInfo(tokenDecoded.createdAt, tokenDecoded.expiredAt),
       gcmContextTypeFactory(tokenDecoded.context.getCode()),
       new UserDataFromToken(
         tokenDecoded.user.id,

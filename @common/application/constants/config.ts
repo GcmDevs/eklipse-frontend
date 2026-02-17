@@ -10,5 +10,4 @@ export const LOCAL_URLS = {
   home: '',
   accessControl: 'access-control',
   login: 'access-control/login',
-  loginTerceros: 'access-control/login-terceros',
 };

@@ -7,7 +7,7 @@ import { UserDataFromToken } from '@common/domain/models';
 export const setSession = createAction('[Session] Set session', props<{ data: Session }>());
 export const sessionFeatureKey = 'session';
 export const sessionInitialState: Session = new Session(
-  new TokCreAndExpInfo('GENUSUARIO', new Date(), new Date()),
+  new TokCreAndExpInfo(new Date(), new Date()),
   GCM_CONTEXTS.ALTACENTRO,
   new UserDataFromToken('', '', ''),
   [],

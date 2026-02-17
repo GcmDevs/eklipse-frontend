@@ -1,10 +1,6 @@
 import { GcmContextCode, gcmContextTypeFactory } from '@common/domain/types';
 import { TokenDecoded, UserDataFromToken } from '@common/domain/models';
 import { jwtDecode } from 'jwt-decode';
-import { LOCAL_URLS } from '../constants/config';
-import { Router } from '@angular/router';
-
-export type TablePathAuthType = 'GENUSUARIO' | 'EKINNOFERPROVEEDOR';
 
 export const STORAGE_KEYS = {
   authToken: 'ekl-token',
@@ -30,7 +26,6 @@ interface AuthTokenI {
   sub: GcmContextCode;
   dcm: string;
   fnm: string;
-  tbl: TablePathAuthType;
   iat: number;
   exp: number;
 }
@@ -47,7 +42,6 @@ export const decodeToken = (
     const tokDecoded: AuthTokenI = jwtDecode(token);
 
     return new TokenDecoded(
-      tokDecoded.tbl,
       new UserDataFromToken(tokDecoded.jti, tokDecoded.dcm, tokDecoded.fnm),
       gcmContextTypeFactory(tokDecoded.sub),
       tokenDateToDate(tokDecoded.iat),
@@ -70,9 +64,4 @@ export const clearLocalStorage = (except: string[] = []) => {
   toDelete.forEach((td) => {
     localStorage.removeItem(td);
   });
-};
-
-export const redirectByTablePath = (tablePath: TablePathAuthType, router: Router) => {
-  if (tablePath === 'GENUSUARIO') router.navigate([LOCAL_URLS.login]);
-  else router.navigate([LOCAL_URLS.loginTerceros]);
 };
