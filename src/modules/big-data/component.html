@@ -1,0 +1,55 @@
+<!-- MOSTRAR SI URLS ESTAN SANITIZADAS -->
+@if (sanitized.value) {
+  <!-- REFRESH -->
+  @if (!refresh) {
+    @for (a of links; track $index) {
+      @if (key === a.key) {
+        <iframe [src]="a.url" width="100%" class="iframe-local"></iframe>
+        <div class="pbi-cover"></div>
+      }
+    }
+  }
+}
+<!-- FOOTER -->
+<div class="footer-container d-flex between tak-fade-in__300ms" style="min-width: 80%">
+  <div class="first-dat-n d-flex">
+    @if ([51, 52, 53, 54, 55, 56, 58].indexOf(key) >= 0) {
+      <button
+        (click)="
+          clickOnShowDialog(
+            key,
+            [
+              { url: 'v4/gen/enlaces-externos/pdfs/1', tooltip: 'Censo Hospitalario por entidad' },
+              {
+                url: 'v4/gen/enlaces-externos/pdfs/1/resumen',
+                tooltip: 'Censo Hospitalario resumido por entidad',
+              },
+              { url: 'v4/gen/enlaces-externos/pdfs/2', tooltip: 'Censo Hospitalario por grupos' },
+              {
+                url: 'v4/gen/enlaces-externos/pdfs/2/resumen',
+                tooltip: 'Censo Hospitalario resumido por grupos',
+              },
+            ],
+            [51, 58].indexOf(key) >= 0 ? true : false
+          )
+        "
+      >
+        <img class="pdf-icon" />
+      </button>
+    }
+
+    <button
+      mat-icon-button
+      [color]="actualizacionAutomatica ? 'accent' : 'warn'"
+      (click)="disableActualizacionAutomatica()"
+    >
+      <mat-icon>av_timer</mat-icon>
+    </button>
+    <b> {{ actualizacionAutomatica ? 'Detener' : 'Iniciar' }} actualización automatica </b>
+    @if (msParaActualizarse <= 59000) {
+      <b> (Se actualizará en {{ msParaActualizarse / 1000 }} segundos)</b>
+    }
+  </div>
+
+  <div class="second-dat-n"><b>Departamento de TIC - Big Data GCM</b></div>
+</div>

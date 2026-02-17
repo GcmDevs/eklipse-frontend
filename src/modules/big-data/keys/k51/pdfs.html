@@ -1,0 +1,29 @@
+<div class="conatiner-header">
+  <div class="title">Descargar Archivos</div>
+  <div class="subtitle">{{data.length}} archivos para descargar</div>
+</div>
+
+<div>
+  <div class="file-list">
+    <div class="files-container">
+      @for(file of data; track $index){
+      <div class="file-item">
+        <span class="file-icon">
+          <mat-icon color="primary">description</mat-icon>
+        </span>
+
+        <div class="file-info">
+          <h4 class="file-name">{{ file.tooltip }}</h4>
+        </div>
+
+        <div class="file-action">
+          <button color="primary" mat-raised-button (click)="clickOnButton(file.url)">
+            <mat-icon>file_download</mat-icon>
+            Descargar
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

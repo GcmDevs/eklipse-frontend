@@ -14,6 +14,15 @@ export const MODULES = {
       PERMISOS: `${codeModules.gen}002`,
     },
   },
-  EXT: { CODE: codeModules.ext },
+  EXT: {
+    CODE: codeModules.ext,
+    SUBS: {
+      ADMINISTRATIVOS: `${codeModules.ext}001`,
+      ASISTENCIALES: `${codeModules.ext}002`,
+      CENTRAL_COMPRAS: `${codeModules.ext}003`,
+      SOLICITUD_SERVICIOS: `${codeModules.ext}004`,
+      HOPITALIZACION: `${codeModules.ext}005`,
+    },
+  },
   GMN: { CODE: codeModules.gmn },
 };
