@@ -16,17 +16,26 @@ export const routes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
-    component: AdminLayoutComponent,
+    //component: AdminLayoutComponent,
     children: [
       {
         path: LOCAL_URLS.home,
-        loadComponent: () => import('@modules/home/presentation/page').then((m) => m.HomePage),
+        //loadComponent: () => import('@modules/home/presentation/page').then((m) => m.HomePage),
+        loadComponent: () =>
+          import('./pages/dashboard/dashboard.component').then((m) => m.DashboardComponent),
       },
       {
         path: 'seguridad',
         canActivate: [AuthoritiesGuard],
         loadChildren: () => import('@modules/permisos/routes').then((m) => m.routes),
         data: { authorities: [GEN_AUTHORITIES.CODE] },
+      },
+      {
+        path: 'seguridad/permisos/crear-modulos',
+        loadComponent: () =>
+          import('./pages/seguridad/crear-modulos/crear-modulos.component').then(
+            (m) => m.CrearModulosComponent,
+          ),
       },
     ],
   },
