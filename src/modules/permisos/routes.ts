@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AuthoritiesGuard } from '@common/infrastructure/guards';
+import { AuthoritiesGuard } from '@common/guards';
 import { GEN_AUTHORITIES } from '@authorities/general';
 
 export const routes: Routes = [

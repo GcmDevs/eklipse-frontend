@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Usuario } from '@modules/permisos/domain/entities';
-import { DataStored } from '@common/domain/models';
+import { DataStored } from '@kato-lee/utilities/models';
 import { Permiso } from '../entities';
 
 export abstract class UsuarioRepository {

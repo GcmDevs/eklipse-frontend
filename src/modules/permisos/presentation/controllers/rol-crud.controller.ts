@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Either } from '@kato-lee/utilities';
 import { RolRepository } from '@modules/permisos/domain/repositories';
 import { Rol } from '@modules/permisos/domain/entities';
-import { DataStored } from '@common/domain/models';
+import { DataStored } from '@kato-lee/utilities/models';
 
 type Result = Either<string, Rol[]>;
 

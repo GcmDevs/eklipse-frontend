@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GCM_CONTEXTS, GcmContextType } from '@common/domain/types';
+import { GCM_CONTEXTS, GcmContextType } from '@kato-lee/utilities/types';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { TakSelectFieldComponent } from '@kato-lee/components/fields';
 import { ALL_CENTROS, Centro, CentrosStore } from '@stores/centros';
@@ -129,7 +129,6 @@ export class CentrosSuggestionsComponent implements OnInit, OnDestroy {
     const subs2 = this._centrosStore.observable().subscribe((centros) => {
       centros.forEach((centro) => {
         if (this.showAllContexts) {
-          this.hiddenContexts.push(GCM_CONTEXTS.DEVELOPMENT);
           if (
             !this.hiddenContexts.filter((el) => el.getCode() === centro.contexto.getCode()).length
           ) {

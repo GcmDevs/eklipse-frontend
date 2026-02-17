@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom, map, Observable } from 'rxjs';
 import { UsuarioRepository } from '@modules/permisos/domain/repositories';
 import { Permiso, Usuario } from '@modules/permisos/domain/entities';
+import { DataStored } from '@kato-lee/utilities/models';
 import { SEG_END_POINTS } from '@end-points/seguridad';
 import { permisoResponseToEntity } from '../factories';
 import { usuariosObs$, usuariosSubj } from './_stores';
 import { PermisoResponse } from '../data-transfers';
-import { DataStored } from '@common/domain/models';
 import { UsuariosStore } from '@stores/usuarios';
 
 @Injectable()

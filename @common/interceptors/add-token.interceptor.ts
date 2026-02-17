@@ -7,7 +7,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { STORAGE_KEYS } from '@common/application/services';
+import { STORAGE_KEYS } from '@common/services';
 
 @Injectable()
 export class AddTokenInterceptor implements HttpInterceptor {

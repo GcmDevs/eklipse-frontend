@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { clearLocalStorage } from '@common/application/services';
-import { LOCAL_URLS } from '@common/application/constants';
+import { clearLocalStorage } from '@common/services';
+import { LOCAL_URLS } from '@common/constants';
 import { SessionStore } from '@stores/session';
 import { Router } from '@angular/router';
 

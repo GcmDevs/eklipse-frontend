@@ -4,8 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, firstValueFrom, map } from 'rxjs';
 import { setUsuarios, usuariosState, usuariosInitialState } from './store';
 import { SEG_END_POINTS } from '../../@end-points/seguridad';
+import { DataStored } from '@kato-lee/utilities/models';
 import { Rol, Usuario } from './entity';
-import { DataStored } from '@common/domain/models';
 
 interface UsuarioI {
   id: string;

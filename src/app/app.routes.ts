@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { AuthGuard, AuthoritiesGuard, GuestGuard } from '@common/infrastructure/guards';
-import { LOCAL_URLS } from '@common/application/constants';
+import { AuthGuard, AuthoritiesGuard, GuestGuard } from '@common/guards';
 import { AdminLayoutComponent } from './admin.component';
 import { GEN_AUTHORITIES } from '@authorities/general';
+import { LOCAL_URLS } from '@common/constants';
 
 export const routes: Routes = [
   { path: '', redirectTo: LOCAL_URLS.home, pathMatch: 'full' },

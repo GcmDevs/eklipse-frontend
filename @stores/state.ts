@@ -1,8 +1,8 @@
 import { ActionReducerMap } from '@ngrx/store';
+import { DataStored } from '@kato-lee/utilities/models';
 import { Usuario, usuariosReducer } from './usuarios';
 import { Session, sessionReducer } from './session';
 import { Centro, centrosReducer } from './centros';
-import { DataStored } from '@common/domain/models';
 
 export interface AppState {
   usuarios: DataStored<Usuario>;

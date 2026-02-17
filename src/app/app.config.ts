@@ -13,10 +13,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import {
+  UnauthorizedInterceptor,
   AddTokenInterceptor,
   TimerInterceptor,
-  UnauthorizedInterceptor,
-} from '@common/infrastructure/interceptors';
+} from '@common/interceptors';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CustomPreloadingStrategy } from './preloading-strategy';
 

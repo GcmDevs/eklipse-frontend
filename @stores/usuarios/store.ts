@@ -1,7 +1,7 @@
 import { createAction, createReducer, createSelector, on, props } from '@ngrx/store';
+import { DataStored } from '@kato-lee/utilities/models';
 import { AppState } from '@stores/state';
 import { Usuario } from './entity';
-import { DataStored } from '@common/domain/models';
 
 export const setUsuarios = createAction('[Usuarios] Set usuarios', props<DataStored<Usuario>>());
 export const usuariosFeatureKey = 'usuarios';

@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Rol } from '../entities';
-import { DataStored } from '@common/domain/models';
+import { DataStored } from '@kato-lee/utilities/models';
 
 export abstract class RolRepository {
   abstract fetch(refresh: boolean): Promise<Rol[]>;

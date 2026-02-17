@@ -9,16 +9,16 @@ import {
   signal,
 } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { clearLocalStorage, STORAGE_KEYS } from '@common/application/services';
+import { clearLocalStorage, STORAGE_KEYS } from '@common/services';
 import { AdminLayoutConfig, CtmSnavItems, CustomLayoutComponent } from '@kato-lee/admin-layout';
 import { MatDialogModule } from '@angular/material/dialog';
-import { LOCAL_URLS } from '@common/application/constants';
 import { MatButtonModule } from '@angular/material/button';
+import { GcmContextType } from '@kato-lee/utilities/types';
 import { ADMIN_AUTHORITY } from '@authorities/principal';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { GcmContextType } from '@common/domain/types';
 import { TakModal } from '@kato-lee/components/modal';
+import { LOCAL_URLS } from '@common/constants';
 import { SessionStore } from '@stores/session';
 import { CentrosStore } from '@stores/centros';
 import { SIDE_NAV } from './admin.snav';

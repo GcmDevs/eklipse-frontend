@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { LOCAL_URLS } from '@common/application/constants';
-import { STORAGE_KEYS } from '@common/application/services';
+import { STORAGE_KEYS } from '@common/services';
+import { LOCAL_URLS } from '@common/constants';
 import { CentrosStore } from '@stores/centros';
 import { SessionStore } from '@stores/session';
 
