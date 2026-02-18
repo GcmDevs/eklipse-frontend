@@ -1,12 +1,5 @@
-import { Component, Input, OnDestroy, OnInit, signal } from '@angular/core';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  ResolveEnd,
-  RouteConfigLoadEnd,
-  Router,
-  RouterModule,
-} from '@angular/router';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { LOCAL_URLS } from '@common/constants';
 import {
   LucideAngularModule,
@@ -20,17 +13,21 @@ import {
   Lock,
   UserCog,
   Users,
+  Menu,
 } from 'lucide-angular';
-import { filter, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { SidebarComponent } from '../admin/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-page-container',
   standalone: true,
-  imports: [RouterModule, LucideAngularModule],
+  imports: [RouterModule, LucideAngularModule, SidebarComponent],
   templateUrl: './component.html',
   styleUrl: './component.scss',
 })
 export class PageContainerComponent implements OnInit, OnDestroy {
+  sidebarOpen = false;
+
   module = signal('Modulo');
   subModule = signal('SubModulo');
   route = signal('Ruta');
@@ -48,6 +45,7 @@ export class PageContainerComponent implements OnInit, OnDestroy {
     Lock,
     UserCog,
     Users,
+    Menu,
   };
 
   constructor(
@@ -72,6 +70,14 @@ export class PageContainerComponent implements OnInit, OnDestroy {
         count++;
       }
     });
+  }
+
+  openSidebar(): void {
+    this.sidebarOpen = true;
+  }
+
+  closeSidebar(): void {
+    this.sidebarOpen = false;
   }
 
   ngOnDestroy(): void {

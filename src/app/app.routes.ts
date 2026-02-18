@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { AuthGuard, AuthoritiesGuard, GuestGuard } from '@common/guards';
-import { GEN_AUTHORITIES } from '@auths/general';
-import { LOCAL_URLS } from '@common/constants';
 import { PageContainerComponent } from './page-container/component';
+import { LOCAL_URLS } from '@common/constants';
+import { GEN_AUTHORITIES } from '@auths/general';
 
 export const routes: Routes = [
   { path: '', redirectTo: LOCAL_URLS.home, pathMatch: 'full' },

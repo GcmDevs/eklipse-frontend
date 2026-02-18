@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, EventEmitter, Output, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   LucideAngularModule,
@@ -18,6 +18,8 @@ import {
   styleUrl: './topbar.component.scss',
 })
 export class TopbarComponent {
+  @Output() menuClicked = new EventEmitter<void>();
+
   readonly icons = { Search, Bell, Settings, ChevronDown, LogOut, Menu };
   menuOpen = signal(false);
 

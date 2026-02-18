@@ -1,5 +1,9 @@
 <div class="wrapper">
-  <app-topbar />
+  <!-- Sidebar -->
+  <app-sidebar [open]="sidebarOpen" (closed)="closeSidebar()" />
+
+  <!-- Top Navbar -->
+  <app-topbar (menuClicked)="openSidebar()" />
 
   <main class="main">
     <div class="greeting">

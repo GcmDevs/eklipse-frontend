@@ -1,11 +1,14 @@
 <div class="wrapper page-container-wrapper">
+  <!-- Sidebar -->
+  <app-sidebar [open]="sidebarOpen" (closed)="closeSidebar()" />
+
   <!-- Topbar con breadcrumbs integrados -->
   <header class="module-topbar">
     <div class="topbar-left-group">
-      <!-- Logo = link al dashboard -->
-      <a [routerLink]="homeHref" class="home-link" aria-label="Ir al menu principal">
-        <lucide-icon [img]="icons.Home" [size]="18" />
-      </a>
+      <!-- Abrir sidebar -->
+      <button class="home-link" aria-label="Abrir menú" (click)="openSidebar()">
+        <lucide-icon [img]="icons.Menu" [size]="18" />
+      </button>
 
       <div class="topbar-divider"></div>
 

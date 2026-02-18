@@ -5,7 +5,7 @@
 
 /* ===== MODULE TOPBAR ===== */
 .module-topbar {
-  z-index: 999;
+  z-index: 200;
   background: var(--teal-header-background);
   padding: 0 32px;
   height: 50px;
@@ -37,6 +37,9 @@
   &:hover {
     background: rgba(255, 255, 255, 0.28);
   }
+}
+button.home-link {
+  border: none;
 }
 
 .topbar-divider {

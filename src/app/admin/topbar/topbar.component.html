@@ -1,6 +1,6 @@
 <header class="topbar">
   <div class="topbar-left">
-    <button class="home-link" aria-label="Ir al menu principal">
+    <button class="home-link" aria-label="Abrir menú" (click)="menuClicked.emit()">
       <lucide-icon [img]="icons.Menu" [size]="18" />
     </button>
     <a routerLink="/" class="logo" aria-label="Ir al inicio">
