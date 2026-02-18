@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { AuthGuard, AuthoritiesGuard, GuestGuard } from '@common/guards';
-import { AdminLayoutComponent } from './admin.component';
 import { GEN_AUTHORITIES } from '@auths/general';
 import { LOCAL_URLS } from '@common/constants';
+import { PageContainerComponent } from './page-container/component';
 
 export const routes: Routes = [
   { path: '', redirectTo: LOCAL_URLS.home, pathMatch: 'full' },
@@ -14,28 +14,20 @@ export const routes: Routes = [
     ],
   },
   {
-    path: '',
+    path: LOCAL_URLS.home,
     canActivate: [AuthGuard],
-    //component: AdminLayoutComponent,
+    loadComponent: () => import('./admin/component').then((m) => m.DashboardComponent),
+  },
+  {
+    path: '',
+    component: PageContainerComponent,
+    canActivate: [AuthGuard],
     children: [
-      {
-        path: LOCAL_URLS.home,
-        //loadComponent: () => import('@modules/home/presentation/page').then((m) => m.HomePage),
-        loadComponent: () =>
-          import('./pages/dashboard/dashboard.component').then((m) => m.DashboardComponent),
-      },
       {
         path: 'seguridad',
         canActivate: [AuthoritiesGuard],
         loadChildren: () => import('@modules/permisos/routes').then((m) => m.routes),
         data: { authorities: [GEN_AUTHORITIES.CODE] },
-      },
-      {
-        path: 'seguridad/permisos/crear-modulos',
-        loadComponent: () =>
-          import('./pages/seguridad/crear-modulos/crear-modulos.component').then(
-            (m) => m.CrearModulosComponent,
-          ),
       },
     ],
   },

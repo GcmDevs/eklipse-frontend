@@ -83,9 +83,13 @@
 <!-- Shared card content template -->
 <ng-template #cardTpl let-item>
   <div class="task-card__top">
-    <div class="task-icon" [ngClass]="'task-icon--' + item.accent">
-      <app-nav-icon [name]="item.icon" [size]="22" />
-    </div>
+    @if (!item.iconType || item.iconType === 'lucide') {
+      <div class="task-icon" [ngClass]="'task-icon--' + item.accent">
+        <app-nav-icon [name]="item.icon" [size]="22" />
+      </div>
+    } @else {
+      <span class="material-icons">{{ item.icon }}</span>
+    }
     <div class="task-card__top-right">
       @if (item.count !== undefined) {
         <span class="count-badge">

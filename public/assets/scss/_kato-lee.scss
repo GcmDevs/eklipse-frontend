@@ -1,6 +1,20 @@
 @use 'node_modules/@kato-lee/components/assets/bundle' as componentsCss;
 @use 'node_modules/@kato-lee/components/assets/material-icons' as materialIcons;
 @use 'node_modules/@kato-lee/components/assets/components/tables' as takTables;
+html {
+  --tak-header-height: 50px;
+  --tak-footer-height: 0px;
+  --tak-layout-outlet-padding: 20px;
+  --tak-table-header-background-color: #191b3c;
+}
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+  border-bottom-color: rgb(0, 0, 0, 0.12) !important;
+}
+.mat-mdc-paginator-range-label {
+  color: rgb(128, 128, 128);
+  font-size: 12px;
+}
 .bg-tak-primary-500 {
   background-color: var(--tak-primary-500) !important;
 }

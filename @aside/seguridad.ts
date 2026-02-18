@@ -1,36 +1,48 @@
 import { GEN_AUTHORITIES } from '@auths/general';
-import { CtmSnavItems } from '@kato-lee/admin-layout';
+import { NavModule } from './config';
 
-export const SEGURIDAD_SNAV_ITEMS: CtmSnavItems[] = [
+export const SEGURIDAD_SNAV_ITEMS: NavModule[] = [
   {
-    type: 'collection',
-    name: 'Seguridad',
-    url: 'seguridad',
-    icon: 'general_device',
+    id: 'seguridad',
+    label: 'Seguridad',
+    description: 'Autenticación, permisos, auditoria y control de acceso al sistema.',
+    icon: 'shield-check',
     authorities: [GEN_AUTHORITIES.CODE],
-    objects: [
+    accent: 'amber',
+    submodules: [
       {
-        type: 'dropdown',
-        name: 'Permisos',
-        url: 'permisos',
+        id: 'permisos',
+        label: 'Permisos',
+        description: 'Gestion de modulos, roles y permisos de usuarios.',
         icon: 'lock',
+        accent: 'blue',
         authorities: [GEN_AUTHORITIES.PERMISOS.CODE],
-        dropdownLinks: [
+        routes: [
           {
-            name: 'Crear modulos, submodulos y permisos',
-            url: 'create',
+            id: 'create',
+            label: 'Crear permisos',
+            description: 'Definir la estructura de modulos y sus permisos asociados.',
+            icon: 'layers',
             authorities: [GEN_AUTHORITIES.PERMISOS.CREAR],
-            notAddAdminAuthority: true,
+            href: 'seguridad/permisos/create',
           },
           {
-            name: 'Gestionar permisos por usuario',
-            url: 'manage-by-usuario',
+            id: 'manage-by-usuario',
+            label: 'Gestionar permisos por usuario',
+            description: 'Asignar y revocar permisos individuales por usuario.',
+            icon: 'user-cog',
+            iconType: 'lucide',
             authorities: [GEN_AUTHORITIES.PERMISOS.GESTIONAR_TODOS],
+            href: 'seguridad/permisos/manage-by-usuario',
           },
           {
-            name: 'Gestionar permisos por rol',
-            url: 'manage-by-rol',
+            id: 'manage-by-rol',
+            label: 'Gestionar permisos por rol',
+            description: 'Administrar permisos agrupados por rol.',
+            icon: 'users',
+            iconType: 'lucide',
             authorities: [GEN_AUTHORITIES.PERMISOS.GESTIONAR_TODOS],
+            href: 'seguridad/permisos/manage-by-rol',
           },
         ],
       },

@@ -5,7 +5,8 @@
 
 /* ===== MODULE TOPBAR ===== */
 .module-topbar {
-  background: linear-gradient(135deg, var(--teal-600) 0%, var(--teal-500) 100%);
+  z-index: 999;
+  background: var(--teal-header-background);
   padding: 0 32px;
   height: 50px;
   display: flex;
@@ -13,7 +14,6 @@
   justify-content: space-between;
   position: sticky;
   top: 0;
-  z-index: 100;
   box-shadow: 0 2px 12px rgba(0, 150, 136, 0.2);
 }
 
@@ -34,7 +34,6 @@
   color: var(--white);
   text-decoration: none;
   transition: background var(--transition);
-
   &:hover {
     background: rgba(255, 255, 255, 0.28);
   }
@@ -119,7 +118,7 @@
 .main {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: 20px;
 }
 
 /* ===== PAGE HEADER ===== */

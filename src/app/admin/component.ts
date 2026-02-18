@@ -1,15 +1,15 @@
 import { Component, computed } from '@angular/core';
-import { TopbarComponent } from '../../layout/topbar/topbar.component';
-import { StatsRowComponent } from './components/stats-row/stats-row.component';
-import { TasksGridComponent } from './components/tasks-grid/tasks-grid.component';
-import { BottomSectionComponent } from './components/bottom-section/bottom-section.component';
+import { TopbarComponent } from './topbar/topbar.component';
+import { StatsRowComponent } from './stats-row/stats-row.component';
+import { TasksGridComponent } from './tasks-grid/tasks-grid.component';
+import { BottomSectionComponent } from './bottom-section/bottom-section.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [TopbarComponent, StatsRowComponent, TasksGridComponent, BottomSectionComponent],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss',
+  templateUrl: './component.html',
+  styleUrl: './component.scss',
 })
 export class DashboardComponent {
   greeting = computed(() => {

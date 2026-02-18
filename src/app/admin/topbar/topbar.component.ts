@@ -1,6 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { LucideAngularModule, Search, Bell, Settings, ChevronDown, LogOut } from 'lucide-angular';
+import {
+  LucideAngularModule,
+  Search,
+  Bell,
+  Settings,
+  ChevronDown,
+  LogOut,
+  Menu,
+} from 'lucide-angular';
 
 @Component({
   selector: 'app-topbar',
@@ -10,7 +18,7 @@ import { LucideAngularModule, Search, Bell, Settings, ChevronDown, LogOut } from
   styleUrl: './topbar.component.scss',
 })
 export class TopbarComponent {
-  readonly icons = { Search, Bell, Settings, ChevronDown, LogOut };
+  readonly icons = { Search, Bell, Settings, ChevronDown, LogOut, Menu };
   menuOpen = signal(false);
 
   toggleMenu(): void {

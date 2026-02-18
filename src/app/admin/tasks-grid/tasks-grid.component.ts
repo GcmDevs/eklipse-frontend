@@ -2,9 +2,8 @@ import { Component, signal, computed } from '@angular/core';
 import { NgTemplateOutlet, NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, ArrowRight, ChevronRight, Home } from 'lucide-angular';
-import { NAVIGATION_CONFIG } from '../../../../core/config/navigation.config';
-import { NavModule, NavSubmodule } from '../../../../core/models/navigation.model';
-import { NavIconComponent } from '../../../../shared/components/nav-icon/nav-icon.component';
+import { NAVIGATION_CONFIG, NavModule, NavSubmodule } from '@aside/config';
+import { NavIconComponent } from './nav-icons';
 
 type Level = 'modules' | 'submodules' | 'routes';
 

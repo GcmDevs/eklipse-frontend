@@ -1,5 +1,5 @@
 .topbar {
-  background: linear-gradient(135deg, var(--teal-600) 0%, var(--teal-500) 100%);
+  background: var(--teal-header-background);
   padding: 0 32px;
   height: 50px;
   display: flex;
@@ -145,5 +145,22 @@
 
   .user-name {
     display: none;
+  }
+}
+
+.home-link {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-decoration: none;
+  transition: background var(--transition);
+  border: none;
+  &:hover {
+    background: rgba(255, 255, 255, 0.28);
   }
 }
