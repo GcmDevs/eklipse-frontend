@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
-import { ADMIN_AUTHORITY } from '@authorities/principal';
-import { environment } from '@environments/environment';
+import { ADMIN_AUTHORITY } from '@auths/principal';
+import { environment } from '@env/environment';
 import { LOCAL_URLS } from '@common/constants';
 import { SessionStore } from '@stores/session';
 

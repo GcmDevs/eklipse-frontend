@@ -8,5 +8,11 @@ export const SIDE_NAV: CtmSnavItems[] = [
     icon: 'dashboard',
     url: 'home',
   },
+  {
+    type: 'link',
+    name: 'Example',
+    icon: 'dashboard',
+    url: 'example/page-one',
+  },
   ...SEGURIDAD_SNAV_ITEMS,
 ];

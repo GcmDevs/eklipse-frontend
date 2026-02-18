@@ -30,7 +30,7 @@ import {
   PermisoProxyRepository,
   RolProxyRepository,
 } from '@modules/permisos/infrastructure/repositories';
-import { MODULES } from '@authorities/principal';
+import { MODULES } from '@auths/principal';
 import {
   PermisoCrudController,
   PermisoRolController,

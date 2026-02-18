@@ -1,4 +1,4 @@
-import { GEN_AUTHORITIES } from '@authorities/general';
+import { GEN_AUTHORITIES } from '@auths/general';
 import { CtmSnavItems } from '@kato-lee/admin-layout';
 
 export const SEGURIDAD_SNAV_ITEMS: CtmSnavItems[] = [

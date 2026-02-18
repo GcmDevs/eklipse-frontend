@@ -3,11 +3,10 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@auths/*": ["@authorities/*"],
-      "@end-points/*": ["@end-points/*"],
-      "@env/*": ["@environments/*"],
-      "@stores/*": ["@stores/*"],
-      "@modules/*": ["src/modules/*"]
+      "@auths/*": ["../../@authorities/*"],
+      "@end-points/*": ["../../@end-points/*"],
+      "@env/*": ["../../@environments/*"],
+      "@stores/*": ["../../@stores/*"]
     },
     "strict": true,
     "esModuleInterop": true,

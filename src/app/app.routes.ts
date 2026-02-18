@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { AuthGuard, AuthoritiesGuard, GuestGuard } from '@common/guards';
 import { AdminLayoutComponent } from './admin.component';
-import { GEN_AUTHORITIES } from '@authorities/general';
+import { GEN_AUTHORITIES } from '@auths/general';
 import { LOCAL_URLS } from '@common/constants';
 
 export const routes: Routes = [

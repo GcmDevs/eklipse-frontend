@@ -6,8 +6,8 @@ import { setSession, sessionState, sessionInitialState } from './store';
 import { STORAGE_KEYS, UserDataFromToken } from '@common/services';
 import { gcmContextTypeFactory } from '@kato-lee/utilities/types';
 import { SEG_END_POINTS } from '../../@end-points/seguridad';
-import { ADMIN_AUTHORITY } from '@authorities/principal';
-import { environment } from '@environments/environment';
+import { ADMIN_AUTHORITY } from '@auths/principal';
+import { environment } from '@env/environment';
 import { Session, TokCreAndExpInfo } from './entity';
 import { decodeToken } from '@common/services';
 

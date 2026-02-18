@@ -14,7 +14,7 @@ import { AdminLayoutConfig, CtmSnavItems, CustomLayoutComponent } from '@kato-le
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { GcmContextType } from '@kato-lee/utilities/types';
-import { ADMIN_AUTHORITY } from '@authorities/principal';
+import { ADMIN_AUTHORITY } from '@auths/principal';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { TakModal } from '@kato-lee/components/modal';
