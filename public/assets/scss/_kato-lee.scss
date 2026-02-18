@@ -1,31 +1,12 @@
-/* @use '../../../node_modules/@kato-lee/admin-layout/assets/bundle' as adminLayoutCss; */
-/* @use '../../../node_modules/@kato-lee/components/assets/bundle' as componentsCss; */
-@use '../../../node_modules/@kato-lee/components/assets/components/tables';
-html {
-  --tak-header-height: 50px;
-  --tak-sidebar-branding-height: 50px;
+@use 'node_modules/@kato-lee/components/assets/bundle' as componentsCss;
+@use 'node_modules/@kato-lee/components/assets/material-icons' as materialIcons;
+@use 'node_modules/@kato-lee/components/assets/components/tables' as takTables;
+.bg-tak-primary-500 {
+  background-color: var(--tak-primary-500) !important;
 }
-.mat-mdc-menu-content {
-  background-color: white !important;
+.bg-tak-accent-500 {
+  background-color: var(--tak-accent-500) !important;
 }
-.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(
-    .mat-mdc-option-multiple
-  ) {
-  background-color: var(
-    --mat-option-focus-state-layer-color,
-    color-mix(
-      in srgb,
-      var(--mat-sys-on-surface) calc(var(--mat-sys-focus-state-layer-opacity) * 100%),
-      transparent
-    )
-  ) !important;
-}
-.remove-view-loader-on-preloading {
-  display: none !important;
-}
-.tak-sidebar-footer {
-  padding: 7px 20px;
-}
-.footer-on-mobile {
-  display: none;
+.bg-tak-warn-500 {
+  background-color: var(--tak-warn-500) !important;
 }
