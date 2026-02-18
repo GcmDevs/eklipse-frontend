@@ -1,0 +1,34 @@
+<div class="bottom-grid">
+  <!-- Actividad reciente -->
+  <div class="activity-card">
+    <div class="activity-header">
+      <h3 class="activity-title">Actividad reciente</h3>
+      <button class="activity-link">Ver todo</button>
+    </div>
+    <ul class="activity-list">
+      @for (item of activityItems; track item.text) {
+        <li class="activity-item">
+          <span class="activity-dot" [class]="'activity-dot--' + item.dot"></span>
+          <p class="activity-text">{{ item.text }}</p>
+          <span class="activity-time">{{ item.time }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <!-- Accesos rapidos -->
+  <div class="quick-links-card">
+    <h3 class="quick-links-title">Accesos rapidos</h3>
+    <div class="quick-links-list">
+      @for (link of quickLinks; track link.label) {
+        <button class="quick-link">
+          <span class="quick-link-icon">
+            <lucide-icon [img]="link.icon" [size]="15" />
+          </span>
+          <span class="quick-link-text">{{ link.label }}</span>
+          <lucide-icon [img]="icons.ChevronRight" [size]="14" class="quick-link-chevron" />
+        </button>
+      }
+    </div>
+  </div>
+</div>

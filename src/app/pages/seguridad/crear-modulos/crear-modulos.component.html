@@ -1,0 +1,124 @@
+<div class="wrapper">
+  <!-- Topbar con breadcrumbs integrados -->
+  <header class="module-topbar">
+    <div class="topbar-left-group">
+      <!-- Logo = link al dashboard -->
+      <a routerLink="/" class="home-link" aria-label="Ir al menu principal">
+        <lucide-icon [img]="icons.Home" [size]="18" />
+      </a>
+
+      <div class="topbar-divider"></div>
+
+      <!-- Breadcrumbs en el topbar -->
+      <nav class="topbar-breadcrumbs" aria-label="Ruta de navegacion">
+        <span class="topbar-bc-segment">
+          <a routerLink="/" class="topbar-bc-link">Modulos</a>
+          <lucide-icon [img]="icons.ChevronRight" [size]="14" class="topbar-bc-sep" />
+        </span>
+        <span class="topbar-bc-segment">
+          <a routerLink="/" class="topbar-bc-link">Seguridad</a>
+          <lucide-icon [img]="icons.ChevronRight" [size]="14" class="topbar-bc-sep" />
+        </span>
+        <span class="topbar-bc-segment">
+          <a routerLink="/" class="topbar-bc-link">Permisos</a>
+          <lucide-icon [img]="icons.ChevronRight" [size]="14" class="topbar-bc-sep" />
+        </span>
+        <span class="topbar-bc-segment">
+          <span class="topbar-bc-current">Crear modulos</span>
+        </span>
+      </nav>
+    </div>
+
+    <div class="topbar-right-group">
+      <a routerLink="/" class="menu-button">
+        <lucide-icon [img]="icons.LayoutGrid" [size]="16" />
+        Volver al menu
+      </a>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main">
+    <!-- Header de pagina -->
+    <div class="page-header">
+      <div class="back-row">
+        <a routerLink="/" class="back-link">
+          <lucide-icon [img]="icons.ArrowLeft" [size]="16" />
+          Volver al menu principal
+        </a>
+      </div>
+
+      <div class="title-row">
+        <div class="title-icon">
+          <lucide-icon [img]="icons.Layers" [size]="26" />
+        </div>
+        <div class="title-texts">
+          <h1>Crear modulos, submodulos y permisos</h1>
+          <p>Definir la estructura de modulos del sistema y sus permisos asociados.</p>
+        </div>
+      </div>
+
+      <!-- Trail visual: muestra de donde viene el usuario -->
+      <div class="module-trail">
+        <span class="trail-module">
+          <lucide-icon [img]="icons.ShieldCheck" [size]="14" />
+          Seguridad
+        </span>
+        <lucide-icon [img]="icons.ChevronRight" [size]="14" class="trail-arrow" />
+        <span class="trail-submodule">
+          <lucide-icon [img]="icons.Lock" [size]="14" />
+          Permisos
+        </span>
+        <lucide-icon [img]="icons.ChevronRight" [size]="14" class="trail-arrow" />
+        <span class="trail-route">
+          <lucide-icon [img]="icons.Layers" [size]="14" />
+          Crear modulos
+        </span>
+      </div>
+    </div>
+
+    <!-- Contenido del modulo -->
+    <div class="content-card">
+      <div class="content-body">
+        <div class="check-icon">
+          <lucide-icon [img]="icons.CheckCircle2" [size]="36" />
+        </div>
+        <h2>This module works</h2>
+        <p>
+          La ruta funciona correctamente. Aqui iria el contenido real del modulo para crear y
+          gestionar la estructura de modulos, submodulos y permisos del sistema.
+        </p>
+      </div>
+    </div>
+
+    <!-- Opciones de navegacion: las otras rutas del mismo submodulo -->
+    <div class="nav-options">
+      <h3 class="nav-options-title">Otras opciones en Permisos</h3>
+      <div class="nav-options-grid">
+        <a routerLink="/" class="nav-option-card">
+          <div class="nav-option-icon nav-option-icon--teal">
+            <lucide-icon [img]="icons.LayoutGrid" [size]="20" />
+          </div>
+          <span class="nav-option-label">Menu principal</span>
+          <p class="nav-option-desc">Volver al dashboard de modulos</p>
+        </a>
+
+        <a routerLink="/" class="nav-option-card">
+          <div class="nav-option-icon nav-option-icon--amber">
+            <lucide-icon [img]="icons.UserCog" [size]="20" />
+          </div>
+          <span class="nav-option-label">Permisos por usuario</span>
+          <p class="nav-option-desc">Asignar y revocar permisos individuales</p>
+        </a>
+
+        <a routerLink="/" class="nav-option-card">
+          <div class="nav-option-icon nav-option-icon--blue">
+            <lucide-icon [img]="icons.Users" [size]="20" />
+          </div>
+          <span class="nav-option-label">Permisos por rol</span>
+          <p class="nav-option-desc">Administrar permisos agrupados por rol</p>
+        </a>
+      </div>
+    </div>
+  </main>
+</div>
