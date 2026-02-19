@@ -1,12 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { GcmContextType } from '@common/domain/types';
 import { SafeResourceUrl } from '@angular/platform-browser';
-import { GEN_AUTHORITIES } from '@authorities/legacy/general';
-import { HPN_AUTHORITIES } from '@authorities/legacy/hospitalizacion';
-import { LEGACY_HCN_AUTHORITIES } from '@authorities/legacy/historia-clinica';
-import { CRN_AUTHORITIES } from '@authorities/legacy/cartera';
-import { SLN_AUTHORITIES } from '@authorities/legacy/facturacion';
-import { INN_AUTHORITIES } from '@authorities/legacy/inventario';
 
 export interface EnlaceExternoI {
   key: number;

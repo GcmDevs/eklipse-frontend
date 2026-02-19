@@ -1,13 +1,24 @@
 :root {
-  --red: rgb(255, 0, 0);
+  --red: #ef4444;
   --gray: rgb(128, 128, 128);
-  --blue: rgb(0, 120, 215);
+  --blue: #2196f3;
   --white: rgb(255, 255, 255);
   --black: rgb(31, 31, 31);
-  --green: rgb(0, 128, 0);
+  --green: #10b981;
   --violet: rgb(178, 26, 108);
   --yellow: rgb(216, 216, 0);
   --orange: rgb(255, 165, 0);
+  --amber: #f59e0b;
+  --purple: #7c3aed;
+  --teal: #00b8a9;
+}
+
+:root {
+  --red-constrant: #fee2e2;
+  --blue-constrant: #dbeafe;
+  --green-constrant: #dcfce7;
+  --amber-constrant: #fef3c7;
+  --teal-constrant: #ccfbf1;
 }
 
 .color--red { color: var(--red) !important; }
@@ -29,7 +40,3 @@
 .bg-color--violet { background-color: var(--violet) !important; }
 .bg-color--yellow { background-color: var(--yellow) !important; }
 .bg-color--orange { background-color: var(--orange) !important; }
-
-.bg-primary-500 { background-color: var(--tak-primary-500) !important; }
-.bg-accent-500 { background-color: var(--tak-accent-500) !important; }
-.bg-warn-500 { background-color: var(--tak-warn-500) !important; }

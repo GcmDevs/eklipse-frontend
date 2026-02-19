@@ -1,7 +1,7 @@
-import { CtmSnavItems } from '@kato-lee/admin-layout';
+import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
 import { GEN_AUTHORITIES } from '@authorities/legacy/general';
 
-export const SEGURIDAD_SNAV_ITEMS: CtmSnavItems[] = [
+export const SEGURIDAD_SNAV_ITEMS = [
   {
     type: 'collection',
     name: 'Seguridad',

@@ -1,20 +1,16 @@
 import { createAction, createReducer, createSelector, on, props } from '@ngrx/store';
-import { Usuario } from './entity';
+import { DataStored } from '@kato-lee/utilities/models';
 import { AppState } from '@stores/state';
+import { Usuario } from './entity';
 
-export interface UsuariosData {
-  data: Usuario[];
-  lastUpdate: Date;
-}
-
-export const setUsuarios = createAction('[Usuarios] Set usuarios', props<UsuariosData>());
+export const setUsuarios = createAction('[Usuarios] Set usuarios', props<DataStored<Usuario>>());
 export const usuariosFeatureKey = 'usuarios';
-export const usuariosInitialState: UsuariosData = { data: [], lastUpdate: null! };
+export const usuariosInitialState: DataStored<Usuario> = new DataStored<Usuario>([], null);
 
 export const usuariosReducer = createReducer(
   usuariosInitialState,
-  on(setUsuarios, (_state, { data, lastUpdate }) => {
-    return { data, lastUpdate };
+  on(setUsuarios, (_state, stored) => {
+    return new DataStored<Usuario>((stored as any)._data, (stored as any)._lastUpdate);
   }),
 );
 

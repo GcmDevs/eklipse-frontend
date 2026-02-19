@@ -1,24 +1,28 @@
-import { CtmSnavItems } from '@kato-lee/admin-layout';
+import { ADMIN } from '@auths/general';
+import { NavModule } from '@aside/config';
 import { GEN_AUTHORITIES } from '@authorities/legacy/general';
 
-export const LEGACY_GENERAL_SNAV_ITEMS: CtmSnavItems[] = [
+export const LEGACY_GENERAL_SNAV_ITEMS: NavModule[] = [
   {
-    type: 'collection',
-    name: 'General',
-    icon: 'general_device',
-    authorities: [GEN_AUTHORITIES.CODE],
-    objects: [
+    id: 'general',
+    label: 'General',
+    icon: 'folder-cog',
+    accent: 'red',
+    authorities: [ADMIN, GEN_AUTHORITIES.CODE],
+    submodules: [
       {
-        type: 'dropdown',
-        name: 'dependencias',
-        icon: 'lock',
-        authorities: [GEN_AUTHORITIES.DEPENDENCIAS.CODE],
-        dropdownLinks: [
+        id: 'dependencias',
+        label: 'dependencias',
+        icon: 'folder-cog',
+        accent: 'red',
+        authorities: [ADMIN, GEN_AUTHORITIES.DEPENDENCIAS.CODE],
+        routes: [
           {
-            name: 'Gestionar dependencias por usuario',
-            url: 'legacy/1',
-            authorities: [GEN_AUTHORITIES.DEPENDENCIAS.GESTIONAR],
-            urlIsNotAutoCompleted: true,
+            id: 'gestionar-dependencias-por-usuario',
+            label: 'Gestionar dependencias por usuario',
+            href: 'legacy/1',
+            icon: 'folder-cog',
+            authorities: [ADMIN, GEN_AUTHORITIES.DEPENDENCIAS.GESTIONAR],
           },
         ],
       },

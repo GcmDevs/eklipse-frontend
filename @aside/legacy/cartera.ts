@@ -1,72 +1,86 @@
-import { CtmSnavItems } from '@kato-lee/admin-layout';
-import { GCM_CONTEXTS } from '@common/domain/types';
+import { ADMIN } from '@auths/general';
+import { NavModule } from '@aside/config';
+import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
 import { CRN_AUTHORITIES } from '@authorities/legacy/cartera';
 
-export const LEGACY_CARTERA_SNAV_ITEMS: CtmSnavItems[] = [
+export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
   {
-    type: 'collection',
-    name: 'Cartera',
-    icon: 'wallet',
-    authorities: [CRN_AUTHORITIES.CODE],
-    disableOnContexts: [GCM_CONTEXTS.AMMEDICAL],
-    objects: [
+    id: 'cartera',
+    label: 'Cartera',
+    icon: 'folder-cog',
+    accent: 'red',
+    authorities: [ADMIN, CRN_AUTHORITIES.CODE],
+    disableOnContexts: [GCM_CONTEXTS.AMMEDICAL.getCode()],
+    submodules: [
       {
-        type: 'dropdown',
-        name: 'Gestión / conciliación',
-        icon: 'manage_accounts',
-        authorities: [CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.CODE],
-        dropdownLinks: [
+        id: 'gestión-conciliación',
+        label: 'Gestión / conciliación',
+        icon: 'folder-cog',
+        accent: 'red',
+        authorities: [ADMIN, CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.CODE],
+        routes: [
           {
-            name: 'Gestiones de cartera',
-            url: 'legacy/39',
-            authorities: [CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.ADMINISTRAR_GESTIONES],
-            urlIsNotAutoCompleted: true,
+            id: 'gestiones-de-cartera',
+            label: 'Gestiones de cartera',
+            href: 'legacy/39',
+            icon: 'folder-cog',
+            authorities: [ADMIN, CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.ADMINISTRAR_GESTIONES],
           },
           {
-            name: 'Gestionar conciliaciones',
-            url: 'legacy/40',
-            authorities: [CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.ADMINISTRAR_CONCILIACIONES],
-            urlIsNotAutoCompleted: true,
+            id: 'gestionar-conciliaciones',
+            label: 'Gestionar conciliaciones',
+            href: 'legacy/40',
+            icon: 'folder-cog',
+            authorities: [
+              ADMIN,
+              CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.ADMINISTRAR_CONCILIACIONES,
+            ],
           },
         ],
       },
       {
-        type: 'dropdown',
-        name: 'Radicación',
-        icon: 'description',
-        authorities: [CRN_AUTHORITIES.RADICACIONES.CODE],
-        dropdownLinks: [
+        id: 'radicación',
+        label: 'Radicación',
+        icon: 'folder-cog',
+        accent: 'red',
+        authorities: [ADMIN, CRN_AUTHORITIES.RADICACIONES.CODE],
+        routes: [
           {
-            name: 'Facturas radicadas',
-            url: 'legacy/41',
-            authorities: [CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
-            urlIsNotAutoCompleted: true,
+            id: 'facturas-radicadas',
+            label: 'Facturas radicadas',
+            href: 'legacy/41',
+            icon: 'folder-cog',
+            authorities: [ADMIN, CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
           },
           {
-            name: 'Facturas pendientes x radicar',
-            url: 'legacy/42',
-            authorities: [CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
-            urlIsNotAutoCompleted: true,
+            id: 'facturas-pendientes-x-radicar',
+            label: 'Facturas pendientes x radicar',
+            href: 'legacy/42',
+            icon: 'folder-cog',
+            authorities: [ADMIN, CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
           },
           {
-            name: 'Facturas pendientes x recibir',
-            url: 'legacy/43',
-            authorities: [CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
-            urlIsNotAutoCompleted: true,
+            id: 'facturas-pendientes-x-recibir',
+            label: 'Facturas pendientes x recibir',
+            href: 'legacy/43',
+            icon: 'folder-cog',
+            authorities: [ADMIN, CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
           },
         ],
       },
       {
-        type: 'dropdown',
-        name: 'Formatos',
-        icon: 'folder_copy',
-        authorities: [CRN_AUTHORITIES.FORMATOS.CODE],
-        dropdownLinks: [
+        id: 'formatos',
+        label: 'Formatos',
+        icon: 'folder-cog',
+        accent: 'red',
+        authorities: [ADMIN, CRN_AUTHORITIES.FORMATOS.CODE],
+        routes: [
           {
-            name: 'Archivo mega plano',
-            url: 'legacy/44',
-            authorities: [CRN_AUTHORITIES.FORMATOS.ARCHIVO_MEGA_PLANO],
-            urlIsNotAutoCompleted: true,
+            id: 'archivo-mega-plano',
+            label: 'Archivo mega plano',
+            href: 'legacy/44',
+            icon: 'folder-cog',
+            authorities: [ADMIN, CRN_AUTHORITIES.FORMATOS.ARCHIVO_MEGA_PLANO],
           },
         ],
       },

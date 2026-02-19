@@ -4,8 +4,8 @@ import { firstValueFrom, map, Observable, tap } from 'rxjs';
 import { RolRepository } from '@modules/permisos/domain/repositories';
 import { SEG_END_POINTS } from '@end-points/seguridad';
 import { Rol } from '@modules/permisos/domain/entities';
+import { DataStored } from '@kato-lee/utilities/models';
 import { dataToRol } from '../factories/rol.factory';
-import { DataStored } from '@common/domain/models';
 import { rolesObs$, rolesSubj } from './_stores';
 import { RolRes } from '../data-transfers';
 

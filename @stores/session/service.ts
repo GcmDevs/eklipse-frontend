@@ -3,14 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, firstValueFrom, map } from 'rxjs';
 import { setSession, sessionState, sessionInitialState } from './store';
-import { STORAGE_KEYS } from '@common/application/services';
-import { environment } from '@environments/environment';
+import { STORAGE_KEYS, UserDataFromToken } from '@common/services';
+import { gcmContextTypeFactory } from '@kato-lee/utilities/types';
 import { SEG_END_POINTS } from '../../@end-points/seguridad';
+import { ADMIN_AUTHORITY } from '@auths/principal';
+import { env } from '@env/environment';
 import { Session, TokCreAndExpInfo } from './entity';
-import { ADMIN_AUTHORITY } from '@authorities/principal';
-import { decodeToken } from '@common/application/services';
-import { gcmContextTypeFactory } from '@common/domain/types';
-import { UserDataFromToken } from '@common/domain/models';
+import { decodeToken } from '@common/services';
 
 @Injectable({ providedIn: 'root' })
 export class SessionStore {
@@ -23,7 +22,7 @@ export class SessionStore {
     const tokenDecoded = decodeToken(session.token);
 
     const newSession = new Session(
-      new TokCreAndExpInfo(tokenDecoded.tablePath, tokenDecoded.createdAt, tokenDecoded.expiredAt),
+      new TokCreAndExpInfo(tokenDecoded.createdAt, tokenDecoded.expiredAt),
       gcmContextTypeFactory(tokenDecoded.context.getCode()),
       new UserDataFromToken(
         tokenDecoded.user.id,
@@ -63,7 +62,7 @@ export class SessionStore {
         const token = localStorage.getItem(STORAGE_KEYS.authToken) || '';
         let authorities: string[] = [];
 
-        if (environment.production) authorities = await this._fetchMyAuthorities();
+        if (env.production) authorities = await this._fetchMyAuthorities();
         else authorities.push(ADMIN_AUTHORITY);
 
         this.dispatch({

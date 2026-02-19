@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { AuthGuard, AuthoritiesGuard, GuestGuard } from '@common/infrastructure/guards';
-import { LOCAL_URLS } from '@common/application/constants';
-import { AdminLayoutComponent } from './admin.component';
-import { GEN_AUTHORITIES } from '@authorities/general';
+import { AuthGuard, AuthoritiesGuard, GuestGuard } from '@common/guards';
+import { DashboardComponent } from './admin/component';
+import { LOCAL_URLS } from '@common/constants';
+import { GEN_AUTHORITIES } from '@auths/general';
 
 export const routes: Routes = [
   { path: '', redirectTo: LOCAL_URLS.home, pathMatch: 'full' },
@@ -13,13 +13,15 @@ export const routes: Routes = [
       { path: '', loadChildren: () => import('@modules/auth/routes').then((m) => m.routes) },
     ],
   },
+
   {
     path: '',
+    component: DashboardComponent,
     canActivate: [AuthGuard],
-    component: AdminLayoutComponent,
     children: [
       {
         path: LOCAL_URLS.home,
+        canActivate: [AuthGuard],
         loadComponent: () => import('@modules/home/presentation/page').then((m) => m.HomePage),
       },
       {

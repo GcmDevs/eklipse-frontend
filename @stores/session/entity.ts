@@ -1,17 +1,11 @@
-import { TablePathAuthType } from '@common/application/services';
-import { UserDataFromToken } from '@common/domain/models';
-import { GcmContextType } from '@common/domain/types';
+import { GcmContextType } from '@kato-lee/utilities/types';
+import { UserDataFromToken } from '@common/services';
 
 export class TokCreAndExpInfo {
   constructor(
-    private _tablePath: TablePathAuthType,
     private _createdAt: Date,
     private _expiredAt: Date,
   ) {}
-
-  get tablePath(): TablePathAuthType {
-    return this._tablePath;
-  }
 
   get createdAt(): Date {
     return this._createdAt;

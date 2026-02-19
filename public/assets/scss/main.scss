@@ -1,5 +1,4 @@
-@use 'kato-lee';
-@use 'colors';
-@use 'fonts';
-@use 'utilities';
-@use 'tables';
+@use 'accents' as accents;
+@use 'kato-lee' as katoLee;
+@use 'colors' as colors;
+@use 'fonts' as fonts;

@@ -12,22 +12,22 @@ import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { NgOptimizedImage } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { APP_INFO, LOCAL_URLS } from '@common/application/constants';
-import { STORAGE_KEYS } from '@common/application/services';
-import { GcmContextType } from '@common/domain/types';
+import { APP_INFO, LOCAL_URLS } from '@common/constants';
+import { STORAGE_KEYS } from '@common/services';
+import { GcmContextType } from '@kato-lee/utilities/types';
 import { SessionStore } from '@stores/session';
 import { CentrosStore } from '@stores/centros';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TakGeneralFieldComponent, TakSelectFieldComponent } from '@kato-lee/components/fields';
 import { MatButtonModule } from '@angular/material/button';
 import { TakToast } from '@kato-lee/components/toast';
-import { FetchContextsService, LoginUserService } from '@modules/auth/application/services';
-import { FetchContextsImpl, LoginUserImpl } from '@modules/auth/infrastructure/services';
-import { AuthenticateUserController, FetchContextsController } from '../../controllers';
+import { FetchContextsService, AuthenticateService } from '@modules/auth/application/services';
+import { FetchContextsImpl, AuthenticateImpl } from '@modules/auth/infrastructure/services';
+import { AuthenticateController, FetchContextsController } from '../../controllers';
 import { LoginForm } from './form';
 
 @Component({
-  standalone: true,
+  selector: 'app-login-page',
   imports: [
     NgOptimizedImage,
     MatSnackBarModule,
@@ -38,12 +38,11 @@ import { LoginForm } from './form';
   ],
   providers: [
     FetchContextsController,
-    AuthenticateUserController,
+    AuthenticateController,
     FetchContextsImpl,
     { provide: FetchContextsService, useClass: FetchContextsImpl },
-    { provide: LoginUserService, useClass: LoginUserImpl },
+    { provide: AuthenticateService, useClass: AuthenticateImpl },
   ],
-  selector: 'app-login-page--web',
   templateUrl: './page.html',
   styleUrls: ['./page.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -62,14 +61,14 @@ export class Page implements OnInit, OnDestroy {
   constructor(
     href: ElementRef<HTMLElement>,
     private _fetchContexts: FetchContextsController,
-    private _auth: AuthenticateUserController,
+    private _authenticateCtrl: AuthenticateController,
     private _session: SessionStore,
     private _centros: CentrosStore,
     private _toast: TakToast,
     private _router: Router,
     private _title: Title,
   ) {
-    href.nativeElement.classList.add('app-login-page--web');
+    href.nativeElement.classList.add('app-login-page');
   }
 
   public async ngOnInit(): Promise<void> {
@@ -93,7 +92,7 @@ export class Page implements OnInit, OnDestroy {
       this.isAuthenticating.set(true);
       let success = false;
 
-      const result = await this._auth.execute(this.loginForm.model);
+      const result = await this._authenticateCtrl.loginUser(this.loginForm.model);
 
       result.fold({
         right: (response) => {

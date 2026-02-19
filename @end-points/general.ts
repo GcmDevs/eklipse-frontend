@@ -1,5 +1,7 @@
-import { environment } from '@environments/environment';
+import { environment } from '@env/environment';
 
-const host = environment.hostProd;
+export const apiUrlGen = `${environment.host}:8001`;
 
-export const apiUrlGen = `${host}:8001`;
+export const GENERAL_END_POINTS = {
+  DEPENDENCIAS: `${apiUrlGen}/v1/gen/dependencias`,
+};

@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ChangeDetectionStrategy, Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { EnlaceExternoI, ENLACES_EXTERNOS, SANITIZED } from './config';
-import { ToggleSidebar } from '@kato-lee/admin-layout';
 
 @Component({
   standalone: true,
@@ -28,7 +27,7 @@ export class LegacyComponent implements OnInit, OnDestroy {
     private _router: Router,
     private _route: ActivatedRoute,
     private _sanitizer: DomSanitizer,
-    private _toggleSidebar: ToggleSidebar,
+    //private _toggleSidebar: ToggleSidebar,
   ) {}
 
   ngOnInit(): void {
@@ -41,11 +40,6 @@ export class LegacyComponent implements OnInit, OnDestroy {
       const key = this._route.snapshot.paramMap.get('key')!;
       this.key.set(+key);
     });
-
-    const channel = new BroadcastChannel('app-state');
-    channel.onmessage = () => {
-      this._toggleSidebar.openSidebar();
-    };
   }
 
   sanitizar() {
