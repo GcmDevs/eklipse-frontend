@@ -26,7 +26,7 @@
         </div>
       </button>
 
-      <button class="topbar-btn" aria-label="Cerrar sesión" (click)="clickOnLogout()">
+      <button class="topbar-btn" aria-label="Cerrar sesión" (click)="logout.emit()">
         <lucide-icon [img]="icons.LogOutIcon" [size]="18" />
       </button>
     </div>
@@ -67,7 +67,7 @@
         Volver al menu
       </a>
 
-      <button class="topbar-btn" aria-label="Cerrar sesión" (click)="clickOnLogout()">
+      <button class="topbar-btn" aria-label="Cerrar sesión" (click)="logout.emit()">
         <lucide-icon [img]="icons.LogOutIcon" [size]="18" />
       </button>
     </div>

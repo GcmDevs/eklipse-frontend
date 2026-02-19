@@ -10,7 +10,7 @@ import {
 import { DashboardConfig, NAVIGATION_CONFIG, NavModule } from '@aside/config';
 import { RouterModule } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
-import { NavIconComponent } from '../nav-icons';
+import { NavIconComponent } from 'src/nav-icons';
 import { ValidateAccessPipe } from 'src/functions';
 
 @Component({

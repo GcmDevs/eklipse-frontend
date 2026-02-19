@@ -1,4 +1,4 @@
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Component, OnInit, signal } from '@angular/core';
 import { TopbarComponent } from './topbar/topbar.component';
 import { formatFullName, getDisplayFirstName, getInitials } from 'src/functions';
@@ -6,6 +6,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardConfig } from '@aside/config';
 import { SessionStore } from '@stores/session';
 import { CentrosStore } from '@stores/centros';
+import { LOCAL_URLS } from '@common/constants';
+import { clearLocalStorage } from '@common/services';
+import { TakModal } from '@kato-lee/components/modal';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,10 +26,24 @@ export class DashboardComponent implements OnInit {
   constructor(
     private _session: SessionStore,
     private _centros: CentrosStore,
+    private _modal: TakModal,
+    private _router: Router,
   ) {}
 
   ngOnInit(): void {
     this._loadInitialResources();
+  }
+
+  clickOnLogout(): void {
+    this._modal.confirm('¿Desea cerrar su sesión?', '¿Segur@?').subscribe((success) => {
+      if (success) {
+        clearLocalStorage();
+        this._router.navigate([LOCAL_URLS.login]);
+        setTimeout(() => {
+          location.reload();
+        }, 300);
+      }
+    });
   }
 
   private async _loadInitialResources(): Promise<void> {

@@ -105,7 +105,7 @@
     <div class="task-card__top-right">
       @if (item.count !== undefined) {
         <span class="count-badge">
-          {{ item.count }} {{ level() === 'modules' ? 'rutas' : 'opciones' }}
+          {{ item.count }} {{ level() === 'modules' ? 'opciones' : 'rutas' }}
         </span>
       }
       <lucide-icon [img]="icons.ArrowRight" [size]="18" class="task-arrow" />

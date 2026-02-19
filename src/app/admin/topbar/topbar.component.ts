@@ -2,9 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, signal } fro
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DashboardConfig } from '@aside/config';
 import { LOCAL_URLS } from '@common/constants';
-import { clearLocalStorage } from '@common/services';
 import { env } from '@env/environment';
-import { TakModal } from '@kato-lee/components/modal';
 import {
   LucideAngularModule,
   Search,
@@ -35,6 +33,7 @@ export class TopbarComponent implements OnInit, OnDestroy {
   showHeaderForRoutes = signal(false);
 
   @Output() menuClicked = new EventEmitter<void>();
+  @Output() logout = new EventEmitter<void>();
 
   readonly icons = {
     Search,
@@ -56,7 +55,6 @@ export class TopbarComponent implements OnInit, OnDestroy {
 
   constructor(
     private _router: Router,
-    private _modal: TakModal,
     private _activeRoute: ActivatedRoute,
   ) {}
 
@@ -92,18 +90,6 @@ export class TopbarComponent implements OnInit, OnDestroy {
         }
       } catch (error) {}
     }
-  }
-
-  clickOnLogout(): void {
-    this._modal.confirm('¿Desea cerrar su sesión?', '¿Segur@?').subscribe((success) => {
-      if (success) {
-        clearLocalStorage();
-        this._router.navigate([LOCAL_URLS.login]);
-        setTimeout(() => {
-          location.reload();
-        }, 300);
-      }
-    });
   }
 
   toggleMenu(): void {

@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { LucideAngularModule, ArrowRight, ChevronRight, Home } from 'lucide-angular';
 import { AccentType, DashboardConfig, NavModule, NavSubmodule } from '@aside/config';
 import { ValidateAccessPipe } from 'src/functions';
-import { NavIconComponent } from './nav-icons';
+import { NavIconComponent } from 'src/nav-icons';
 import { GcmContextCode } from '@kato-lee/utilities/types';
 
 type Level = 'modules' | 'submodules' | 'routes';
