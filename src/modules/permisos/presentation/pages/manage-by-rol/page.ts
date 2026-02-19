@@ -24,7 +24,7 @@ import { SetPermisosDialogService } from '../../components';
 import { RolCrudController } from '../../controllers';
 
 @Component({
-  standalone: true,
+  selector: 'app-manage-permiso-by-rol',
   imports: [
     TakTablesModule,
     TakGeneralFieldComponent,
@@ -37,7 +37,6 @@ import { RolCrudController } from '../../controllers';
     SetPermisosDialogService,
     { provide: RolRepository, useClass: RolProxyRepository },
   ],
-  selector: 'app-manage-permiso-by-rol-web',
   templateUrl: './page.html',
   styleUrls: ['./page.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -61,7 +60,7 @@ export class Page implements OnInit, OnDestroy {
     private _rolesCrud: RolCrudController,
     private _cd: ChangeDetectorRef,
   ) {
-    href.nativeElement.classList.add('app-manage-permiso-by-rol-web');
+    href.nativeElement.classList.add('app-manage-permiso-by-rol');
   }
 
   public ngOnInit(): void {

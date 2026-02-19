@@ -1,4 +1,4 @@
-import { GcmContextType } from '@common/domain/types';
+import { GcmContextType } from '@kato-lee/utilities/types';
 
 export abstract class FetchContextsService {
   abstract execute(): Promise<GcmContextType[]>;

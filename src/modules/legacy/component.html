@@ -1,0 +1,9 @@
+@if (sanitized.value) {
+  @if (!refresh()) {
+    @for (a of links; track $index) {
+      @if (key() === a.key) {
+        <iframe [src]="a.url" width="100%" class="iframe-legacy"></iframe>
+      }
+    }
+  }
+}

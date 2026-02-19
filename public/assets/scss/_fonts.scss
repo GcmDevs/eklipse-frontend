@@ -4,37 +4,12 @@
     Helvetica Neue,
     sans-serif !important;
 }
-
 .default-body-font {
   font-family:
     Roboto,
     Helvetica Neue,
     sans-serif !important;
 }
-.titlecommerce,
-.tak-table-title,
-.tak-modal__title,
-.tak-table-subtitle,
-.app__header__user-full-name,
-.tak__sidebar__branding__title,
-.tak__sidebar__branding__subtitle,
-.gcm-access-control__outlet__footer,
-.gcm-access-control__description__title {
-  @extend .default-title-font;
-}
-
-body,
-.bodycommerce,
-mat-paginator,
-mat-form-field,
-.mat-option-text,
-.mat-select-value,
-.mat-input-element,
-.tak-modal__content,
-.mat-tab-label-content,
-.tak__sidenav__link-name,
-button:not([mat-icon-button]),
-.gcm-access-control__description,
-.tak__sidenav__accordion__link-button {
+body {
   @extend .default-body-font;
 }

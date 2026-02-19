@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Usuario, Permiso } from '@modules/permisos/domain/entities';
 import { UsuarioRepository } from '@modules/permisos/domain/repositories';
-import { DataStored } from '@common/domain/models';
+import { DataStored } from '@kato-lee/utilities/models';
 import { Either } from '@kato-lee/utilities';
 
 type Result = Either<string, Usuario[]>;

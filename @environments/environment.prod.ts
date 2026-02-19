@@ -1,6 +1,5 @@
-export const environment = {
+export const env = {
   production: true,
-  host: 'https://eklipse.grupoclinicamedicos.com',
-  hostDev: 'https://eklipse.grupoclinicamedicos.com',
-  hostProd: 'https://eklipse.grupoclinicamedicos.com',
+  localHost: 'https://eklipse.grupoclinicamedicos.com',
+  serveHost: 'https://eklipse.grupoclinicamedicos.com',
 };

@@ -1,4 +1,4 @@
-import { GcmContextCode } from '@common/domain/types';
+import { GcmContextCode } from '@kato-lee/utilities/types';
 
 export interface LoginUserPayload {
   context: GcmContextCode;

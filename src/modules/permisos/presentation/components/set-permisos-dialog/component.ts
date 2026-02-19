@@ -30,7 +30,7 @@ import {
   PermisoProxyRepository,
   RolProxyRepository,
 } from '@modules/permisos/infrastructure/repositories';
-import { MODULES } from '@authorities/principal';
+import { MODULES } from '@auths/principal';
 import {
   PermisoCrudController,
   PermisoRolController,
@@ -38,7 +38,7 @@ import {
 } from '../../controllers';
 
 @Component({
-  standalone: true,
+  selector: 'app-set-permisos-dialog',
   imports: [
     MatIconModule,
     ReactiveFormsModule,
@@ -59,7 +59,6 @@ import {
     PermisoCrudController,
     PermisoRolController,
   ],
-  selector: 'app-set-permisos-dialog',
   templateUrl: './component.html',
   styleUrls: ['./component.scss'],
   encapsulation: ViewEncapsulation.None,

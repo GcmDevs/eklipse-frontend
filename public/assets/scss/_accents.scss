@@ -1,0 +1,17 @@
+.vcl-top-line-card {
+  &--teal::before { background: var(--teal); }
+  &--amber::before { background: var(--amber); }
+  &--blue::before { background: var(--blue); }
+  &--purple::before { background: var(--purple); }
+  &--red::before { background: var(--red); }
+  &--green::before { background: var(--green); }
+}
+
+.vcl-icon {
+  &--amber { background: var(--amber-constrant); color: var(--amber); }
+  &--blue { background: var(--blue-constrant); color: var(--blue); }
+  &--green { background: var(--green-constrant); color: var(--green); }
+  &--red { background: var(--red-constrant); color: var(--red); }
+  &--teal { background: var(--teal-constrant); color: var(--teal);
+  }
+}

@@ -25,7 +25,7 @@ import { SetPermisosDialogService } from '../../components';
 import { UsuarioCrudController } from '../../controllers';
 
 @Component({
-  standalone: true,
+  selector: 'app-manage-permiso-by-usuario',
   imports: [
     TakTablesModule,
     TakGeneralFieldComponent,
@@ -38,7 +38,6 @@ import { UsuarioCrudController } from '../../controllers';
     SetPermisosDialogService,
     { provide: UsuarioRepository, useClass: UsuarioProxyRepository },
   ],
-  selector: 'app-manage-permiso-by-usuario-web',
   templateUrl: './page.html',
   styleUrls: ['./page.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -63,7 +62,7 @@ export class Page implements OnInit, OnDestroy {
     private _toast: TakToast,
     private _cd: ChangeDetectorRef,
   ) {
-    href.nativeElement.classList.add('app-manage-permiso-by-usuario-web');
+    href.nativeElement.classList.add('app-manage-permiso-by-usuario');
   }
 
   public async ngOnInit(): Promise<void> {

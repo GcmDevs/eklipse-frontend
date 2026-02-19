@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Permiso } from '../entities';
-import { DataStored } from '@common/domain/models';
+import { DataStored } from '@kato-lee/utilities/models';
 
 export abstract class PermisoRepository {
   abstract fetch(refresh: boolean): Promise<Permiso[]>;

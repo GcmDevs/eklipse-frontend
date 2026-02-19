@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FetchContextsImpl } from '@modules/auth/infrastructure/services';
-import { GcmContextType } from '@common/domain/types';
+import { GcmContextType } from '@kato-lee/utilities/types';
 import { Either } from '@kato-lee/utilities';
 
 type Result = Either<string, GcmContextType[]>;

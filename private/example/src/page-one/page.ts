@@ -1,0 +1,16 @@
+import { ChangeDetectionStrategy, Component, ElementRef, ViewEncapsulation } from '@angular/core';
+
+@Component({
+  selector: 'app-example-page-one',
+  imports: [],
+  providers: [],
+  templateUrl: './page.html',
+  styleUrls: ['./page.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class Page {
+  constructor(href: ElementRef<HTMLElement>) {
+    href.nativeElement.classList.add('app-example-page-one');
+  }
+}

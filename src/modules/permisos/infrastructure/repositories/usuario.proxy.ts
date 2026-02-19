@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom, map, Observable } from 'rxjs';
 import { UsuarioRepository } from '@modules/permisos/domain/repositories';
 import { Permiso, Usuario } from '@modules/permisos/domain/entities';
+import { DataStored } from '@kato-lee/utilities/models';
 import { SEG_END_POINTS } from '@end-points/seguridad';
 import { permisoResponseToEntity } from '../factories';
 import { usuariosObs$, usuariosSubj } from './_stores';
 import { PermisoResponse } from '../data-transfers';
-import { DataStored } from '@common/domain/models';
 import { UsuariosStore } from '@stores/usuarios';
 
 @Injectable()
@@ -24,8 +24,8 @@ export class UsuarioProxyRepository implements UsuarioRepository {
 
     let data: Usuario[] = [];
 
-    const subs = this._store.observable().subscribe((usuarios) => {
-      usuarios.data.forEach((el) => {
+    const subs = this._store.observable().subscribe((stored) => {
+      stored.data.forEach((el) => {
         const newUsuario = new Usuario(el.id, el.nombreCompleto, el.cedula, {
           id: el.rol.id,
           name: el.rol.nombre,

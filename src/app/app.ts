@@ -1,12 +1,11 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { LOCAL_URLS } from '@common/application/constants';
+import { LOCAL_URLS } from '@common/constants';
 import { CentrosStore } from '@stores/centros';
 import { SessionStore } from '@stores/session';
 import { Subscription } from 'rxjs';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
   imports: [RouterModule],
   template: `
