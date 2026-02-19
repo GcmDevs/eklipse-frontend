@@ -170,32 +170,6 @@
   flex-shrink: 0;
 }
 
-/* ── Accent Colors ── */
-.icon-amber {
-  background: #fef3c7;
-  color: #d97706;
-}
-
-.icon-blue {
-  background: #dbeafe;
-  color: #2563eb;
-}
-
-.icon-green {
-  background: #dcfce7;
-  color: #16a34a;
-}
-
-.icon-red {
-  background: #fee2e2;
-  color: #dc2626;
-}
-
-.icon-teal {
-  background: #ccfbf1;
-  color: #0d9488;
-}
-
 .module-info {
   flex: 1;
   min-width: 0;
@@ -435,4 +409,8 @@
   .sidebar {
     width: 100%;
   }
+}
+
+.force-d-none {
+  display: none !important;
 }

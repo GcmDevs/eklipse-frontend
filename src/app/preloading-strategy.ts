@@ -2,7 +2,7 @@ import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { PreloadingStrategy, Route } from '@angular/router';
 import { ADMIN_AUTHORITY } from '@auths/principal';
-import { environment } from '@env/environment';
+import { env } from '@env/environment';
 import { SessionStore } from '@stores/session';
 
 @Injectable({ providedIn: 'root' })
@@ -10,7 +10,7 @@ export class CustomPreloadingStrategy implements PreloadingStrategy {
   constructor(private _sessionStore: SessionStore) {}
 
   preload(route: Route, load: () => Observable<any>) {
-    if (environment.production) {
+    if (env.production) {
       let authorities!: string[];
 
       const subscription = this._sessionStore.observable().subscribe((session) => {

@@ -56,7 +56,15 @@
     @for (item of items(); track item.id) {
       <!-- Route with href = real link -->
       @if (level() === 'routes' && item.href) {
-        <a [routerLink]="item.href" class="task-card" [ngClass]="'task-card--' + item.accent">
+        <a
+          [routerLink]="item.href"
+          class="task-card vcl-top-line-card--{{ item.accent }}"
+          [class.force-d-none]="
+            ([config.authorities, item.disableOnContexts!]
+              | validateAccess: [config.contextCode, item.authorities!]) ||
+            item.forceDisabledContent
+          "
+        >
           <ng-container
             [ngTemplateOutlet]="cardTpl"
             [ngTemplateOutletContext]="{ $implicit: item }"
@@ -66,8 +74,12 @@
         <!-- Drill-down button -->
         <button
           type="button"
-          class="task-card"
-          [ngClass]="'task-card--' + item.accent"
+          class="task-card vcl-top-line-card--{{ item.accent }}"
+          [class.force-d-none]="
+            ([config.authorities, item.disableOnContexts!]
+              | validateAccess: [config.contextCode, item.authorities!]) ||
+            item.forceDisabledContent
+          "
           (click)="onCardClick(item)"
         >
           <ng-container

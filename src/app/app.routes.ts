@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { AuthGuard, AuthoritiesGuard, GuestGuard } from '@common/guards';
-import { PageContainerComponent } from './page-container/component';
+import { DashboardComponent } from './admin/component';
 import { LOCAL_URLS } from '@common/constants';
 import { GEN_AUTHORITIES } from '@auths/general';
 
@@ -13,16 +13,17 @@ export const routes: Routes = [
       { path: '', loadChildren: () => import('@modules/auth/routes').then((m) => m.routes) },
     ],
   },
-  {
-    path: LOCAL_URLS.home,
-    canActivate: [AuthGuard],
-    loadComponent: () => import('./admin/component').then((m) => m.DashboardComponent),
-  },
+
   {
     path: '',
-    component: PageContainerComponent,
+    component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: LOCAL_URLS.home,
+        canActivate: [AuthGuard],
+        loadComponent: () => import('@modules/home/presentation/page').then((m) => m.HomePage),
+      },
       {
         path: 'seguridad',
         canActivate: [AuthoritiesGuard],

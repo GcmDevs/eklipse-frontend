@@ -7,19 +7,20 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { NAVIGATION_CONFIG, NavModule } from '@aside/config';
+import { DashboardConfig, NAVIGATION_CONFIG, NavModule } from '@aside/config';
 import { RouterModule } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
-import { NavIconComponent } from '../tasks-grid/nav-icons';
+import { NavIconComponent } from '../nav-icons';
+import { ValidateAccessPipe } from 'src/functions';
 
 @Component({
   selector: 'app-sidebar',
-  standalone: true,
-  imports: [RouterModule, LucideAngularModule, NavIconComponent],
+  imports: [RouterModule, LucideAngularModule, NavIconComponent, ValidateAccessPipe],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnChanges {
+  @Input({ required: true }) config!: DashboardConfig;
   @Input() open = false;
   @Output() closed = new EventEmitter<void>();
 
@@ -61,23 +62,6 @@ export class SidebarComponent implements OnChanges {
 
   isSubmoduleOpen(moduleId: string, subId: string): boolean {
     return this.expandedSubmodule === `${moduleId}-${subId}`;
-  }
-
-  accentClass(accent: string): string {
-    switch (accent) {
-      case 'amber':
-        return 'icon-amber';
-      case 'blue':
-        return 'icon-blue';
-      case 'green':
-        return 'icon-green';
-      case 'red':
-        return 'icon-red';
-      case 'teal':
-        return 'icon-teal';
-      default:
-        return 'icon-teal';
-    }
   }
 
   onOverlayClick(): void {

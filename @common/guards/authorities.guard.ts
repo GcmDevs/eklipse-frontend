@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { ADMIN_AUTHORITY } from '@auths/principal';
-import { environment } from '@env/environment';
+import { env } from '@env/environment';
 import { LOCAL_URLS } from '@common/constants';
 import { SessionStore } from '@stores/session';
 
@@ -29,13 +29,13 @@ export const AuthoritiesGuard = (route: ActivatedRouteSnapshot) => {
 
   if (showUnsafe) return true;
 
-  if (location.href === `${environment.host}/#/${LOCAL_URLS.home}` || isNotFirstCharge) {
+  if (location.href === `${env.serveHost}/#/${LOCAL_URLS.home}` || isNotFirstCharge) {
     isNotFirstCharge = true;
     const router = inject(Router);
     const sessionStore = inject(SessionStore);
     const myAuthorities: string[] = [];
 
-    if (environment.production) {
+    if (env.production) {
       const fetchAuthorities = sessionStore.observable().subscribe((session) => {
         if (session.wasLoaded) myAuthorities.push(...session.authorities);
       });

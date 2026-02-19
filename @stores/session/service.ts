@@ -7,7 +7,7 @@ import { STORAGE_KEYS, UserDataFromToken } from '@common/services';
 import { gcmContextTypeFactory } from '@kato-lee/utilities/types';
 import { SEG_END_POINTS } from '../../@end-points/seguridad';
 import { ADMIN_AUTHORITY } from '@auths/principal';
-import { environment } from '@env/environment';
+import { env } from '@env/environment';
 import { Session, TokCreAndExpInfo } from './entity';
 import { decodeToken } from '@common/services';
 
@@ -62,7 +62,7 @@ export class SessionStore {
         const token = localStorage.getItem(STORAGE_KEYS.authToken) || '';
         let authorities: string[] = [];
 
-        if (environment.production) authorities = await this._fetchMyAuthorities();
+        if (env.production) authorities = await this._fetchMyAuthorities();
         else authorities.push(ADMIN_AUTHORITY);
 
         this.dispatch({

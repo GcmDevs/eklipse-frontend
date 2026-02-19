@@ -147,7 +147,6 @@ const ICON_MAP: Record<string, LucideIconData> = {
 
 @Component({
   selector: 'app-nav-icon',
-  standalone: true,
   imports: [LucideAngularModule],
   template: `
     @if (iconData()) {

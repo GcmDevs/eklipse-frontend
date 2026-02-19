@@ -3,7 +3,6 @@ import { LucideAngularModule, Users, CalendarCheck, Activity, ShieldCheck } from
 
 @Component({
   selector: 'app-stats-row',
-  standalone: true,
   imports: [LucideAngularModule],
   templateUrl: './stats-row.component.html',
   styleUrl: './stats-row.component.scss',

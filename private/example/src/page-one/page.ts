@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, ElementRef, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  standalone: true,
+  selector: 'app-example-page-one',
   imports: [],
   providers: [],
-  selector: 'app-example-page-one',
   templateUrl: './page.html',
   styleUrls: ['./page.scss'],
   encapsulation: ViewEncapsulation.None,

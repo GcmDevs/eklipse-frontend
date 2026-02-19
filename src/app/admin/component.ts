@@ -1,32 +1,55 @@
-import { Component, computed } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { Component, OnInit, signal } from '@angular/core';
 import { TopbarComponent } from './topbar/topbar.component';
-import { StatsRowComponent } from './stats-row/stats-row.component';
-import { TasksGridComponent } from './tasks-grid/tasks-grid.component';
-import { BottomSectionComponent } from './bottom-section/bottom-section.component';
+import { formatFullName, getDisplayFirstName, getInitials } from 'src/functions';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { DashboardConfig } from '@aside/config';
+import { SessionStore } from '@stores/session';
+import { CentrosStore } from '@stores/centros';
 
 @Component({
   selector: 'app-dashboard',
-  standalone: true,
-  imports: [
-    TopbarComponent,
-    StatsRowComponent,
-    TasksGridComponent,
-    BottomSectionComponent,
-    SidebarComponent,
-  ],
+  imports: [TopbarComponent, SidebarComponent, RouterModule],
   templateUrl: './component.html',
   styleUrl: './component.scss',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  config!: DashboardConfig;
+
   sidebarOpen = false;
 
-  greeting = computed(() => {
-    const hour = new Date().getHours();
-    if (hour < 12) return 'Buenos dias';
-    if (hour < 18) return 'Buenas tardes';
-    return 'Buenas noches';
-  });
+  resourcesLoaded = signal(false);
+
+  constructor(
+    private _session: SessionStore,
+    private _centros: CentrosStore,
+  ) {}
+
+  ngOnInit(): void {
+    this._loadInitialResources();
+  }
+
+  private async _loadInitialResources(): Promise<void> {
+    await this._session.autoInstance();
+    await this._centros.autoInstance();
+
+    const subscription = this._session.observable().subscribe((session) => {
+      if (session.wasLoaded) {
+        this.config = {
+          enterpriseName: 'Grupo Clinica Medicos',
+          roleName: 'Usuario',
+          contextCode: session.context.getCode(),
+          contextForHumans: session.context.getForHumans(),
+          authorities: session.authorities,
+          userFullName: formatFullName(session.user.fullName),
+          userFirstName: getDisplayFirstName(session.user.fullName),
+          userInitials: getInitials(session.user.fullName),
+        };
+        this.resourcesLoaded.set(true);
+      }
+    });
+    subscription.unsubscribe();
+  }
 
   openSidebar(): void {
     this.sidebarOpen = true;

@@ -27,7 +27,7 @@ import { AuthenticateController, FetchContextsController } from '../../controlle
 import { LoginForm } from './form';
 
 @Component({
-  standalone: true,
+  selector: 'app-login-page',
   imports: [
     NgOptimizedImage,
     MatSnackBarModule,
@@ -43,7 +43,6 @@ import { LoginForm } from './form';
     { provide: FetchContextsService, useClass: FetchContextsImpl },
     { provide: AuthenticateService, useClass: AuthenticateImpl },
   ],
-  selector: 'app-login-page--web',
   templateUrl: './page.html',
   styleUrls: ['./page.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -69,7 +68,7 @@ export class Page implements OnInit, OnDestroy {
     private _router: Router,
     private _title: Title,
   ) {
-    href.nativeElement.classList.add('app-login-page--web');
+    href.nativeElement.classList.add('app-login-page');
   }
 
   public async ngOnInit(): Promise<void> {

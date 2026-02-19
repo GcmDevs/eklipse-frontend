@@ -161,26 +161,6 @@
       transform: translateX(2px);
     }
   }
-
-  /* Accent variants */
-  &--teal::before {
-    background: var(--teal-500);
-  }
-  &--amber::before {
-    background: #f59e0b;
-  }
-  &--blue::before {
-    background: #2196f3;
-  }
-  &--purple::before {
-    background: #7c3aed;
-  }
-  &--red::before {
-    background: #ef4444;
-  }
-  &--green::before {
-    background: #10b981;
-  }
 }
 
 .task-card__top {

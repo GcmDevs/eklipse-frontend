@@ -22,7 +22,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { SessionStore } from '@stores/session';
 
 @Component({
-  standalone: true,
+  selector: 'gcm-centros-suggestions',
   imports: [
     ReactiveFormsModule,
     TakSelectFieldComponent,
@@ -31,7 +31,6 @@ import { SessionStore } from '@stores/session';
     MatMenuModule,
     MatIconModule,
   ],
-  selector: 'gcm-centros-suggestions',
   template: `
     @if (
       (suggestions.length > 1 && !showAllOption) ||

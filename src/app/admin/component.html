@@ -1,18 +1,9 @@
-<div class="wrapper">
-  <!-- Sidebar -->
-  <app-sidebar [open]="sidebarOpen" (closed)="closeSidebar()" />
-
-  <!-- Top Navbar -->
-  <app-topbar (menuClicked)="openSidebar()" />
-
-  <main class="main">
-    <div class="greeting">
-      <h1 class="greeting-title">{{ greeting() }}, Enrique</h1>
-      <p class="greeting-subtitle">Panel de administracion — Medicos Centro / Alta Complejidad</p>
-    </div>
-
-    <app-stats-row />
-    <app-tasks-grid />
-    <app-bottom-section />
-  </main>
-</div>
+@if (resourcesLoaded()) {
+  <div class="wrapper">
+    <app-sidebar [config]="config" [open]="sidebarOpen" (closed)="closeSidebar()" />
+    <app-topbar [config]="config" (menuClicked)="openSidebar()" />
+    <main class="main">
+      <router-outlet />
+    </main>
+  </div>
+}

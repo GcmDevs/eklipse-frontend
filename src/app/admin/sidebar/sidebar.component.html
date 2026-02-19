@@ -11,12 +11,14 @@
   <!-- Header -->
   <div class="header">
     <div class="header-left">
-      <div class="logo-icon">
-        <app-nav-icon name="activity" [size]="20" />
+      <div>
+        <!-- <div class="logo-icon"> -->
+        <img src="assets/images/layouts/enterprise-icon.png" style="width: 28px" />
+        <!-- <app-nav-icon name="activity" [size]="20" /> -->
       </div>
       <div>
-        <p class="header-title">Grupo Clinica Medicos</p>
-        <p class="header-subtitle">Alta Complejidad</p>
+        <p class="header-title">{{ config.enterpriseName }}</p>
+        <p class="header-subtitle">{{ config.contextForHumans }}</p>
       </div>
     </div>
     <button class="close-btn" (click)="onCloseClick()" aria-label="Cerrar menu">
@@ -29,14 +31,20 @@
     <p class="section-label">Modulos</p>
 
     @for (mod of modules; track mod.id) {
-      <div class="module-item">
+      <div
+        class="module-item"
+        [class.force-d-none]="
+          ([config.authorities, mod.disableOnContexts!]
+            | validateAccess: [config.contextCode, mod.authorities!]) || mod.forceDisabledContent
+        "
+      >
         <button
           class="module-btn"
           [class.module-btn-active]="isModuleOpen(mod.id)"
           (click)="toggleModule(mod.id)"
           [attr.aria-expanded]="isModuleOpen(mod.id)"
         >
-          <div class="module-icon {{ accentClass(mod.accent) }}">
+          <div class="module-icon vcl-icon--{{ mod.accent }}">
             <app-nav-icon [name]="mod.icon" [size]="22" />
           </div>
           <div class="module-info">
@@ -54,14 +62,21 @@
         <!-- Submodules -->
         <ul class="submodule-list" [class.submodule-list-open]="isModuleOpen(mod.id)">
           @for (sub of mod.submodules; track sub.id) {
-            <li class="submodule-item">
+            <li
+              class="submodule-item"
+              [class.force-d-none]="
+                ([config.authorities, sub.disableOnContexts!]
+                  | validateAccess: [config.contextCode, sub.authorities!]) ||
+                sub.forceDisabledContent
+              "
+            >
               <button
                 class="submodule-btn"
                 [class.submodule-btn-active]="isSubmoduleOpen(mod.id, sub.id)"
                 (click)="toggleSubmodule(mod.id, sub.id)"
                 [attr.aria-expanded]="isSubmoduleOpen(mod.id, sub.id)"
               >
-                <div class="submodule-icon {{ accentClass(sub.accent) }}">
+                <div class="submodule-icon vcl-icon--{{ sub.accent }}">
                   <app-nav-icon [name]="sub.icon" [size]="16" />
                 </div>
                 <div class="submodule-info">
@@ -79,7 +94,14 @@
               <!-- Routes -->
               <ul class="route-list" [class.route-list-open]="isSubmoduleOpen(mod.id, sub.id)">
                 @for (route of sub.routes; track route.id) {
-                  <li class="route-item">
+                  <li
+                    class="route-item"
+                    [class.force-d-none]="
+                      ([config.authorities, route.disableOnContexts!]
+                        | validateAccess: [config.contextCode, route.authorities!]) ||
+                      route.forceDisabledContent
+                    "
+                  >
                     <a
                       class="route-link"
                       [routerLink]="'/' + route.href"
@@ -105,10 +127,10 @@
   <!-- Footer -->
   <div class="footer">
     <div class="footer-user">
-      <div class="footer-avatar">EA</div>
+      <div class="footer-avatar">{{ config.userInitials }}</div>
       <div class="footer-user-info">
-        <p class="footer-user-name">Enrique de Armas</p>
-        <p class="footer-user-role">Administrador</p>
+        <p class="footer-user-name">{{ config.userFullName }}</p>
+        <!-- <p class="footer-user-role">{{ config.roleName }}</p> -->
       </div>
     </div>
   </div>

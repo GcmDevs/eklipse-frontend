@@ -6,7 +6,6 @@ import { SessionStore } from '@stores/session';
 import { Subscription } from 'rxjs';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
   imports: [RouterModule],
   template: `

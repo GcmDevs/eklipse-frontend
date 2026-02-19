@@ -1,6 +1,6 @@
-import { environment } from '@env/environment';
+import { env } from '@env/environment';
 
-const apiUrlGen = `${environment.host}:8001`;
+const apiUrlGen = `${env.serveHost}:8001`;
 
 export const SEG_END_POINTS = {
   AUTH: `${apiUrlGen}/v1/sec/auth`,

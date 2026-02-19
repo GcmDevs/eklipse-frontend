@@ -6,7 +6,8 @@
 .main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 24px;
+  //padding: 32px 24px;
+  padding: 20px;
 }
 
 .greeting {
@@ -29,7 +30,8 @@
 
 @media (max-width: 640px) {
   .main {
-    padding: 20px 16px;
+    //padding: 20px 16px;
+    padding: 20px;
   }
 
   .greeting-title {

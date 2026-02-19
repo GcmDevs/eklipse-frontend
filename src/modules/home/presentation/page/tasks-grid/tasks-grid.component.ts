@@ -1,9 +1,11 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, Input } from '@angular/core';
 import { NgTemplateOutlet, NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, ArrowRight, ChevronRight, Home } from 'lucide-angular';
-import { NAVIGATION_CONFIG, NavModule, NavSubmodule } from '@aside/config';
+import { AccentType, DashboardConfig, NavModule, NavSubmodule } from '@aside/config';
+import { ValidateAccessPipe } from 'src/functions';
 import { NavIconComponent } from './nav-icons';
+import { GcmContextCode } from '@kato-lee/utilities/types';
 
 type Level = 'modules' | 'submodules' | 'routes';
 
@@ -17,21 +19,33 @@ interface BreadcrumbItem {
 interface CardItem {
   id: string;
   label: string;
-  description: string;
+  description?: string;
   icon: string;
-  accent: string;
+  accent: AccentType;
   count?: number;
   href?: string;
+  authorities?: string[];
+  disableOnContexts?: GcmContextCode[];
+  forceDisabledContent?: boolean;
 }
 
 @Component({
   selector: 'app-tasks-grid',
-  standalone: true,
-  imports: [NgTemplateOutlet, NgClass, RouterLink, LucideAngularModule, NavIconComponent],
+  imports: [
+    NgTemplateOutlet,
+    NgClass,
+    RouterLink,
+    LucideAngularModule,
+    NavIconComponent,
+    ValidateAccessPipe,
+  ],
   templateUrl: './tasks-grid.component.html',
   styleUrl: './tasks-grid.component.scss',
 })
 export class TasksGridComponent {
+  @Input({ required: true }) config!: DashboardConfig;
+  @Input({ required: true }) navigation!: NavModule[];
+
   readonly icons = { ArrowRight, ChevronRight, Home };
 
   level = signal<Level>('modules');
@@ -60,15 +74,17 @@ export class TasksGridComponent {
     const sub = this.selectedSubmodule();
 
     if (lv === 'modules') {
-      return NAVIGATION_CONFIG.map((m) => ({
+      return this.navigation.map((m) => ({
         ...m,
-        count: m.submodules.reduce((acc, s) => acc + s.routes.length, 0),
+        count: m.submodules
+          .filter((e) => !e.wasDisabled)
+          .reduce((acc, s) => acc + s.routes.filter((r) => !r.wasDisabled).length, 0),
       }));
     }
     if (lv === 'submodules' && mod) {
       return mod.submodules.map((s) => ({
         ...s,
-        count: s.routes.length,
+        count: s.routes.filter((r) => !r.wasDisabled).length,
       }));
     }
     if (lv === 'routes' && sub) {
@@ -98,7 +114,7 @@ export class TasksGridComponent {
   }
 
   goToSubmodules(moduleId: string): void {
-    const mod = NAVIGATION_CONFIG.find((m) => m.id === moduleId);
+    const mod = this.navigation.find((m) => m.id === moduleId);
     if (!mod) return;
 
     // Skip submodule level if only 1 submodule

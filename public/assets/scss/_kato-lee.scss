@@ -24,3 +24,9 @@ html {
 .bg-tak-warn-500 {
   background-color: var(--tak-warn-500) !important;
 }
+.cdk-global-scrollblock {
+  overflow-y: hidden !important;
+}
+.tak-modal__content {
+  padding: 10px 24px !important;
+}
