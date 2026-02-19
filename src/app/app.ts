@@ -1,7 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { LOCAL_URLS } from '@common/constants';
-import { CentrosStore } from '@stores/centros';
+import { STORAGE_KEYS } from '@common/services';
+import { Centro, CentrosStore } from '@stores/centros';
 import { SessionStore } from '@stores/session';
 import { Subscription } from 'rxjs';
 
@@ -43,11 +44,22 @@ export class App implements OnInit {
         await this._session.autoInstance();
         await this._centros.autoInstance();
 
-        const subscription = this._session.observable().subscribe((session) => {
-          if (session.wasLoaded) this.sessionWasLoaded.set(true);
+        let arr: { authorities: string[]; centros: Centro[] } = {} as any;
+
+        const subs1 = this._centros.observable().subscribe((centros) => {
+          arr.centros = centros;
+        });
+        subs1.unsubscribe();
+
+        const subs2 = this._session.observable().subscribe((session) => {
+          if (session.wasLoaded) {
+            arr.authorities = session.authorities;
+            localStorage.setItem(STORAGE_KEYS.legacySharedData, JSON.stringify(arr));
+            this.sessionWasLoaded.set(true);
+          }
         });
 
-        subscription.unsubscribe();
+        subs2.unsubscribe();
       }
     } catch (error: any) {
       this.sessionWasLoaded.set(true);

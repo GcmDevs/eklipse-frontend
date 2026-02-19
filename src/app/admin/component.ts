@@ -19,7 +19,7 @@ import { TakModal } from '@kato-lee/components/modal';
 export class DashboardComponent implements OnInit {
   config!: DashboardConfig;
 
-  sidebarOpen = false;
+  sidebarOpen = signal(false);
 
   resourcesLoaded = signal(false);
 
@@ -33,20 +33,12 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this._loadInitialResources();
 
-    const toggleSidebar = new BroadcastChannel('toggle-sidebar');
-    const backToHome = new BroadcastChannel('back-to-home');
-    const logout = new BroadcastChannel('logout');
+    const channel = new BroadcastChannel('app-state');
 
-    toggleSidebar.onmessage = () => {
-      this.sidebarOpen = true;
-    };
-
-    backToHome.onmessage = () => {
-      this._router.navigate([LOCAL_URLS.home]);
-    };
-
-    logout.onmessage = () => {
-      this.clickOnLogout();
+    channel.onmessage = (event) => {
+      if (event.data.key === 'back-to-menu') this._router.navigate([LOCAL_URLS.home]);
+      if (event.data.key === 'sidebar') this.openSidebar();
+      if (event.data.key === 'logout') this.clickOnLogout();
     };
   }
 
@@ -85,10 +77,10 @@ export class DashboardComponent implements OnInit {
   }
 
   openSidebar(): void {
-    this.sidebarOpen = true;
+    this.sidebarOpen.set(true);
   }
 
   closeSidebar(): void {
-    this.sidebarOpen = false;
+    this.sidebarOpen.set(false);
   }
 }

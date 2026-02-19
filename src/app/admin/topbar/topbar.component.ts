@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DashboardConfig } from '@aside/config';
-import { LOCAL_URLS } from '@common/constants';
+import { APP_INFO, LOCAL_URLS } from '@common/constants';
 import { env } from '@env/environment';
 import {
   LucideAngularModule,
@@ -48,7 +48,7 @@ export class TopbarComponent implements OnInit, OnDestroy {
     Activity,
   };
 
-  readonly home = `${env.localHost}/#/${LOCAL_URLS.home}`;
+  readonly home = `${env.localHost}${env.localHost.includes('https://') ? `/${APP_INFO.version}` : ':9135'}/#/${LOCAL_URLS.home}`;
 
   menuOpen = signal(false);
 

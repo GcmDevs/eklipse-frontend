@@ -15,8 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { APP_INFO, LOCAL_URLS } from '@common/constants';
 import { STORAGE_KEYS } from '@common/services';
 import { GcmContextType } from '@kato-lee/utilities/types';
-import { SessionStore } from '@stores/session';
-import { CentrosStore } from '@stores/centros';
+import { Session, SessionStore } from '@stores/session';
+import { Centro, CentrosStore } from '@stores/centros';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TakGeneralFieldComponent, TakSelectFieldComponent } from '@kato-lee/components/fields';
 import { MatButtonModule } from '@angular/material/button';
@@ -97,6 +97,7 @@ export class Page implements OnInit, OnDestroy {
       result.fold({
         right: (response) => {
           localStorage.setItem(STORAGE_KEYS.authToken, response.token!);
+          localStorage.setItem(STORAGE_KEYS.legacyAuthToken, response.token!);
           success = true;
         },
         left: (error) => {
@@ -108,6 +109,22 @@ export class Page implements OnInit, OnDestroy {
       if (success) {
         await this._session.autoInstance();
         await this._centros.autoInstance();
+
+        let arr: { authorities: string[]; centros: Centro[] } = {} as any;
+
+        const subs1 = this._centros.observable().subscribe((centros) => {
+          arr.centros = centros;
+        });
+        subs1.unsubscribe();
+
+        const subs2 = this._session.observable().subscribe((session) => {
+          if (session.wasLoaded) {
+            arr.authorities = session.authorities;
+            localStorage.setItem(STORAGE_KEYS.legacySharedData, JSON.stringify(arr));
+          }
+        });
+        subs2.unsubscribe();
+
         this._router.navigate([LOCAL_URLS.home]);
       }
 
