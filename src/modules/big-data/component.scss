@@ -1,0 +1,26 @@
+.main {
+  padding: 5px !important;
+  max-width: 9999px !important;
+}
+body {
+  overflow-y: hidden;
+}
+.iframe-local {
+  height: calc(100vh);
+  border: none;
+}
+.footer-container {
+  min-width: 80%;
+  top: 5px;
+  left: 87px;
+  min-width: 80%;
+  position: fixed;
+  z-index: 997;
+}
+.first-dat-n {
+  display: flex;
+  align-items: center;
+}
+.second-dat-n {
+  margin: -20px 0 0 45px;
+}

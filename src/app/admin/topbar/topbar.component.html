@@ -41,24 +41,26 @@
 
       <div class="topbar-divider"></div>
 
-      <!-- Breadcrumbs en el topbar -->
-      <nav class="topbar-breadcrumbs" aria-label="Ruta de navegacion">
-        <span class="topbar-bc-segment">
-          <a class="topbar-bc-link">Modulos</a>
-          <lucide-icon [img]="icons.ChevronRight" [size]="14" class="topbar-bc-sep" />
-        </span>
-        <span class="topbar-bc-segment">
-          <a class="topbar-bc-link">{{ module() }}</a>
-          <lucide-icon [img]="icons.ChevronRight" [size]="14" class="topbar-bc-sep" />
-        </span>
-        <span class="topbar-bc-segment">
-          <a class="topbar-bc-link">{{ subModule() }}</a>
-          <lucide-icon [img]="icons.ChevronRight" [size]="14" class="topbar-bc-sep" />
-        </span>
-        <span class="topbar-bc-segment">
-          <span class="topbar-bc-current">{{ route() }}</span>
-        </span>
-      </nav>
+      @if (!isPowerBi()) {
+        <!-- Breadcrumbs en el topbar -->
+        <nav class="topbar-breadcrumbs" aria-label="Ruta de navegacion">
+          <span class="topbar-bc-segment">
+            <a class="topbar-bc-link">Modulos</a>
+            <lucide-icon [img]="icons.ChevronRight" [size]="14" class="topbar-bc-sep" />
+          </span>
+          <span class="topbar-bc-segment">
+            <a class="topbar-bc-link">{{ module() }}</a>
+            <lucide-icon [img]="icons.ChevronRight" [size]="14" class="topbar-bc-sep" />
+          </span>
+          <span class="topbar-bc-segment">
+            <a class="topbar-bc-link">{{ subModule() }}</a>
+            <lucide-icon [img]="icons.ChevronRight" [size]="14" class="topbar-bc-sep" />
+          </span>
+          <span class="topbar-bc-segment">
+            <span class="topbar-bc-current">{{ route() }}</span>
+          </span>
+        </nav>
+      }
     </div>
 
     <div class="topbar-right-group">

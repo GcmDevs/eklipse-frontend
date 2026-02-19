@@ -31,6 +31,7 @@ export class TopbarComponent implements OnInit, OnDestroy {
   route = signal('Ruta');
 
   showHeaderForRoutes = signal(false);
+  isPowerBi = signal(false);
 
   @Output() menuClicked = new EventEmitter<void>();
   @Output() logout = new EventEmitter<void>();
@@ -72,6 +73,9 @@ export class TopbarComponent implements OnInit, OnDestroy {
     } else {
       this.showHeaderForRoutes.set(true);
     }
+    if (location.href.includes('big-data-on-pb')) this.isPowerBi.set(true);
+    else this.isPowerBi.set(false);
+
     if (this.showHeaderForRoutes()) {
       try {
         let count = 0;

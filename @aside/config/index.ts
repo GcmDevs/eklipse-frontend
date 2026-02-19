@@ -1,6 +1,7 @@
 import { NavModule } from './models';
-import { SEGURIDAD_SNAV_ITEMS } from '../seguridad';
 import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
+import { SEGURIDAD_SNAV_ITEMS } from '../seguridad';
+import { BIG_DATA_SNAV_ITEMS } from '../big-data';
 import { LEGACY_GENERAL_SNAV_ITEMS } from '@aside/legacy/general';
 import { LEGACY_HOSPITALIZACION_SNAV_ITEMS } from '@aside/legacy/hospitalizacion';
 import { LEGACY_HISTORIA_CLINICA_SNAV_ITEMS } from '@aside/legacy/historia-clinica';
@@ -20,6 +21,7 @@ export const CONTEXTS_CODES = {
 
 export const NAVIGATION_CONFIG: NavModule[] = [
   // -- AVOID NOWRAP -- //
+  ...BIG_DATA_SNAV_ITEMS,
   ...SEGURIDAD_SNAV_ITEMS,
   ...LEGACY_GENERAL_SNAV_ITEMS,
   ...LEGACY_HOSPITALIZACION_SNAV_ITEMS,

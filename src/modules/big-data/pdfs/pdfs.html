@@ -1,0 +1,43 @@
+<tak-dismiss-dialog-button>
+  <div class="container-header">
+    <div class="title">Descargar archivos</div>
+    <div class="subtitle">{{data.pdfs.length}} archivos para descargar</div>
+    @if(data.incluyeContexto){
+    <div class="d-flex center">
+      <gcm-centros-suggestions
+        type="menu"
+        [showAllContexts]="data.key === 999 ? false : true"
+        [showAllOption]="false"
+        (onSelect)="centro = $event"
+        [hiddenContexts]="hiddenContexts"
+      />
+      <b class="color--gray" style="font-size: 10px"> {{centro.nombre}} </b>
+    </div>
+    }
+  </div>
+</tak-dismiss-dialog-button>
+
+<div mat-dialog-content>
+  <div class="file-list">
+    <div class="files-container">
+      @for(file of data.pdfs; track $index){
+      <div class="file-item">
+        <span class="file-icon">
+          <mat-icon color="primary">description</mat-icon>
+        </span>
+
+        <div class="file-info">
+          <h4 class="file-name">{{ file.tooltip }}</h4>
+        </div>
+
+        <div class="file-action">
+          <button color="primary" mat-raised-button (click)="clickOnButton(file.url)">
+            <mat-icon>file_download</mat-icon>
+            Descargar
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
