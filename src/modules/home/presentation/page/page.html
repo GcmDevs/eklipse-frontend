@@ -1,44 +1,9 @@
-<div class="homeContainer">
-  <!-- Welcome -->
-  <div class="welcomeSection">
-    <h1 class="welcomeTitle">Bienvenido a <span class="welcomeAccent">Eklipse GCM</span></h1>
-
-    <p class="welcomeSubtitle">
-      Plataforma integral de gestion clinica que optimiza procesos hospitalarios.
-    </p>
-  </div>
-
-  <!-- Feature Cards -->
-  @if (FEATURES_TRANSFORMED()) {
-    <div class="featuresGrid">
-      @for (f of FEATURES; track f.title) {
-        <div class="featureCard">
-          <div class="featureIconWrapper" [innerHTML]="f.icon"></div>
-          <p class="featureTitle">{{ f.title }}</p>
-          <p class="featureDesc">{{ f.desc }}</p>
-        </div>
-      }
-    </div>
-  }
-
-  <!-- Footer -->
-  <div class="infoFooter">
-    <span class="infoIcon">
-      <svg
-        width="22"
-        height="22"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <path stroke-linecap="round" d="M12 16v-4m0-4h.01" />
-      </svg>
-    </span>
-
-    <p class="infoText">
-      Utilice el <span class="infoTextBold">menu lateral</span> para navegar entre los modulos.
-    </p>
-  </div>
+<div class="greeting">
+  <h1 class="greeting-title">{{ greeting() }}, {{ config.userFirstName }}</h1>
+  <p class="greeting-subtitle">Panel de administración — {{ config.contextForHumans }}</p>
 </div>
+
+<app-stats-row />
+@if (resourcesLoaded()) {
+  <app-tasks-grid [config]="config" [navigation]="navigation" />
+}

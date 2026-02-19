@@ -19,7 +19,7 @@ import { SEG_END_POINTS } from '@end-points/seguridad';
 import { CreateAuthoritiesServices } from './service';
 
 @Component({
-  standalone: true,
+  selector: 'app-create-authorities-page',
   imports: [
     FormsModule,
     TakGeneralFieldComponent,
@@ -29,7 +29,6 @@ import { CreateAuthoritiesServices } from './service';
     MatTabsModule,
   ],
   providers: [CreateAuthoritiesServices],
-  selector: 'app-create-authorities-page--web',
   templateUrl: './page.html',
   styleUrls: ['./page.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -49,7 +48,7 @@ export class Page {
     private _toast: TakToast,
     private _modal: TakModal,
   ) {
-    href.nativeElement.classList.add('app-create-authorities-web');
+    href.nativeElement.classList.add('app-create-authorities');
   }
 
   async clicOnCreateModule() {

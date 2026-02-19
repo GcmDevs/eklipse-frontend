@@ -1,35 +1,26 @@
-.disappear-header-on-power-bi {
-  display: none !important;
-}
-.remove-padding-on-power-bi {
+.main {
   padding: 5px !important;
+  max-width: 9999px !important;
+}
+body {
+  overflow-y: hidden;
 }
 .iframe-local {
   height: calc(100vh);
   border: none;
 }
 .footer-container {
-  position: absolute;
-  margin-top: -60px;
+  min-width: 80%;
+  top: 5px;
+  left: 87px;
+  min-width: 80%;
+  position: fixed;
+  z-index: 997;
 }
 .first-dat-n {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
 }
 .second-dat-n {
-  min-width: 30%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-/* body,
-.tak__outlet {
-  background-color: white !important;
-} */
-.footer-on-mobile {
-  display: none !important;
-}
-.tak__scroll {
-  overflow-y: hidden;
+  margin: -20px 0 0 45px;
 }

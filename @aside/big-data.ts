@@ -1,109 +1,115 @@
 import { BIG_DATA_AUTHORITIES } from '@authorities/big-data';
-import { CtmSnavDropdownLink, CtmSnavItems } from '@kato-lee/admin-layout';
 import { BIG_DATA_LINKS_DISCRIMINATED as bigDataLinks } from '@modules/big-data/config';
+import { NavModule, NavRoute } from './config';
+import { ADMIN } from '@auths/general';
 
-const administrativos: CtmSnavDropdownLink[] = bigDataLinks.administrativos.map((r) => {
-  const res: CtmSnavDropdownLink = {
-    name: r.name,
-    url: `big-data/${r.key}`,
-    disableOnContexts: r.disableOnContexts,
-    authorities: r.authorities,
-    urlIsNotAutoCompleted: true,
+const administrativos: NavRoute[] = bigDataLinks.administrativos.map((r) => {
+  const res: NavRoute = {
+    label: r.name,
+    href: `big-data-on-pb/${r.key}`,
+    disableOnContexts: r.disableOnContexts?.map((c) => c.getCode()),
+    authorities: [ADMIN, ...r.authorities],
+    id: `big-data-on-pb-${r.key}`,
+    icon: 'chart-no-axes-combined',
   };
   return res;
 });
 
-const asistenciales: CtmSnavDropdownLink[] = bigDataLinks.asistenciales.map((r) => {
-  const res: CtmSnavDropdownLink = {
-    name: r.name,
-    url: `big-data/${r.key}`,
-    disableOnContexts: r.disableOnContexts,
-    authorities: r.authorities,
-    urlIsNotAutoCompleted: true,
+const asistenciales: NavRoute[] = bigDataLinks.asistenciales.map((r) => {
+  const res: NavRoute = {
+    label: r.name,
+    href: `big-data-on-pb/${r.key}`,
+    disableOnContexts: r.disableOnContexts?.map((c) => c.getCode()),
+    authorities: [ADMIN, ...r.authorities],
+    id: `big-data-on-pb-${r.key}`,
+    icon: 'chart-no-axes-combined',
   };
   return res;
 });
 
-const centralCompras: CtmSnavDropdownLink[] = bigDataLinks.centralCompras.map((r) => {
-  const res: CtmSnavDropdownLink = {
-    name: r.name,
-    url: `big-data/${r.key}`,
-    disableOnContexts: r.disableOnContexts,
-    authorities: r.authorities,
-    urlIsNotAutoCompleted: true,
+const centralCompras: NavRoute[] = bigDataLinks.centralCompras.map((r) => {
+  const res: NavRoute = {
+    label: r.name,
+    href: `big-data-on-pb/${r.key}`,
+    disableOnContexts: r.disableOnContexts?.map((c) => c.getCode()),
+    authorities: [ADMIN, ...r.authorities],
+    id: `big-data-on-pb-${r.key}`,
+    icon: 'chart-no-axes-combined',
   };
   return res;
 });
 
-const solicitudServicios: CtmSnavDropdownLink[] = bigDataLinks.solicitudServicios.map((r) => {
-  const res: CtmSnavDropdownLink = {
-    name: r.name,
-    url: `big-data/${r.key}`,
-    disableOnContexts: r.disableOnContexts,
-    authorities: r.authorities,
-    urlIsNotAutoCompleted: true,
+const solicitudServicios: NavRoute[] = bigDataLinks.solicitudServicios.map((r) => {
+  const res: NavRoute = {
+    label: r.name,
+    href: `big-data-on-pb/${r.key}`,
+    disableOnContexts: r.disableOnContexts?.map((c) => c.getCode()),
+    authorities: [ADMIN, ...r.authorities],
+    id: `big-data-on-pb-${r.key}`,
+    icon: 'chart-no-axes-combined',
   };
   return res;
 });
 
-const hospitalizacion: CtmSnavDropdownLink[] = bigDataLinks.hospitalizacion.map((r) => {
-  const res: CtmSnavDropdownLink = {
-    name: r.name,
-    url: `big-data/${r.key}`,
-    disableOnContexts: r.disableOnContexts,
+const hospitalizacion: NavRoute[] = bigDataLinks.hospitalizacion.map((r) => {
+  const res: NavRoute = {
+    label: r.name,
+    href: `big-data-on-pb/${r.key}`,
+    disableOnContexts: r.disableOnContexts?.map((c) => c.getCode()),
     authorities: r.authorities,
-    urlIsNotAutoCompleted: true,
+    id: `big-data-on-pb-${r.key}`,
+    icon: 'chart-no-axes-combined',
   };
   return res;
 });
 
-export const BIG_DATA_SNAV_ITEMS: CtmSnavItems[] = [
+export const BIG_DATA_SNAV_ITEMS: NavModule[] = [
   {
-    type: 'link',
-    name: 'Costos y planeación',
-    icon: 'paid',
-    url: 'big-data/costos',
-    authorities: [BIG_DATA_AUTHORITIES.ADMINISTRATIVOS.COSTOS],
-  },
-  {
-    type: 'collection',
-    name: 'Indicadores de operación',
-    authorities: [BIG_DATA_AUTHORITIES.CODE],
-    objects: [
+    label: 'Indicadores de operación',
+    authorities: [ADMIN, BIG_DATA_AUTHORITIES.CODE],
+    id: 'indicadores-operacion',
+    icon: 'chart-no-axes-combined',
+    accent: 'green',
+    submodules: [
       {
-        type: 'dropdown',
-        name: 'Administrativos',
-        icon: 'toc',
-        authorities: [BIG_DATA_AUTHORITIES.ADMINISTRATIVOS.CODE],
-        dropdownLinks: [...administrativos],
+        label: 'Administrativos',
+        id: 'administrativos',
+        icon: 'chart-no-axes-combined',
+        authorities: [ADMIN, BIG_DATA_AUTHORITIES.ADMINISTRATIVOS.CODE],
+        routes: [...administrativos],
+        accent: 'green',
       },
       {
-        type: 'dropdown',
-        name: 'Asistenciales',
-        icon: 'toc',
-        authorities: [BIG_DATA_AUTHORITIES.ASISTENCIALES.CODE],
-        dropdownLinks: [...asistenciales],
+        label: 'Asistenciales',
+        id: 'asistenciales',
+        icon: 'chart-no-axes-combined',
+        authorities: [ADMIN, BIG_DATA_AUTHORITIES.ASISTENCIALES.CODE],
+        routes: [...asistenciales],
+        accent: 'green',
       },
       {
-        type: 'dropdown',
-        name: 'Central de compras',
-        icon: 'toc',
-        authorities: [BIG_DATA_AUTHORITIES.CENTRAL_COMPRAS.CODE],
-        dropdownLinks: [...centralCompras],
+        label: 'Central de compras',
+        id: 'central-compras',
+        icon: 'chart-no-axes-combined',
+        authorities: [ADMIN, BIG_DATA_AUTHORITIES.CENTRAL_COMPRAS.CODE],
+        routes: [...centralCompras],
+        accent: 'green',
       },
       {
-        type: 'dropdown',
-        name: 'Solicitud de servicios',
-        icon: 'toc',
-        authorities: [BIG_DATA_AUTHORITIES.SOLICITUD_SERVICIOS.CODE],
-        dropdownLinks: [...solicitudServicios],
+        label: 'Solicitud de servicios',
+        id: 'solicitud-servicios',
+        icon: 'chart-no-axes-combined',
+        authorities: [ADMIN, BIG_DATA_AUTHORITIES.SOLICITUD_SERVICIOS.CODE],
+        routes: [...solicitudServicios],
+        accent: 'green',
       },
       {
-        type: 'dropdown',
-        name: 'Hospitalización',
-        icon: 'toc',
-        authorities: [BIG_DATA_AUTHORITIES.HOSPITALIZACION.CODE],
-        dropdownLinks: [...hospitalizacion],
+        label: 'Hospitalización',
+        id: 'hospitalizacion',
+        icon: 'chart-no-axes-combined',
+        authorities: [ADMIN, BIG_DATA_AUTHORITIES.HOSPITALIZACION.CODE],
+        routes: [...hospitalizacion],
+        accent: 'green',
       },
     ],
   },

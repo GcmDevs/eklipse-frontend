@@ -1,7 +1,14 @@
-.app-create-authorities-web {
+.app-create-authorities {
   .tab-content {
     margin: auto;
     max-width: 500px;
     padding: 10px;
+  }
+  .d-flex {
+    display: flex;
+    align-items: center;
+    &.center {
+      justify-content: center;
+    }
   }
 }

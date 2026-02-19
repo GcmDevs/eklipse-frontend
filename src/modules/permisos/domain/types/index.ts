@@ -1,4 +1,4 @@
-import { CtmType } from '@kato-lee/utilities';
+import { CtmType } from '@kato-lee/utilities/types';
 
 export type RolDependienteCode = 1 | 2 | 3 | 4 | 5;
 

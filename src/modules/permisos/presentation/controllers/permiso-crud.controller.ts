@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { DataStored } from '@common/domain/models';
+import { DataStored } from '@kato-lee/utilities/models';
 import { PermisoRepository } from '@modules/permisos/domain/repositories';
 import { Permiso } from '@modules/permisos/domain/entities';
 import { Either } from '@kato-lee/utilities';

@@ -11,8 +11,8 @@
   }
 }
 <!-- FOOTER -->
-<div class="footer-container d-flex between tak-fade-in__300ms" style="min-width: 80%">
-  <div class="first-dat-n d-flex">
+<div class="footer-container color--white">
+  <div class="first-dat-n">
     @if ([51, 52, 53, 54, 55, 56, 58].indexOf(key) >= 0) {
       <button
         (click)="
@@ -38,18 +38,18 @@
       </button>
     }
 
-    <button
-      mat-icon-button
-      [color]="actualizacionAutomatica ? 'accent' : 'warn'"
-      (click)="disableActualizacionAutomatica()"
-    >
+    <button mat-icon-button class="color--white" (click)="disableActualizacionAutomatica()">
       <mat-icon>av_timer</mat-icon>
     </button>
-    <b> {{ actualizacionAutomatica ? 'Detener' : 'Iniciar' }} actualización automatica </b>
+    <b style="margin: -15px 0 0 5px">
+      {{ actualizacionAutomatica ? 'Detener' : 'Iniciar' }} actualización automatica
+    </b>
     @if (msParaActualizarse <= 59000) {
       <b> (Se actualizará en {{ msParaActualizarse / 1000 }} segundos)</b>
     }
   </div>
 
-  <div class="second-dat-n"><b>Departamento de TIC - Big Data GCM</b></div>
+  <div class="second-dat-n">
+    <b>Departamento de TIC - Big Data GCM</b>
+  </div>
 </div>

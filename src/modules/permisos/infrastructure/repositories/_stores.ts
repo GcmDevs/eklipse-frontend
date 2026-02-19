@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
-import { DataStored } from '@common/domain/models';
+import { DataStored } from '@kato-lee/utilities/models';
 import { Permiso, Rol, Usuario } from '@modules/permisos/domain/entities';
 
 export const usuariosSubj = new BehaviorSubject<DataStored<Usuario>>(new DataStored([], null));

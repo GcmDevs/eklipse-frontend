@@ -3,7 +3,10 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@gen/*": ["projects/gen/src/app/*"],
+      "@auths/*": ["@authorities/*"],
+      "@end-points/*": ["@end-points/*"],
+      "@env/*": ["@environments/*"],
+      "@stores/*": ["@stores/*"],
       "@modules/*": ["src/modules/*"]
     },
     "strict": true,
@@ -28,10 +31,5 @@
     "strictTemplates": true
   },
   "files": [],
-  "references": [
-    //{ "path": "./private/example/tsconfig.app.json" },
-    //{ "path": "./private/example/tsconfig.spec.json" },
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.spec.json" }
-  ]
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.spec.json" }]
 }

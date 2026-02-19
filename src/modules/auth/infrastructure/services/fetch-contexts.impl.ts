@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom, map, retry, throwError, timeout } from 'rxjs';
 import { FetchContextsService } from '@modules/auth/application/services';
-import { GCM_CONTEXTS, GcmContextCode, GcmContextType } from '@common/domain/types';
-import { environment } from '@environments/environment';
+import { GcmContextCode, GcmContextType } from '@kato-lee/utilities/types';
 import { SEG_END_POINTS } from '@end-points/seguridad';
 
 interface GcmContextI {
@@ -24,11 +23,9 @@ export class FetchContextsImpl implements FetchContextsService {
         }),
         retry(3),
         map((res) => {
-          return res
-            .filter((el) => el.code !== GCM_CONTEXTS.DEVELOPMENT.getCode())
-            .map((el) => {
-              return new GcmContextType(el.code, el.forHumans);
-            });
+          return res.map((el) => {
+            return new GcmContextType(el.code, el.forHumans);
+          });
         }),
       ),
     );
