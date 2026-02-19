@@ -19,7 +19,7 @@ import { TakModal } from '@kato-lee/components/modal';
 export class DashboardComponent implements OnInit {
   config!: DashboardConfig;
 
-  sidebarOpen = false;
+  sidebarOpen = signal(false);
 
   resourcesLoaded = signal(false);
 
@@ -69,10 +69,10 @@ export class DashboardComponent implements OnInit {
   }
 
   openSidebar(): void {
-    this.sidebarOpen = true;
+    this.sidebarOpen.set(true);
   }
 
   closeSidebar(): void {
-    this.sidebarOpen = false;
+    this.sidebarOpen.set(false);
   }
 }
