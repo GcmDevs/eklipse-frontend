@@ -8,7 +8,7 @@ export const LEGACY_FACTURACION_SNAV_ITEMS: NavModule[] = [
     id: 'facturacion',
     label: 'Facturación',
     icon: 'folder-cog',
-    accent: 'red',
+    accent: 'lavender',
     authorities: [ADMIN, SLN_AUTHORITIES.CODE],
     disableOnContexts: [GCM_CONTEXTS.AMMEDICAL.getCode()],
     submodules: [
@@ -16,7 +16,7 @@ export const LEGACY_FACTURACION_SNAV_ITEMS: NavModule[] = [
         id: 'productos',
         label: 'Productos',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'peach',
         authorities: [ADMIN, SLN_AUTHORITIES.PRODUCTOS.CODE],
         routes: [
           {
@@ -32,7 +32,7 @@ export const LEGACY_FACTURACION_SNAV_ITEMS: NavModule[] = [
         id: 'informes-gerenciales',
         label: 'Informes Gerenciales',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'coral',
         authorities: [ADMIN, SLN_AUTHORITIES.INFORMES_GERENCIALES.CODE],
         routes: [
           {
@@ -76,7 +76,7 @@ export const LEGACY_FACTURACION_SNAV_ITEMS: NavModule[] = [
         id: 'control-de-egresos',
         label: 'Control de egresos',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'aqua',
         authorities: [ADMIN, SLN_AUTHORITIES.CONTROL_EGRESOS.CODE],
         routes: [
           {
@@ -104,7 +104,7 @@ export const LEGACY_FACTURACION_SNAV_ITEMS: NavModule[] = [
         id: 'validaciones',
         label: 'Validaciones',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'forest',
         authorities: [ADMIN, SLN_AUTHORITIES.VALIDACIONES.CODE],
         routes: [
           {

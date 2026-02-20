@@ -8,7 +8,7 @@ export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
     id: 'cartera',
     label: 'Cartera',
     icon: 'folder-cog',
-    accent: 'red',
+    accent: 'olive',
     authorities: [ADMIN, CRN_AUTHORITIES.CODE],
     disableOnContexts: [GCM_CONTEXTS.AMMEDICAL.getCode()],
     submodules: [
@@ -16,7 +16,7 @@ export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
         id: 'gestión-conciliación',
         label: 'Gestión / conciliación',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'sand',
         authorities: [ADMIN, CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.CODE],
         routes: [
           {
@@ -42,7 +42,7 @@ export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
         id: 'radicación',
         label: 'Radicación',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'chocolate',
         authorities: [ADMIN, CRN_AUTHORITIES.RADICACIONES.CODE],
         routes: [
           {
@@ -72,7 +72,7 @@ export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
         id: 'formatos',
         label: 'Formatos',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'plum',
         authorities: [ADMIN, CRN_AUTHORITIES.FORMATOS.CODE],
         routes: [
           {

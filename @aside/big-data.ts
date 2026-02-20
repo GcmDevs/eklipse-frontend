@@ -77,7 +77,7 @@ export const BIG_DATA_SNAV_ITEMS: NavModule[] = [
         icon: 'chart-no-axes-combined',
         authorities: [ADMIN, BIG_DATA_AUTHORITIES.ADMINISTRATIVOS.CODE],
         routes: [...administrativos],
-        accent: 'green',
+        accent: 'gray',
       },
       {
         label: 'Asistenciales',
@@ -85,7 +85,7 @@ export const BIG_DATA_SNAV_ITEMS: NavModule[] = [
         icon: 'chart-no-axes-combined',
         authorities: [ADMIN, BIG_DATA_AUTHORITIES.ASISTENCIALES.CODE],
         routes: [...asistenciales],
-        accent: 'green',
+        accent: 'teal',
       },
       {
         label: 'Central de compras',
@@ -93,7 +93,7 @@ export const BIG_DATA_SNAV_ITEMS: NavModule[] = [
         icon: 'chart-no-axes-combined',
         authorities: [ADMIN, BIG_DATA_AUTHORITIES.CENTRAL_COMPRAS.CODE],
         routes: [...centralCompras],
-        accent: 'green',
+        accent: 'purple',
       },
       {
         label: 'Solicitud de servicios',
@@ -101,7 +101,7 @@ export const BIG_DATA_SNAV_ITEMS: NavModule[] = [
         icon: 'chart-no-axes-combined',
         authorities: [ADMIN, BIG_DATA_AUTHORITIES.SOLICITUD_SERVICIOS.CODE],
         routes: [...solicitudServicios],
-        accent: 'green',
+        accent: 'cyan',
       },
       {
         label: 'Hospitalización',
@@ -109,7 +109,7 @@ export const BIG_DATA_SNAV_ITEMS: NavModule[] = [
         icon: 'chart-no-axes-combined',
         authorities: [ADMIN, BIG_DATA_AUTHORITIES.HOSPITALIZACION.CODE],
         routes: [...hospitalizacion],
-        accent: 'green',
+        accent: 'sky',
       },
     ],
   },

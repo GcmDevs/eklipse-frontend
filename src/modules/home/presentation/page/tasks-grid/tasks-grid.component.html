@@ -96,7 +96,7 @@
 <ng-template #cardTpl let-item>
   <div class="task-card__top">
     @if (!item.iconType || item.iconType === 'lucide') {
-      <div class="task-icon" [ngClass]="'task-icon--' + item.accent">
+      <div class="task-icon" [ngClass]="'vcl-icon--' + item.accent">
         <app-nav-icon [name]="item.icon" [size]="22" />
       </div>
     } @else {

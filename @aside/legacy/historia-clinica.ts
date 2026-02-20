@@ -8,7 +8,7 @@ export const LEGACY_HISTORIA_CLINICA_SNAV_ITEMS: NavModule[] = [
     id: 'historia-clinica',
     label: 'Historia Clinica',
     icon: 'folder-cog',
-    accent: 'red',
+    accent: 'neutral',
     authorities: [LEGACY_HCN_AUTHORITIES.CODE, ADMIN],
     disableOnContexts: [GCM_CONTEXTS.AMMEDICAL.getCode()],
     submodules: [
@@ -16,7 +16,7 @@ export const LEGACY_HISTORIA_CLINICA_SNAV_ITEMS: NavModule[] = [
         id: 'balances-de-enfermeria',
         label: 'Balances de Enfermeria',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'stone',
         authorities: [LEGACY_HCN_AUTHORITIES.BALANCES_ENFERMERIA.CODE, ADMIN],
         routes: [
           {
@@ -39,7 +39,7 @@ export const LEGACY_HISTORIA_CLINICA_SNAV_ITEMS: NavModule[] = [
         id: 'epicrisis',
         label: 'Epicrisis',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'brown',
         authorities: [LEGACY_HCN_AUTHORITIES.EPICRISIS.CODE, ADMIN],
         routes: [
           {
@@ -55,7 +55,7 @@ export const LEGACY_HISTORIA_CLINICA_SNAV_ITEMS: NavModule[] = [
         id: 'interconsultas',
         label: 'Interconsultas',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'gold',
         authorities: [LEGACY_HCN_AUTHORITIES.INTERCONSULTAS.CODE, ADMIN],
         routes: [
           {

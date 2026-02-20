@@ -8,14 +8,14 @@ export const LEGACY_INVENTARIO_SNAV_ITEMS: NavModule[] = [
     id: 'inventario',
     label: 'Inventario',
     icon: 'folder-cog',
-    accent: 'red',
+    accent: 'turquoise',
     authorities: [ADMIN, INN_AUTHORITIES.CODE],
     submodules: [
       {
         id: 'equipos',
         label: 'Equipos',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'steel',
         authorities: [ADMIN, INN_AUTHORITIES.EQUIPO_BIOMEDICO.CODE],
         routes: [
           {
@@ -34,12 +34,11 @@ export const LEGACY_INVENTARIO_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'gestion-de-servicios',
         label: 'Gestión de servicios',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'charcoal',
         authorities: [ADMIN, INN_AUTHORITIES.SERVICIO_TECNICO.CODE],
         routes: [
           {
@@ -65,12 +64,11 @@ export const LEGACY_INVENTARIO_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'central-de-compras',
         label: 'Central de compras',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'cream',
         authorities: [ADMIN, INN_AUTHORITIES.CENTRAL_COMPRAS.CODE],
         routes: [
           {
@@ -103,12 +101,11 @@ export const LEGACY_INVENTARIO_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'farmacia',
         label: 'Farmacia',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'ice',
         authorities: [
           ADMIN,
           INN_AUTHORITIES.FARMACIA.CODE,
@@ -206,12 +203,11 @@ export const LEGACY_INVENTARIO_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'solicitudes-de-preparacion-a-central',
         label: 'Solicitudes de preparación a central',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'blood',
         authorities: [ADMIN, INN_AUTHORITIES.SOLICITUDES_MEZCLAS.CODE],
         routes: [
           {
@@ -244,12 +240,11 @@ export const LEGACY_INVENTARIO_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'ofertas',
         label: 'Ofertas',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'sun',
         authorities: [ADMIN, INN_AUTHORITIES.OFERTAS.CODE],
         routes: [
           {

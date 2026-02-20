@@ -7,14 +7,14 @@ export const LEGACY_GENERAL_SNAV_ITEMS: NavModule[] = [
     id: 'general',
     label: 'General',
     icon: 'folder-cog',
-    accent: 'red',
+    accent: 'navy',
     authorities: [ADMIN, GEN_AUTHORITIES.CODE],
     submodules: [
       {
         id: 'dependencias',
         label: 'dependencias',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'magenta',
         authorities: [ADMIN, GEN_AUTHORITIES.DEPENDENCIAS.CODE],
         routes: [
           {

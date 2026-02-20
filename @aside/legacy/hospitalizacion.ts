@@ -8,7 +8,7 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
     id: 'hospitalizacion',
     label: 'Hospitalización',
     icon: 'folder-cog',
-    accent: 'red',
+    accent: 'indigo',
     authorities: [HPN_AUTHORITIES.CODE, ADMIN],
     disableOnContexts: [GCM_CONTEXTS.AMMEDICAL.getCode()],
     submodules: [
@@ -16,7 +16,7 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
         id: 'gestion-clinica',
         label: 'Gestión Clinica',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'pink',
         authorities: [HPN_AUTHORITIES.GESTION_CLINICA.CODE, ADMIN],
         routes: [
           {
@@ -112,12 +112,11 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'valores-criticos',
         label: 'Valores criticos',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'rose',
         authorities: [HPN_AUTHORITIES.GESTION_CLINICA.REPORTE_VALORES_CRITICOS, ADMIN],
         disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO, GCM_CONTEXTS.AGUACHICA]).codes,
         routes: [
@@ -144,12 +143,11 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'auditoria',
         label: 'Auditoria',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'lime',
         authorities: [HPN_AUTHORITIES.AUDITORIA.CODE, ADMIN],
         disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO]).codes,
         routes: [
@@ -162,12 +160,11 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'dietas',
         label: 'Dietas',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'emerald',
         authorities: [HPN_AUTHORITIES.DIETAS.CODE, ADMIN],
         disableOnContexts: [GCM_CONTEXTS.AMMEDICAL.getCode()],
         routes: [
@@ -201,12 +198,11 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'camas',
         label: 'Camas',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'mint',
         authorities: [HPN_AUTHORITIES.CAMAS.RESERVA, HPN_AUTHORITIES.CAMAS.VER_CAMAS, ADMIN],
         routes: [
           {
@@ -225,12 +221,11 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'censos',
         label: 'Censos',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'slate',
         authorities: [HPN_AUTHORITIES.CENSOS.CODE, ADMIN],
         routes: [
           {
@@ -256,12 +251,11 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           },
         ],
       },
-
       {
         id: 'triage',
         label: 'Triage',
         icon: 'folder-cog',
-        accent: 'red',
+        accent: 'zinc',
         authorities: [HPN_AUTHORITIES.TRIAGE.CODE, ADMIN],
         disableOnContexts: allContexts([GCM_CONTEXTS.AGUACHICA, GCM_CONTEXTS.VALLEDUPAR]).codes,
         routes: [
