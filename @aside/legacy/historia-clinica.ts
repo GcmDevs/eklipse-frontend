@@ -7,7 +7,8 @@ export const LEGACY_HISTORIA_CLINICA_SNAV_ITEMS: NavModule[] = [
   {
     id: 'historia-clinica',
     label: 'Historia Clinica',
-    icon: 'folder-cog',
+    description: 'Módulo para la gestión, consulta y control de la historia clínica del paciente.',
+    icon: 'file-medical',
     accent: 'neutral',
     authorities: [LEGACY_HCN_AUTHORITIES.CODE, ADMIN],
     disableOnContexts: [GCM_CONTEXTS.AMMEDICAL.getCode()],
@@ -15,22 +16,26 @@ export const LEGACY_HISTORIA_CLINICA_SNAV_ITEMS: NavModule[] = [
       {
         id: 'balances-de-enfermeria',
         label: 'Balances de Enfermeria',
-        icon: 'folder-cog',
+        description:
+          'Registro y consulta de balances clínicos realizados por el personal de enfermería.',
+        icon: 'clipboard-list',
         accent: 'stone',
         authorities: [LEGACY_HCN_AUTHORITIES.BALANCES_ENFERMERIA.CODE, ADMIN],
         routes: [
           {
             id: 'sabanas-uci',
             label: 'Sabanas UCI',
+            description: 'Registro de balances y monitoreo de pacientes en UCI.',
             href: 'legacy/26',
-            icon: 'folder-cog',
+            icon: 'activity',
             authorities: [LEGACY_HCN_AUTHORITIES.BALANCES_ENFERMERIA.SABANAS_UCI, ADMIN],
           },
           {
             id: 'reporte-de-sabanas',
             label: 'Reporte de sabanas',
+            description: 'Generación de reportes consolidados de balances de enfermería.',
             href: 'legacy/27',
-            icon: 'folder-cog',
+            icon: 'file-text',
             authorities: [LEGACY_HCN_AUTHORITIES.BALANCES_ENFERMERIA.REPORTE_SABANAS, ADMIN],
           },
         ],
@@ -38,15 +43,17 @@ export const LEGACY_HISTORIA_CLINICA_SNAV_ITEMS: NavModule[] = [
       {
         id: 'epicrisis',
         label: 'Epicrisis',
-        icon: 'folder-cog',
+        description: 'Gestión del resumen clínico de egreso del paciente.',
+        icon: 'book-medical',
         accent: 'brown',
         authorities: [LEGACY_HCN_AUTHORITIES.EPICRISIS.CODE, ADMIN],
         routes: [
           {
             id: 'desconfirmar',
             label: 'Desconfirmar',
+            description: 'Reversión o anulación de epicrisis previamente confirmadas.',
             href: 'legacy/28',
-            icon: 'folder-cog',
+            icon: 'undo-2',
             authorities: [LEGACY_HCN_AUTHORITIES.EPICRISIS.DESCONFIRMAR, ADMIN],
           },
         ],
@@ -54,15 +61,17 @@ export const LEGACY_HISTORIA_CLINICA_SNAV_ITEMS: NavModule[] = [
       {
         id: 'interconsultas',
         label: 'Interconsultas',
-        icon: 'folder-cog',
+        description: 'Gestión de solicitudes de interconsulta entre especialidades médicas.',
+        icon: 'message-square-plus',
         accent: 'gold',
         authorities: [LEGACY_HCN_AUTHORITIES.INTERCONSULTAS.CODE, ADMIN],
         routes: [
           {
             id: 'pendientes',
             label: 'Pendientes',
+            description: 'Listado de interconsultas pendientes de atención o respuesta.',
             href: 'legacy/29',
-            icon: 'folder-cog',
+            icon: 'clock',
             authorities: [LEGACY_HCN_AUTHORITIES.INTERCONSULTAS.MOSTRAR_PENDIENTES, ADMIN],
           },
         ],

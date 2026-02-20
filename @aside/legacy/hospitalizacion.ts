@@ -7,7 +7,8 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
   {
     id: 'hospitalizacion',
     label: 'Hospitalización',
-    icon: 'folder-cog',
+    description: 'Módulo para la gestión integral de procesos de hospitalización de pacientes.',
+    icon: 'hospital',
     accent: 'indigo',
     authorities: [HPN_AUTHORITIES.CODE, ADMIN],
     disableOnContexts: [GCM_CONTEXTS.AMMEDICAL.getCode()],
@@ -15,15 +16,18 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
       {
         id: 'gestion-clinica',
         label: 'Gestión Clinica',
-        icon: 'folder-cog',
+        description:
+          'Administración de procesos clínicos, pacientes, traslados y turnos del personal.',
+        icon: 'stethoscope',
         accent: 'pink',
         authorities: [HPN_AUTHORITIES.GESTION_CLINICA.CODE, ADMIN],
         routes: [
           {
             id: 'gestionar-areas',
             label: 'Gestionar areas',
+            description: 'Configuración y administración de áreas clínicas y asistenciales.',
             href: 'legacy/2',
-            icon: 'folder-cog',
+            icon: 'building-2',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.GESTIONAR_AREAS, ADMIN],
             disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO, GCM_CONTEXTS.VALLEDUPAR])
               .codes,
@@ -31,8 +35,9 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'administrar-gestiones',
             label: 'Administrar gestiones',
+            description: 'Gestión administrativa de procesos clínicos y operativos.',
             href: 'legacy/3',
-            icon: 'folder-cog',
+            icon: 'clipboard-list',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.ADMINISTRAR_GESTIONES, ADMIN],
             disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO, GCM_CONTEXTS.VALLEDUPAR])
               .codes,
@@ -40,8 +45,9 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'administrar-traslados-ambulancia',
             label: 'Administrar traslados ambulancia',
+            description: 'Control y programación de traslados de pacientes en ambulancia.',
             href: 'legacy/4',
-            icon: 'folder-cog',
+            icon: 'ambulance',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.ADMINISTRAR_GESTIONES, ADMIN],
             disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO, GCM_CONTEXTS.VALLEDUPAR])
               .codes,
@@ -49,8 +55,9 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'gestionar-pacientes',
             label: 'Gestionar pacientes',
+            description: 'Registro, seguimiento y administración de pacientes hospitalizados.',
             href: 'legacy/5',
-            icon: 'folder-cog',
+            icon: 'users',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.GESTIONAR_PACIENTES, ADMIN],
             disableOnContexts: allContexts([
               GCM_CONTEXTS.ALTACENTRO,
@@ -61,8 +68,9 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'censo-especialidades',
             label: 'Censo especialidades',
+            description: 'Reporte y estadísticas de ocupación por especialidades médicas.',
             href: 'legacy/6',
-            icon: 'folder-cog',
+            icon: 'bar-chart-3',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.GESTIONAR_PACIENTES, ADMIN],
             disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO, GCM_CONTEXTS.VALLEDUPAR])
               .codes,
@@ -70,8 +78,9 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'tiempos-de-egresos',
             label: 'Tiempos de egresos',
+            description: 'Monitoreo de tiempos de alta y egreso hospitalario.',
             href: 'legacy/7',
-            icon: 'folder-cog',
+            icon: 'timer',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.TIEMPOS_EGRESOS, ADMIN],
             disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO, GCM_CONTEXTS.VALLEDUPAR])
               .codes,
@@ -79,8 +88,9 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'traslados-x-movil',
             label: 'Traslados x movil',
+            description: 'Gestión de traslados asignados por unidad móvil.',
             href: 'legacy/8',
-            icon: 'folder-cog',
+            icon: 'truck',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.GESTIONAR_TRANSLADO_ASIGNADOS, ADMIN],
             disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO, GCM_CONTEXTS.VALLEDUPAR])
               .codes,
@@ -88,8 +98,9 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'registrar-empleado-o-entidad',
             label: 'Registrar empleado o entidad',
+            description: 'Registro de personal o entidades asociadas a servicios de traslado.',
             href: 'legacy/9',
-            icon: 'folder-cog',
+            icon: 'user-plus',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.REGI_ASIGNAR_MOVIL, ADMIN],
             disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO, GCM_CONTEXTS.VALLEDUPAR])
               .codes,
@@ -97,8 +108,10 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'entrega-de-turno',
             label: 'Entrega de turno',
+            description:
+              'Registro y control del proceso de entrega y recepción de turnos clínicos.',
             href: 'legacy/10',
-            icon: 'folder-cog',
+            icon: 'rotate-cw',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.ENTREGA_TURNO, ADMIN],
             disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO, GCM_CONTEXTS.VALLEDUPAR])
               .codes,
@@ -106,8 +119,9 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'gestion-de-turnos',
             label: 'Gestión de turnos',
+            description: 'Planificación y administración de turnos del personal clínico.',
             href: 'legacy/11',
-            icon: 'folder-cog',
+            icon: 'calendar-clock',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.GESTION_TURNO, ADMIN],
           },
         ],
@@ -115,7 +129,8 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
       {
         id: 'valores-criticos',
         label: 'Valores criticos',
-        icon: 'folder-cog',
+        description: 'Gestión y seguimiento de resultados críticos y alertas sanitarias.',
+        icon: 'alert-triangle',
         accent: 'rose',
         authorities: [HPN_AUTHORITIES.GESTION_CLINICA.REPORTE_VALORES_CRITICOS, ADMIN],
         disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO, GCM_CONTEXTS.AGUACHICA]).codes,
@@ -123,22 +138,25 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'reporte',
             label: 'Reporte',
+            description: 'Generación de reportes de valores críticos clínicos.',
             href: 'legacy/12',
-            icon: 'folder-cog',
+            icon: 'file-text',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.REPORTE_VALORES_CRITICOS, ADMIN],
           },
           {
             id: 'revision-alertas-sanitarias',
             label: 'Revisión alertas sanitarias',
+            description: 'Monitoreo y validación de alertas sanitarias y epidemiológicas.',
             href: 'legacy/13',
-            icon: 'folder-cog',
+            icon: 'bell-ring',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.REPORTE_VALORES_CRITICOS, ADMIN],
           },
           {
             id: 'recepcion-tecnica-de-reactivos',
             label: 'Recepción técnica de reactivos',
+            description: 'Control técnico y recepción de reactivos de laboratorio.',
             href: 'legacy/14',
-            icon: 'folder-cog',
+            icon: 'flask-conical',
             authorities: [HPN_AUTHORITIES.GESTION_CLINICA.REPORTE_VALORES_CRITICOS, ADMIN],
           },
         ],
@@ -146,7 +164,8 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
       {
         id: 'auditoria',
         label: 'Auditoria',
-        icon: 'folder-cog',
+        description: 'Módulo de auditoría clínica y administrativa del sistema.',
+        icon: 'shield-check',
         accent: 'lime',
         authorities: [HPN_AUTHORITIES.AUDITORIA.CODE, ADMIN],
         disableOnContexts: allContexts([GCM_CONTEXTS.ALTACENTRO]).codes,
@@ -154,8 +173,9 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'registro',
             label: 'Registro',
+            description: 'Registro de auditorías y controles internos.',
             href: 'legacy/15',
-            icon: 'folder-cog',
+            icon: 'list-checks',
             authorities: [HPN_AUTHORITIES.AUDITORIA.GESTIONAR, ADMIN],
           },
         ],
@@ -163,7 +183,8 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
       {
         id: 'dietas',
         label: 'Dietas',
-        icon: 'folder-cog',
+        description: 'Gestión de dietas hospitalarias y procesos de facturación asociados.',
+        icon: 'utensils',
         accent: 'emerald',
         authorities: [HPN_AUTHORITIES.DIETAS.CODE, ADMIN],
         disableOnContexts: [GCM_CONTEXTS.AMMEDICAL.getCode()],
@@ -171,29 +192,33 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'jornada',
             label: 'Jornada',
+            description: 'Visualización de jornadas de distribución de dietas.',
             href: 'legacy/16',
-            icon: 'folder-cog',
+            icon: 'clock',
             authorities: [HPN_AUTHORITIES.DIETAS.VER_JORNADA, ADMIN],
           },
           {
             id: 'registro',
             label: 'Registro',
+            description: 'Registro de dietas asignadas a pacientes hospitalizados.',
             href: 'legacy/17',
-            icon: 'folder-cog',
+            icon: 'clipboard-edit',
             authorities: [HPN_AUTHORITIES.DIETAS.REGISTRAR, ADMIN],
           },
           {
             id: 'no-recibidas',
             label: 'No recibidas',
+            description: 'Listado de dietas no entregadas o no recibidas.',
             href: 'legacy/18',
-            icon: 'folder-cog',
+            icon: 'x-circle',
             authorities: [HPN_AUTHORITIES.DIETAS.VER_FACTURACION, ADMIN],
           },
           {
             id: 'facturacion',
             label: 'Facturación',
+            description: 'Facturación y control financiero del servicio de dietas.',
             href: 'legacy/19',
-            icon: 'folder-cog',
+            icon: 'receipt',
             authorities: [HPN_AUTHORITIES.DIETAS.VER_FACTURACION, ADMIN],
           },
         ],
@@ -201,22 +226,25 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
       {
         id: 'camas',
         label: 'Camas',
-        icon: 'folder-cog',
+        description: 'Administración de disponibilidad y reservas de camas hospitalarias.',
+        icon: 'bed',
         accent: 'mint',
         authorities: [HPN_AUTHORITIES.CAMAS.RESERVA, HPN_AUTHORITIES.CAMAS.VER_CAMAS, ADMIN],
         routes: [
           {
             id: 'reservar-camas',
             label: 'Reservar camas',
+            description: 'Reserva y asignación de camas a pacientes.',
             href: 'legacy/20',
-            icon: 'folder-cog',
+            icon: 'bed-double',
             authorities: [HPN_AUTHORITIES.CAMAS.RESERVA, HPN_AUTHORITIES.CAMAS.VER_CAMAS, ADMIN],
           },
           {
             id: 'lista-espera',
             label: 'Lista espera',
+            description: 'Gestión de lista de espera para camas hospitalarias.',
             href: 'legacy/21',
-            icon: 'folder-cog',
+            icon: 'hourglass',
             authorities: [HPN_AUTHORITIES.CAMAS.RESERVA, HPN_AUTHORITIES.CAMAS.VER_CAMAS, ADMIN],
           },
         ],
@@ -224,29 +252,33 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
       {
         id: 'censos',
         label: 'Censos',
-        icon: 'folder-cog',
+        description: 'Reportes estadísticos de pacientes, camas y procesos hospitalarios.',
+        icon: 'bar-chart-2',
         accent: 'slate',
         authorities: [HPN_AUTHORITIES.CENSOS.CODE, ADMIN],
         routes: [
           {
             id: 'censo-de-pacientes',
             label: 'Censo de pacientes',
+            description: 'Censo general de pacientes hospitalizados.',
             href: 'legacy/22',
-            icon: 'folder-cog',
+            icon: 'users-round',
             authorities: [HPN_AUTHORITIES.CENSOS.PACIENTES, ADMIN],
           },
           {
             id: 'censo-de-camas',
             label: 'Censo de camas',
+            description: 'Reporte de ocupación y disponibilidad de camas.',
             href: 'legacy/23',
-            icon: 'folder-cog',
+            icon: 'bed',
             authorities: [HPN_AUTHORITIES.CENSOS.CAMAS, ADMIN],
           },
           {
             id: 'pacientes-x-reval-pendiente',
             label: 'Pacientes x reval. pendiente',
+            description: 'Listado de pacientes pendientes de revaloración médica.',
             href: 'legacy/24',
-            icon: 'folder-cog',
+            icon: 'refresh-cw',
             authorities: [HPN_AUTHORITIES.CENSOS.PENDIENTES_REVALORAR, ADMIN],
           },
         ],
@@ -254,7 +286,8 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
       {
         id: 'triage',
         label: 'Triage',
-        icon: 'folder-cog',
+        description: 'Clasificación y monitoreo de pacientes según prioridad clínica.',
+        icon: 'activity',
         accent: 'zinc',
         authorities: [HPN_AUTHORITIES.TRIAGE.CODE, ADMIN],
         disableOnContexts: allContexts([GCM_CONTEXTS.AGUACHICA, GCM_CONTEXTS.VALLEDUPAR]).codes,
@@ -262,8 +295,9 @@ export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
           {
             id: 'tablero-triage',
             label: 'Tablero triage',
+            description: 'Tablero de control para monitoreo en tiempo real del triage.',
             href: 'legacy/25',
-            icon: 'folder-cog',
+            icon: 'layout-dashboard',
             authorities: [HPN_AUTHORITIES.TRIAGE.TABLERO, ADMIN],
           },
         ],
