@@ -2,9 +2,9 @@ import { GcmContextCode, GcmContextType, gcmContextTypeFactory } from '@kato-lee
 import { jwtDecode } from 'jwt-decode';
 
 export const STORAGE_KEYS = {
-  authToken: 'brr-token',
-  legacyAuthToken: 'ekl-token',
-  legacySharedData: 'shared-data',
+  authToken: 'ekl-token',
+  centros: 'srdt-centros',
+  authorities: 'srdt-authorities',
 };
 
 export const PROTECTED_STORAGE_KEYS = [];
