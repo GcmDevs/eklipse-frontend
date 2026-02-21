@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { AuthGuard, AuthoritiesGuard, GuestGuard } from '@common/guards';
 import { DashboardComponent } from './admin/component';
 import { LOCAL_URLS } from '@common/constants';
-import { GEN_AUTHORITIES } from '@auths/general';
 
 export const routes: Routes = [
   { path: '', redirectTo: LOCAL_URLS.home, pathMatch: 'full' },
@@ -28,7 +27,7 @@ export const routes: Routes = [
         path: 'seguridad',
         canActivate: [AuthoritiesGuard],
         loadChildren: () => import('@modules/permisos/routes').then((m) => m.routes),
-        data: { authorities: [GEN_AUTHORITIES.CODE] },
+        data: { authorities: ['seguridad'] },
       },
     ],
   },

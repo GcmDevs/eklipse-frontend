@@ -30,7 +30,6 @@ import {
   PermisoProxyRepository,
   RolProxyRepository,
 } from '@modules/permisos/infrastructure/repositories';
-import { MODULES } from '@auths/principal';
 import {
   PermisoCrudController,
   PermisoRolController,
@@ -95,18 +94,15 @@ export class SetPermisosDialog implements OnInit, OnDestroy {
   public async ngOnInit(): Promise<void> {
     const result = await this._permisosCrud.fetch();
 
-    const EXT = MODULES.EXT.CODE;
-    const GMN = MODULES.GMN.CODE;
-
     result.fold({
       right: (permisos) => {
         const _permisos = cloneDeep(
           this.data.version === 'standard'
-            ? permisos.filter((p) => [EXT, GMN].indexOf(p.codigo.slice(0, 3)) < 0)
+            ? permisos.filter((p) => ['007', '008'].indexOf(p.codigo.slice(0, 3)) < 0)
             : this.data.version === 'enlaces-externos'
-              ? permisos.filter((p) => [EXT].indexOf(p.codigo.slice(0, 3)) >= 0)
+              ? permisos.filter((p) => ['007'].indexOf(p.codigo.slice(0, 3)) >= 0)
               : this.data.version === 'gemi'
-                ? permisos.filter((p) => [GMN].indexOf(p.codigo.slice(0, 3)) >= 0)
+                ? permisos.filter((p) => ['008'].indexOf(p.codigo.slice(0, 3)) >= 0)
                 : permisos,
         );
 

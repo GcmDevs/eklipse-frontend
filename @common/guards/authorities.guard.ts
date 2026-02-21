@@ -1,6 +1,5 @@
 import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
-import { ADMIN_AUTHORITY } from '@auths/principal';
 import { env } from '@env/environment';
 import { LOCAL_URLS } from '@common/constants';
 import { SessionStore } from '@stores/session';
@@ -41,11 +40,11 @@ export const AuthoritiesGuard = (route: ActivatedRouteSnapshot) => {
       });
       fetchAuthorities.unsubscribe();
     } else {
-      myAuthorities.push(ADMIN_AUTHORITY);
+      myAuthorities.push('admin');
     }
 
     const requiredAuthorities = route.data!['authorities']
-      ? [ADMIN_AUTHORITY, ...route.data['authorities']]
+      ? ['admin', ...route.data['authorities']]
       : undefined;
 
     const canActivate = _validateAuthorities(requiredAuthorities, myAuthorities);

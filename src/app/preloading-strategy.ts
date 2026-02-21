@@ -1,7 +1,6 @@
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { PreloadingStrategy, Route } from '@angular/router';
-import { ADMIN_AUTHORITY } from '@auths/principal';
 import { env } from '@env/environment';
 import { SessionStore } from '@stores/session';
 
@@ -24,7 +23,7 @@ export class CustomPreloadingStrategy implements PreloadingStrategy {
       if (!authorities) authorities = [];
 
       if (route.data && route.data['authorities']) {
-        const authoritiesRequired = [ADMIN_AUTHORITY, ...(route.data['authorities'] as string[])];
+        const authoritiesRequired = ['admin', ...(route.data['authorities'] as string[])];
 
         const hasAuthority = () =>
           authoritiesRequired.some((authority: string) => authorities.includes(authority));
