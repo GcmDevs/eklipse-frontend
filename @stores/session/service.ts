@@ -71,7 +71,7 @@ export class SessionStore {
         }>(`${SEG_END_POINTS.PERMISOS}/my-authorities`)
         .pipe(
           map((data) => {
-            return [...data.onlyCodes, ...data.enabledModules];
+            return [...data.onlyCodes, ...(data.enabledModules || [])];
           }),
         ),
     );
