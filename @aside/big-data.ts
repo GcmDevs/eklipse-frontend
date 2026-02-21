@@ -4,7 +4,7 @@ import {
   BIG_DATA_LINKS_DISCRIMINATED as bigDataLinks,
 } from '@modules/big-data/config';
 import { NavModule, NavRoute } from './config';
-import { ADMIN } from '@auths/general';
+import { ADMIN_AUTHORITY as ADMIN } from '@auths/principal';
 
 const administrativos: NavRoute[] = bigDataLinks.administrativos.map((r) => {
   let complement: any = BIG_DATA_LINKS_COMPLEMENT.filter((c) => c.key === r.key);

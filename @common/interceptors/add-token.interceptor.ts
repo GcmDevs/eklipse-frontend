@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import {
   HttpEvent,
   HttpHandler,
@@ -6,8 +5,9 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { STORAGE_KEYS } from '@common/services';
+import { STORAGE_KEYS } from '../services';
 
 @Injectable()
 export class AddTokenInterceptor implements HttpInterceptor {

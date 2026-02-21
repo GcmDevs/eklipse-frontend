@@ -2,7 +2,7 @@ import { FormControl } from '@angular/forms';
 import { SafeResourceUrl } from '@angular/platform-browser';
 import { BIG_DATA_AUTHORITIES } from '@authorities/big-data';
 import { allContexts, GCM_CONTEXTS, GcmContextType } from '@kato-lee/utilities/types';
-import { ADMIN } from '@auths/general';
+import { ADMIN_AUTHORITY as ADMIN } from '@auths/principal';
 
 const enlExt = BIG_DATA_AUTHORITIES;
 const ctxs = GCM_CONTEXTS;

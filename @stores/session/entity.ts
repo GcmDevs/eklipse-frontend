@@ -1,5 +1,5 @@
 import { GcmContextType } from '@kato-lee/utilities/types';
-import { UserDataFromToken } from '@common/services';
+import { UserDataFromToken } from '../../@common/services';
 
 export class TokCreAndExpInfo {
   constructor(

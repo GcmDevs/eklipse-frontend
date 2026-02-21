@@ -1,4 +1,4 @@
-import { env } from '@env/environment';
+import { env } from '../@environments/environment';
 
 const apiUrlGen = `${env.serveHost}:8001`;
 

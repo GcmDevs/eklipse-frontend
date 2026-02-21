@@ -5,6 +5,7 @@ import { Observable, firstValueFrom, map } from 'rxjs';
 import { GcmContextCode, gcmContextTypeFactory } from '@kato-lee/utilities/types';
 import { centrosInitialState, centrosState, setCentros } from './store';
 import { SEG_END_POINTS } from '../../@end-points/seguridad';
+import { STORAGE_KEYS } from '../../@common/services';
 import { Centro } from './entity';
 
 interface CentroI {
@@ -23,19 +24,12 @@ export class CentrosStore {
   ) {}
 
   public dispatch(centros: Centro[]): void {
-    this.store.dispatch(
-      setCentros({
-        data: centros,
-      }),
-    );
+    localStorage.setItem(STORAGE_KEYS.centros, JSON.stringify(centros));
+    this.store.dispatch(setCentros({ data: centros }));
   }
 
   public clear(): void {
-    this.store.dispatch(
-      setCentros({
-        data: centrosInitialState,
-      }),
-    );
+    this.store.dispatch(setCentros({ data: centrosInitialState }));
   }
 
   public observable(): Observable<Centro[]> {

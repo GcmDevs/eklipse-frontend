@@ -1,4 +1,3 @@
-import { ADMIN, GEN_AUTHORITIES } from '@auths/general';
 import { NavModule } from './config';
 
 export const SEGURIDAD_SNAV_ITEMS: NavModule[] = [
@@ -8,7 +7,7 @@ export const SEGURIDAD_SNAV_ITEMS: NavModule[] = [
     icon: 'shield-check',
     accent: 'amber',
     description: 'Autenticación, permisos, auditoría y control de acceso al sistema.',
-    authorities: [ADMIN, GEN_AUTHORITIES.CODE],
+    authorities: ['admin', 'seguridad'],
     submodules: [
       {
         id: 'permisos',
@@ -16,7 +15,7 @@ export const SEGURIDAD_SNAV_ITEMS: NavModule[] = [
         icon: 'lock',
         accent: 'blue',
         description: 'Gestión de módulos, roles y permisos de usuarios.',
-        authorities: [ADMIN, GEN_AUTHORITIES.PERMISOS.CODE],
+        authorities: ['admin', 'seguridad-permisos'],
         routes: [
           {
             id: 'create',
@@ -24,7 +23,7 @@ export const SEGURIDAD_SNAV_ITEMS: NavModule[] = [
             icon: 'layers',
             description: 'Definir la estructura de módulos y sus permisos asociados.',
             href: 'seguridad/permisos/create',
-            authorities: [ADMIN, GEN_AUTHORITIES.PERMISOS.CREAR],
+            authorities: ['admin', 'seguridad-permisos-create'],
             wasDisabled: false,
           },
           {
@@ -33,7 +32,7 @@ export const SEGURIDAD_SNAV_ITEMS: NavModule[] = [
             icon: 'user-cog',
             description: 'Asignar y revocar permisos individuales por usuario.',
             href: 'seguridad/permisos/manage-by-usuario',
-            authorities: [ADMIN, GEN_AUTHORITIES.PERMISOS.GESTIONAR_TODOS],
+            authorities: ['admin', 'seguridad-permisos-manage-by-usuario'],
             wasDisabled: true,
           },
           {
@@ -42,7 +41,7 @@ export const SEGURIDAD_SNAV_ITEMS: NavModule[] = [
             icon: 'users',
             description: 'Administrar permisos agrupados por rol.',
             href: 'seguridad/permisos/manage-by-rol',
-            authorities: [ADMIN, GEN_AUTHORITIES.PERMISOS.GESTIONAR_TODOS],
+            authorities: ['admin', 'seguridad-permisos-manage-by-rol'],
           },
         ],
       },

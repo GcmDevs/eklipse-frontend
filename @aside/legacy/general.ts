@@ -1,4 +1,4 @@
-import { ADMIN } from '@auths/general';
+import { ADMIN_AUTHORITY as ADMIN } from '@auths/principal';
 import { NavModule } from '@aside/config';
 import { GEN_AUTHORITIES } from '@authorities/legacy/general';
 
