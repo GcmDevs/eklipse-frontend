@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { STORAGE_KEYS } from '@common/services';
-import { LOCAL_URLS } from '@common/constants';
-import { CentrosStore } from '@stores/centros';
-import { SessionStore } from '@stores/session';
+import { CentrosStore } from '../../@stores/centros';
+import { SessionStore } from '../../@stores/session';
+import { STORAGE_KEYS } from '../services';
+import { LOCAL_URLS } from '../constants';
 
 export const AuthGuard = () => {
   const router = inject(Router);

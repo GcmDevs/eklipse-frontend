@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { LOCAL_URLS } from '@common/constants';
-import { STORAGE_KEYS } from '@common/services';
+import { LOCAL_URLS } from '../constants';
+import { STORAGE_KEYS } from '../services';
 
 export const GuestGuard = () => {
   const router = inject(Router);

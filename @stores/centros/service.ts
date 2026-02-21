@@ -23,19 +23,11 @@ export class CentrosStore {
   ) {}
 
   public dispatch(centros: Centro[]): void {
-    this.store.dispatch(
-      setCentros({
-        data: centros,
-      }),
-    );
+    this.store.dispatch(setCentros({ data: centros }));
   }
 
   public clear(): void {
-    this.store.dispatch(
-      setCentros({
-        data: centrosInitialState,
-      }),
-    );
+    this.store.dispatch(setCentros({ data: centrosInitialState }));
   }
 
   public observable(): Observable<Centro[]> {

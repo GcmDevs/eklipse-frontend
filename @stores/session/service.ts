@@ -3,54 +3,44 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, firstValueFrom, map } from 'rxjs';
 import { setSession, sessionState, sessionInitialState } from './store';
-import { STORAGE_KEYS, UserDataFromToken } from '@common/services';
+import { STORAGE_KEYS, UserDataFromToken } from '../../@common/services';
 import { gcmContextTypeFactory } from '@kato-lee/utilities/types';
 import { SEG_END_POINTS } from '../../@end-points/seguridad';
-import { env } from '@env/environment';
+import { env } from '../../@environments/environment';
 import { Session, TokCreAndExpInfo } from './entity';
-import { decodeToken } from '@common/services';
+import { decodeToken } from '../../@common/services';
 
 @Injectable({ providedIn: 'root' })
 export class SessionStore {
   constructor(
-    private store: Store<Session>,
+    private _store: Store<Session>,
     private _http: HttpClient,
   ) {}
 
   public dispatch(session: { token: string; authorities: string[] }): void {
-    const tokenDecoded = decodeToken(session.token);
+    const tkDcd = decodeToken(session.token);
 
     const newSession = new Session(
-      new TokCreAndExpInfo(tokenDecoded.createdAt, tokenDecoded.expiredAt),
-      gcmContextTypeFactory(tokenDecoded.context.getCode()),
-      new UserDataFromToken(
-        tokenDecoded.user.id,
-        tokenDecoded.user.document,
-        tokenDecoded.user.fullName,
-      ),
-
+      new TokCreAndExpInfo(tkDcd.createdAt, tkDcd.expiredAt),
+      gcmContextTypeFactory(tkDcd.context.getCode()),
+      new UserDataFromToken(tkDcd.user.id, tkDcd.user.document, tkDcd.user.fullName),
       session.authorities,
       true,
     );
 
-    this.store.dispatch(setSession({ data: newSession }));
+    this._store.dispatch(setSession({ data: newSession }));
   }
 
   public clear(): void {
-    this.store.dispatch(
-      setSession({
-        data: sessionInitialState,
-      }),
-    );
+    this._store.dispatch(setSession({ data: sessionInitialState }));
   }
 
   public observable(): Observable<Session> {
-    return this.store.select(sessionState as any);
+    return this._store.select(sessionState as any);
   }
 
   public async autoInstance(): Promise<void> {
     let wasLoaded = true;
-
     const subs = this.observable().subscribe((el) => {
       if (!el.wasLoaded) wasLoaded = false;
     });
@@ -64,10 +54,7 @@ export class SessionStore {
         if (env.production) authorities = await this._fetchMyAuthorities();
         else authorities.push('admin');
 
-        this.dispatch({
-          token,
-          authorities,
-        });
+        this.dispatch({ token, authorities });
       } catch (error: any) {
         console.warn('No se obtuvieron los permisos correctamente', error.message);
       }
@@ -80,10 +67,11 @@ export class SessionStore {
         .get<{
           authorities: any[];
           onlyCodes: string[];
+          enabledModules: string[];
         }>(`${SEG_END_POINTS.PERMISOS}/my-authorities`)
         .pipe(
           map((data) => {
-            return data.onlyCodes;
+            return [...data.onlyCodes, ...data.enabledModules];
           }),
         ),
     );

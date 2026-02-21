@@ -1,8 +1,8 @@
 import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
-import { env } from '@env/environment';
-import { LOCAL_URLS } from '@common/constants';
-import { SessionStore } from '@stores/session';
+import { env } from '../../@environments/environment';
+import { SessionStore } from '../../@stores/session';
+import { LOCAL_URLS } from '../constants';
 
 const _validateAuthorities = (
   authorities: string[] | undefined,
