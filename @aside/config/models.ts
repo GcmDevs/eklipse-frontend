@@ -1,6 +1,4 @@
-import { GcmContextCode } from '@kato-lee/utilities/types';
-
-export type AccentType = 'amber' | 'blue' | 'green' | 'red' | 'teal';
+import { GcmContextCode } from '@common/types';
 
 export interface NavRoute {
   id: string;
@@ -18,7 +16,7 @@ export interface NavSubmodule {
   id: string;
   label: string;
   icon: string;
-  accent: AccentType;
+  accent: string;
   description?: string;
   authorities?: string[];
   disableOnContexts?: GcmContextCode[];
@@ -31,7 +29,7 @@ export interface NavModule {
   id: string;
   label: string;
   icon: string;
-  accent: AccentType;
+  accent: string;
   description?: string;
   authorities?: string[];
   disableOnContexts?: GcmContextCode[];

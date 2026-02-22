@@ -1,6 +1,6 @@
-import { ADMIN } from '@auths/general';
-import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
 import { LEGACY_HCN_AUTHORITIES } from '@authorities/legacy/historia-clinica';
+import { ADMIN_AUTHORITY as ADMIN } from '@auths/legacy/principal';
+import { GCM_CONTEXTS } from '@common/types';
 import { NavModule } from '@aside/config';
 
 export const LEGACY_HISTORIA_CLINICA_SNAV_ITEMS: NavModule[] = [

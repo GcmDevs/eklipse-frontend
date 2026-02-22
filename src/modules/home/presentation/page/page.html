@@ -3,7 +3,6 @@
   <p class="greeting-subtitle">Panel de administración — {{ config.contextForHumans }}</p>
 </div>
 
-<app-stats-row />
 @if (resourcesLoaded()) {
   <app-tasks-grid [config]="config" [navigation]="navigation" />
 }

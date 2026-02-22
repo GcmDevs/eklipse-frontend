@@ -14,7 +14,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { APP_INFO, LOCAL_URLS } from '@common/constants';
 import { STORAGE_KEYS } from '@common/services';
-import { GcmContextType } from '@kato-lee/utilities/types';
+import { GcmContextType } from '@common/types';
 import { SessionStore } from '@stores/session';
 import { CentrosStore } from '@stores/centros';
 import { MatSnackBarModule } from '@angular/material/snack-bar';

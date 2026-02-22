@@ -1,6 +1,7 @@
-const production = true;
+const production = false;
 export const env = {
   production,
-  localHost: 'http://localhost:9135',
-  serveHost: !production ? 'http://localhost' : 'https://eklipse.grupoclinicamedicos.com',
+  localHost: 'http://localhost',
+  //serveHost: 'http://localhost',
+  serveHost: 'https://eklipse.grupoclinicamedicos.com',
 };

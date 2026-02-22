@@ -1,5 +1,5 @@
 import { createAction, createReducer, createSelector, on, props } from '@ngrx/store';
-import { AppState } from '@stores/state';
+import { AppState } from '../state';
 import { Centro } from './entity';
 
 export const setCentros = createAction('[Centros] Set centros', props<{ data: Centro[] }>());

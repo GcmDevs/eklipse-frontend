@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom, map, retry, throwError, timeout } from 'rxjs';
 import { FetchContextsService } from '@modules/auth/application/services';
-import { GcmContextCode, GcmContextType } from '@kato-lee/utilities/types';
+import { GcmContextCode, GcmContextType } from '@common/types';
 import { SEG_END_POINTS } from '@end-points/seguridad';
 
 interface GcmContextI {

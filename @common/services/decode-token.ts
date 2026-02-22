@@ -1,24 +1,13 @@
-import { GcmContextCode, GcmContextType, gcmContextTypeFactory } from '@kato-lee/utilities/types';
+import { GcmContextCode, GcmContextType, gcmContextTypeFactory } from '@common/types';
 import { jwtDecode } from 'jwt-decode';
 
 export const STORAGE_KEYS = {
   authToken: 'ekl-token',
-  isDarkTheme: 'ekl-dk-th',
-  sidebarIsCompact: 'tak-sidebar-is-compact',
-  forceWebVersion: 'fc-web-vs',
-  forceMobileVersion: 'fc-mob-vs',
-  validacionData: 'gcm-validacion-data',
-  conteoInventario: 'conteo-inventario',
+  centros: 'srdt-centros',
+  authorities: 'srdt-authorities',
 };
 
-export const PROTECTED_STORAGE_KEYS = [
-  STORAGE_KEYS.isDarkTheme,
-  STORAGE_KEYS.sidebarIsCompact,
-  STORAGE_KEYS.forceWebVersion,
-  STORAGE_KEYS.forceMobileVersion,
-  STORAGE_KEYS.validacionData,
-  STORAGE_KEYS.conteoInventario,
-];
+export const PROTECTED_STORAGE_KEYS = [];
 
 interface AuthTokenI {
   jti: string;

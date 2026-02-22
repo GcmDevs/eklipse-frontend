@@ -2,10 +2,10 @@ import { Component, signal, computed, Input } from '@angular/core';
 import { NgTemplateOutlet, NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, ArrowRight, ChevronRight, Home } from 'lucide-angular';
-import { AccentType, DashboardConfig, NavModule, NavSubmodule } from '@aside/config';
+import { DashboardConfig, NavModule, NavSubmodule } from '@aside/config';
 import { ValidateAccessPipe } from 'src/functions';
 import { NavIconComponent } from 'src/nav-icons';
-import { GcmContextCode } from '@kato-lee/utilities/types';
+import { GcmContextCode } from '@common/types';
 
 type Level = 'modules' | 'submodules' | 'routes';
 
@@ -21,7 +21,7 @@ interface CardItem {
   label: string;
   description?: string;
   icon: string;
-  accent: AccentType;
+  accent: string;
   count?: number;
   href?: string;
   authorities?: string[];

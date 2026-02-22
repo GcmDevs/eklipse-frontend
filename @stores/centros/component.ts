@@ -11,15 +11,15 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GCM_CONTEXTS, GcmContextType } from '@kato-lee/utilities/types';
+import { GcmContextType } from '@common/types';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { TakSelectFieldComponent } from '@kato-lee/components/fields';
-import { ALL_CENTROS, Centro, CentrosStore } from '@stores/centros';
+import { ALL_CENTROS, Centro, CentrosStore } from '../centros';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { SessionStore } from '@stores/session';
+import { SessionStore } from '../session';
 
 @Component({
   selector: 'gcm-centros-suggestions',

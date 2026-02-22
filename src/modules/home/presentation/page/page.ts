@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { StatsRowComponent } from './stats-row/stats-row.component';
 import { TasksGridComponent } from './tasks-grid/tasks-grid.component';
 import { formatFullName, getDisplayFirstName, getInitials, moduleWasDisabled } from 'src/functions';
 import { SessionStore } from '@stores/session';
@@ -17,7 +16,7 @@ import { DashboardConfig, NAVIGATION_CONFIG } from '@aside/config';
 
 @Component({
   selector: 'app-home-page',
-  imports: [MatButtonModule, MatIconModule, StatsRowComponent, TasksGridComponent],
+  imports: [MatButtonModule, MatIconModule, TasksGridComponent],
   templateUrl: './page.html',
   styleUrl: './page.scss',
   encapsulation: ViewEncapsulation.None,

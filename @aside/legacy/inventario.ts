@@ -1,7 +1,7 @@
-import { allContexts, GCM_CONTEXTS } from '@kato-lee/utilities/types';
+import { allContexts, GCM_CONTEXTS } from '@common/types';
+import { ADMIN_AUTHORITY as ADMIN } from '@auths/legacy/principal';
 import { INN_AUTHORITIES } from '@authorities/legacy/inventario';
 import { NavModule } from '@aside/config';
-import { ADMIN } from '@auths/general';
 
 export const LEGACY_INVENTARIO_SNAV_ITEMS: NavModule[] = [
   {

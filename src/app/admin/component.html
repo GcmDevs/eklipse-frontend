@@ -1,6 +1,6 @@
 @if (resourcesLoaded()) {
   <div class="wrapper">
-    <app-sidebar [config]="config" [open]="sidebarOpen" (closed)="closeSidebar()" />
+    <app-sidebar [config]="config" [open]="sidebarOpen()" (closed)="closeSidebar()" />
     <app-topbar [config]="config" (menuClicked)="openSidebar()" (logout)="clickOnLogout()" />
     <main class="main">
       <router-outlet />

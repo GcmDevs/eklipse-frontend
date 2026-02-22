@@ -1,7 +1,7 @@
 import { Observable, tap } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { env } from '@env/environment';
+import { env } from '../../@environments/environment';
 
 @Injectable()
 export class TimerInterceptor implements HttpInterceptor {

@@ -1,7 +1,7 @@
-import { ADMIN } from '@auths/general';
-import { NavModule } from '@aside/config';
-import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
 import { CRN_AUTHORITIES } from '@authorities/legacy/cartera';
+import { ADMIN_AUTHORITY } from '@auths/legacy/principal';
+import { GCM_CONTEXTS } from '@common/types';
+import { NavModule } from '@aside/config';
 
 export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
   {
@@ -9,7 +9,7 @@ export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
     label: 'Cartera',
     icon: 'folder-cog',
     accent: 'red',
-    authorities: [ADMIN, CRN_AUTHORITIES.CODE],
+    authorities: [ADMIN_AUTHORITY, CRN_AUTHORITIES.CODE],
     disableOnContexts: [GCM_CONTEXTS.AMMEDICAL.getCode()],
     submodules: [
       {
@@ -17,14 +17,17 @@ export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
         label: 'Gestión / conciliación',
         icon: 'folder-cog',
         accent: 'red',
-        authorities: [ADMIN, CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.CODE],
+        authorities: [ADMIN_AUTHORITY, CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.CODE],
         routes: [
           {
             id: 'gestiones-de-cartera',
             label: 'Gestiones de cartera',
             href: 'legacy/39',
             icon: 'folder-cog',
-            authorities: [ADMIN, CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.ADMINISTRAR_GESTIONES],
+            authorities: [
+              ADMIN_AUTHORITY,
+              CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.ADMINISTRAR_GESTIONES,
+            ],
           },
           {
             id: 'gestionar-conciliaciones',
@@ -32,7 +35,7 @@ export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
             href: 'legacy/40',
             icon: 'folder-cog',
             authorities: [
-              ADMIN,
+              ADMIN_AUTHORITY,
               CRN_AUTHORITIES.GESTIONES_CONCILIACIONES.ADMINISTRAR_CONCILIACIONES,
             ],
           },
@@ -43,28 +46,28 @@ export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
         label: 'Radicación',
         icon: 'folder-cog',
         accent: 'red',
-        authorities: [ADMIN, CRN_AUTHORITIES.RADICACIONES.CODE],
+        authorities: [ADMIN_AUTHORITY, CRN_AUTHORITIES.RADICACIONES.CODE],
         routes: [
           {
             id: 'facturas-radicadas',
             label: 'Facturas radicadas',
             href: 'legacy/41',
             icon: 'folder-cog',
-            authorities: [ADMIN, CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
+            authorities: [ADMIN_AUTHORITY, CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
           },
           {
             id: 'facturas-pendientes-x-radicar',
             label: 'Facturas pendientes x radicar',
             href: 'legacy/42',
             icon: 'folder-cog',
-            authorities: [ADMIN, CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
+            authorities: [ADMIN_AUTHORITY, CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
           },
           {
             id: 'facturas-pendientes-x-recibir',
             label: 'Facturas pendientes x recibir',
             href: 'legacy/43',
             icon: 'folder-cog',
-            authorities: [ADMIN, CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
+            authorities: [ADMIN_AUTHORITY, CRN_AUTHORITIES.RADICACIONES.GESTIONAR_RADICACIONES_GCM],
           },
         ],
       },
@@ -73,14 +76,14 @@ export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [
         label: 'Formatos',
         icon: 'folder-cog',
         accent: 'red',
-        authorities: [ADMIN, CRN_AUTHORITIES.FORMATOS.CODE],
+        authorities: [ADMIN_AUTHORITY, CRN_AUTHORITIES.FORMATOS.CODE],
         routes: [
           {
             id: 'archivo-mega-plano',
             label: 'Archivo mega plano',
             href: 'legacy/44',
             icon: 'folder-cog',
-            authorities: [ADMIN, CRN_AUTHORITIES.FORMATOS.ARCHIVO_MEGA_PLANO],
+            authorities: [ADMIN_AUTHORITY, CRN_AUTHORITIES.FORMATOS.ARCHIVO_MEGA_PLANO],
           },
         ],
       },

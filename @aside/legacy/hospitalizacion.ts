@@ -1,6 +1,6 @@
-import { ADMIN } from '@auths/general';
-import { allContexts, GCM_CONTEXTS } from '@kato-lee/utilities/types';
 import { HPN_AUTHORITIES } from '@authorities/legacy/hospitalizacion';
+import { ADMIN_AUTHORITY as ADMIN } from '@auths/legacy/principal';
+import { allContexts, GCM_CONTEXTS } from '@common/types';
 import { NavModule } from '@aside/config';
 
 export const LEGACY_HOSPITALIZACION_SNAV_ITEMS: NavModule[] = [
