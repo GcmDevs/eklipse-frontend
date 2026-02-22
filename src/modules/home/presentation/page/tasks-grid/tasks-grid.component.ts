@@ -5,7 +5,7 @@ import { LucideAngularModule, ArrowRight, ChevronRight, Home } from 'lucide-angu
 import { DashboardConfig, NavModule, NavSubmodule } from '@aside/config';
 import { ValidateAccessPipe } from 'src/functions';
 import { NavIconComponent } from 'src/nav-icons';
-import { GcmContextCode } from '@kato-lee/utilities/types';
+import { GcmContextCode } from '@common/types';
 
 type Level = 'modules' | 'submodules' | 'routes';
 

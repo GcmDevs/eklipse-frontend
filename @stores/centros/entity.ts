@@ -1,4 +1,4 @@
-import { GcmContextType } from '@kato-lee/utilities/types';
+import { GcmContextType } from '@common/types';
 
 export class Centro {
   constructor(

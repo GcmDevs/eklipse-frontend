@@ -1,6 +1,6 @@
 import { createAction, createReducer, createSelector, on, props } from '@ngrx/store';
 import { UserDataFromToken } from '../../@common/services';
-import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
+import { GCM_CONTEXTS } from '@common/types';
 import { Session, TokCreAndExpInfo } from './entity';
 import { AppState } from '../state';
 

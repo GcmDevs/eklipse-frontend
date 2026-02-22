@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, firstValueFrom, map } from 'rxjs';
 import { setSession, sessionState, sessionInitialState } from './store';
 import { STORAGE_KEYS, UserDataFromToken } from '../../@common/services';
-import { gcmContextTypeFactory } from '@kato-lee/utilities/types';
+import { gcmContextTypeFactory } from '@common/types';
 import { SEG_END_POINTS } from '../../@end-points/seguridad';
 import { env } from '../../@environments/environment';
 import { Session, TokCreAndExpInfo } from './entity';

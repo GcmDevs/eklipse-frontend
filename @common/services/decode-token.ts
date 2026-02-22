@@ -1,4 +1,4 @@
-import { GcmContextCode, GcmContextType, gcmContextTypeFactory } from '@kato-lee/utilities/types';
+import { GcmContextCode, GcmContextType, gcmContextTypeFactory } from '@common/types';
 import { jwtDecode } from 'jwt-decode';
 
 export const STORAGE_KEYS = {

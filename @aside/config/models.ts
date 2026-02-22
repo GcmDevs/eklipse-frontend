@@ -1,4 +1,4 @@
-import { GcmContextCode } from '@kato-lee/utilities/types';
+import { GcmContextCode } from '@common/types';
 
 export interface NavRoute {
   id: string;
