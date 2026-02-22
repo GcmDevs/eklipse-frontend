@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GCM_CONTEXTS, GcmContextType } from '@kato-lee/utilities/types';
+import { GcmContextType } from '@common/types';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { TakSelectFieldComponent } from '@kato-lee/components/fields';
 import { ALL_CENTROS, Centro, CentrosStore } from '../centros';

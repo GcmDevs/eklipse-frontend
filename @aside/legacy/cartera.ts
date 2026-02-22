@@ -1,6 +1,6 @@
 import { ADMIN_AUTHORITY as ADMIN } from '@auths/principal';
 import { NavModule } from '@aside/config';
-import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
+import { GCM_CONTEXTS } from '@common/types';
 import { CRN_AUTHORITIES } from '@authorities/legacy/cartera';
 
 export const LEGACY_CARTERA_SNAV_ITEMS: NavModule[] = [

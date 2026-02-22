@@ -1,5 +1,5 @@
 import { ADMIN_AUTHORITY as ADMIN } from '@auths/principal';
-import { allContexts, GCM_CONTEXTS } from '@kato-lee/utilities/types';
+import { allContexts, GCM_CONTEXTS } from '@common/types';
 import { HPN_AUTHORITIES } from '@authorities/legacy/hospitalizacion';
 import { NavModule } from '@aside/config';
 

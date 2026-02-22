@@ -1,5 +1,5 @@
 import { ADMIN_AUTHORITY as ADMIN } from '@auths/principal';
-import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
+import { GCM_CONTEXTS } from '@common/types';
 import { LEGACY_HCN_AUTHORITIES } from '@authorities/legacy/historia-clinica';
 import { NavModule } from '@aside/config';
 

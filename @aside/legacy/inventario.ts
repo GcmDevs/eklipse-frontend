@@ -1,4 +1,4 @@
-import { allContexts, GCM_CONTEXTS } from '@kato-lee/utilities/types';
+import { allContexts, GCM_CONTEXTS } from '@common/types';
 import { INN_AUTHORITIES } from '@authorities/legacy/inventario';
 import { NavModule } from '@aside/config';
 import { ADMIN_AUTHORITY as ADMIN } from '@auths/principal';

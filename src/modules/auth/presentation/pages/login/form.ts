@@ -1,5 +1,5 @@
 import { FormControl, FormGroup } from '@angular/forms';
-import { GcmContextType } from '@kato-lee/utilities/types';
+import { GcmContextType } from '@common/types';
 import { required } from '@kato-lee/components/fields';
 import { LoginUserPayload } from '@modules/auth/application/payloads';
 

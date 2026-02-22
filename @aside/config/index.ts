@@ -1,5 +1,5 @@
 import { NavModule } from './models';
-import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
+import { GCM_CONTEXTS } from '@common/types';
 import { SEGURIDAD_SNAV_ITEMS } from '../seguridad';
 import { BIG_DATA_SNAV_ITEMS } from '../big-data';
 import { LEGACY_GENERAL_SNAV_ITEMS } from '@aside/legacy/general';

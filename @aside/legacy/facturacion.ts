@@ -1,6 +1,6 @@
 import { ADMIN_AUTHORITY as ADMIN } from '@auths/principal';
 import { NavModule } from '@aside/config';
-import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
+import { GCM_CONTEXTS } from '@common/types';
 import { SLN_AUTHORITIES } from '@authorities/legacy/facturacion';
 
 export const LEGACY_FACTURACION_SNAV_ITEMS: NavModule[] = [

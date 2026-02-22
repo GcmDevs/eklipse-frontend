@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Centro, CentrosSuggestionsComponent } from '@stores/centros';
 import { TakDialogModule } from '@kato-lee/components/dialogs';
 import { decodeToken } from '@common/services';
-import { GCM_CONTEXTS } from '@kato-lee/utilities/types';
+import { GCM_CONTEXTS } from '@common/types';
 import { apiUrlGen } from '@end-points/general';
 
 @Component({
